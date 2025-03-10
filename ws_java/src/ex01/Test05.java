@@ -56,7 +56,5 @@ public class Test05 {
 				System.out.print(b[i] + " ");
 			}
 		}
-		
-		
 	}
 }
