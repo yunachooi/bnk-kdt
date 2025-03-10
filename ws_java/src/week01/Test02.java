@@ -1,4 +1,4 @@
-package week_01;
+package week01;
 
 public class Test02 {
 
