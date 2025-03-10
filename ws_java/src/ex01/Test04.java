@@ -29,14 +29,14 @@ public class Test04 {
 			}
 		}
 		
-		System.out.print("a[] = ");
+		System.out.print("짝수 = ");
 		for (int i = 0; i < 5; i++) {
 			System.out.print(a[i] + " ");
 		}
 		
 		System.out.println();
 		
-		System.out.print("b[] = ");
+		System.out.print("홀수 = ");
 		for (int i = 0; i < 5; i++) {
 			System.out.print(b[i] + " ");
 		}
