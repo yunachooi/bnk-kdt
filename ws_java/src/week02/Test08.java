@@ -65,7 +65,7 @@ public class Test08 {
 					
 					break;
 				}
-				else { // 게임 재진행 
+				else if(onoff == 1) { // 게임 재진행 
 					if (score > high_score) { // 최고 점수 비교
 						high_score = score;
 					}
@@ -80,6 +80,11 @@ public class Test08 {
 					num[rdNum - 1] += 1;
 					
 					continue;
+				}
+				else {
+					System.out.println("잘못 입력하였습니다.");
+					System.out.println("게임을 종료합니다.");
+					break;
 				}
 
 			}
