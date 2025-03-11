@@ -8,6 +8,7 @@ public class Test14 {
 
 		// 숫자를 입력 받은 후에 그 수를 슬라이싱해서 합을 구하기
 		Scanner sc = new Scanner(System.in);
+		
 		int n = sc.nextInt();
 		int n1 = n, cnt = 1, sum = 0;
 
