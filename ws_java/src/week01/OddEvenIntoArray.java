@@ -38,9 +38,6 @@ public class OddEvenIntoArray {
 			}
 		}
 		
-		// System.out.println("짝수 = " + Arrays.toString(a));
-		// System.out.println("홀수 = " + Arrays.toString(b));
-		
 		System.out.print("짝수 = ");
 		for (int i = 0; i < 5; i++) {
 			if (a[i] != 0) {
