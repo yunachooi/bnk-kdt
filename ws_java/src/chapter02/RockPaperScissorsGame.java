@@ -1,4 +1,4 @@
-package week02;
+package chapter02;
 
 import java.util.Random;
 import java.util.Scanner;

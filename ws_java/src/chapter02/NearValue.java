@@ -1,4 +1,4 @@
-package week02;
+package chapter02;
 
 public class NearValue {
 

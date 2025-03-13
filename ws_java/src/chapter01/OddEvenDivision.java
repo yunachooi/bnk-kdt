@@ -1,4 +1,4 @@
-package week01;
+package chapter01;
 
 public class OddEvenDivision {
 
