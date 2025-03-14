@@ -14,14 +14,89 @@
     <h5>H5 제목입니다.</h5>
     <h6>H6 제목입니다.</h6>
     <hr /> <!--줄 출력-->
+
     내가 만일 시인이라면, <br /><!--개행-->
     그댈 위해 노래하겠어.
     <p>내가 만일 하늘이라면, <br /> <!--단락 출력-->
         그대 얼굴에 물들고싶어.</p>
     <hr />
+
     <img src="../assets/images/cat.jpeg" alt="고양이 사진" width="250"> <!--이미지가 없거나 시각 적으로 도움을 주기 위해 alt 출력-->
     <img src="assets/images/cat.jpeg" alt="고양이 사진" width="250"> <!--이미지 출력-->
     <hr />
+
+    <!--링크 만들기-->
     <p><a href="p1.html">p1 page로 이동</a></p>
+    <hr />
+
+    <!--리스트 생성-->
+    <h3>My Favorite Book List</h3>
+    <ul>
+        <li><a href="book01.html">아몬드</a></li>
+        <li><a href="book02.html">곰돌이 푸, 행복한 일은 매일 있어</a></li>
+        <li><a href="book03.html">어른의 행복은 조용하다</a></li>
+    </ul>
+    <ol>
+        <li><a href="book01.html">아몬드</a></li>
+        <li><a href="book02.html">곰돌이 푸, 행복한 일은 매일 있어</a></li>
+        <li><a href="book03.html">어른의 행복은 조용하다</a></li>
+    </ol>
+    <hr />
+
+    <!--테이블 생성-->
+    <table border="1">
+        <thead>
+            <tr>
+                <td>번호</td>
+                <td>이름</td>
+                <td>나이</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>홍길동</td>
+                <td>33</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>임꺽정</td>
+                <td>42</td>
+            </tr>
+        </tbody>
+    </table>
+    <hr />
+
+    <!--셀 병합하기-->
+    <table border="1">
+        <tr>
+            <th colspan ="2">셀 1+2</th>
+            <th>셀 3</th>
+            <th>셀 4</th>
+            <th>셀 5</th>
+        </tr>
+        <tr>
+            <th>셀 6</th>
+            <th>셀 7</th>
+            <th>셀 8</th>
+            <th rowspan="2">셀 9+14</th>
+            <th rowspan="2">셀 10+15</th>
+        </tr>
+        <tr>
+            <th>셀 11</th>
+            <th>셀 12</th>
+            <th>셀 13</th>
+        </tr>
+        <tr>
+            <th>셀 16</th>
+            <th>셀 17</th>
+            <th>셀 18</th>
+            <th>셀 19</th>
+            <th>셀 20</th>
+        </tr>
+        <tr>
+            <th colspan="5">셀 21+22+23+24+25</th>
+        </tr>
+    </table>
 </body>
 </html>
