@@ -47,56 +47,64 @@
     <table border="1">
         <thead>
             <tr>
-                <td>번호</td>
-                <td>이름</td>
-                <td>나이</td>
+                <td>번호</td><td>이름</td><td>나이</td>
             </tr>
         </thead>
         <tbody>
             <tr>
-                <td>1</td>
-                <td>홍길동</td>
-                <td>33</td>
+                <td>1</td><td>홍길동</td><td>33</td>
             </tr>
             <tr>
-                <td>2</td>
-                <td>임꺽정</td>
-                <td>42</td>
+                <td>2</td><td>임꺽정</td><td>42</td>
             </tr>
         </tbody>
     </table>
-    <hr />
+    <br />
 
     <!--셀 병합하기-->
     <table border="1">
         <tr>
-            <th colspan ="2">셀 1+2</th>
-            <th>셀 3</th>
-            <th>셀 4</th>
-            <th>셀 5</th>
+            <th colspan ="2">셀 1+2</th><th>셀 3</th><th>셀 4</th><th>셀 5</th>
         </tr>
         <tr>
-            <th>셀 6</th>
-            <th>셀 7</th>
-            <th>셀 8</th>
-            <th rowspan="2">셀 9+14</th>
-            <th rowspan="2">셀 10+15</th>
+            <th>셀 6</th><th>셀 7</th><th>셀 8</th><th rowspan="2">셀 9+14</th><th rowspan="2">셀 10+15</th>
         </tr>
         <tr>
-            <th>셀 11</th>
-            <th>셀 12</th>
-            <th>셀 13</th>
+            <th>셀 11</th><th>셀 12</th><th>셀 13</th>
         </tr>
         <tr>
-            <th>셀 16</th>
-            <th>셀 17</th>
-            <th>셀 18</th>
-            <th>셀 19</th>
-            <th>셀 20</th>
+            <th>셀 16</th><th>셀 17</th><th>셀 18</th><th>셀 19</th><th>셀 20</th>
         </tr>
         <tr>
             <th colspan="5">셀 21+22+23+24+25</th>
         </tr>
     </table>
+    <hr />
+
+    <!--입력 양식 만들기-->
+    <h3>회원가입</h3>
+    <form action="p1.html" method="GET">
+        아이디 :
+        <input type="text" name="userid" id="userid" value="아이디를 입력하세요" readonly /><br />
+        비밀번호 :
+        <input type="password" name="userpwd" id="userpwd" placeholder="비밀번호를 입력하세요" /><br />
+        성별 :
+        <input type="radio" name="gender" id="man" value="man"><label for="man">남자</label> &nbsp;
+        <input type="radio" name="gender" id="woman" value="woman"><label for="woman">여자</label> &nbsp;
+        <input type="radio" name="gender" id="nocheck" value="nocheck" checked><label for="nocheck">선택안함</label><br />
+        취미 : 
+        <input type="checkbox" name="hobies" value="reaing"> 독서 &nbsp;
+        <input type="checkbox" name="hobies" value="exercise" checked> 운동 &nbsp;
+        <input type="checkbox" name="hobies" value="game">  게임 &nbsp;
+        <input type="checkbox" name="hobies" value="coding" checked> 코딩<br />
+        구분 :
+        <select>
+            <option name="job" value="training student">훈련생</option>
+            <option name="job" value="training teacher">훈련교사</option>
+            <option name="job" value="administrative staff">행정직원</option>
+        </select><br />
+        <textarea name="message" placeholder="Message >> " cols="50" rows="5"></textarea><br />
+        <input type="submit" name="" value="전송하기"><br />
+    </form>
 </body>
 </html>

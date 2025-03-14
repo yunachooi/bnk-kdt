@@ -1,0 +1,80 @@
+<!--회원가입 페이지-->
+<!--양식 제출 시 로그인 페이지로 이동(login)-->
+<!--로그인하면 메뉴페이지 (책 소개, 퀴즈풀기(국기로 국가 맞추기))-->
+<!--테이블을 이용해서 배치-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>accounts</title>
+</head>
+<body>
+    <h2>신규 계정 생성</h2>
+    <h5>아래 내용을 작성해주세요</h5>
+
+    <form action="login.html" method="GET">
+        <!--약관-->
+        <p>[필수] 사이트 이용 약관</p>
+        <textarea name="message" cols="50" rows="3">이 편지는 영국에서 최초로 시작되어 일년에 한바퀴를 돌면서 받는 사람에게 행운을 주었고 지금은 당신에게로 옮겨진 이 편지는 4일 안에 당신 곁을 떠나야 합니다. 이 편지를 포함해서 7통을 ... </textarea><br />
+        <input type="checkbox" name="conditions" value="agree" checked>약관에 동의 &nbsp;
+        <input type="checkbox" name="conditions" value="disagree">동의하지 않음<br /><br />
+        <hr />
+
+        <!--아이디 비밀번호 이메일 생성-->
+        <p>아이디, 비밀번호, 이메일 주소</p>
+        아이디 : <input type="text" name="userid" id="userid" placeholder="아이디"><br />
+        비밀번호 : <input type="password" name="userpw" id="userpw" placeholder="비밀번호"><br />
+        [선택] 이메일주소 : <input type="password" name="userpw" placeholder="본인 확인용"><br />
+        <hr />
+
+        <!--필수 사항 입력-->
+        <p>이름, 생일</p>
+        이름 : <input type="text" name="username" id="username" placeholder="이름"><br />
+        생년월 :
+        <select>
+            <option name="year" value="1998">1998년</option>
+            <option name="year" value="1999">1999년</option>
+            <option name="year" value="2000">2000년</option>
+            <option name="year" value="2001">2001년</option>
+            <option name="year" value="2002">2001년</option>
+        </select>
+        <select>
+            <option name="month" value="01">1월</option>
+            <option name="month" value="02">2월</option>
+            <option name="month" value="03">3월</option>
+            <option name="month" value="04">4월</option>
+            <option name="month" value="05">5월</option>
+            <option name="month" value="06">6월</option>
+            <option name="month" value="07">7월</option>
+            <option name="month" value="08">8월</option>
+            <option name="month" value="09">9월</option>
+            <option name="month" value="10">10월</option>
+            <option name="month" value="11">11월</option>
+            <option name="month" value="12">12월</option>
+        </select><br />
+        내국인/외국인:
+        <select>
+            <option name="Nationality" value="Korean">내국인</option>
+            <option name="Nationality" value="Foreigner">외국인</option>
+        </select><br />
+        <hr />
+
+        <!--선택 사항 입력-->
+        <p>성별 및 가입경로</p>
+        [선택] 성별 : <input type="radio" name="gender" id="man" value="man"><label for="man">남자</label> &nbsp;
+        <input type="radio" name="gender" id="woman" value="woman"><label for="woman">여자</label> &nbsp;
+        <input type="radio" name="gender" id="nocheck" value="nocheck" checked><label for="nocheck">선택안함</label><br />
+        [선택] 가입경로 (다중 선택 가능) :
+        <input type="checkbox" name="root" value="serch">검색 &nbsp;
+        <input type="checkbox" name="root" value="frend">지인 추천 &nbsp;
+        <input type="checkbox" name="root" value="Advertising"> 광고 &nbsp;
+        <hr />
+
+        <!--회원가입 완료-->
+        <input type="submit" value="회원가입"><br />
+    </form>
+
+</body>
+</html>
