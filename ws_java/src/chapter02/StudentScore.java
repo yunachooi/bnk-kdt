@@ -14,15 +14,15 @@ public class StudentScore {
 		for(int i = 0; i < 3; i++) {
 			for(int j = 0; j < 3; j++) {
 				if(j == 0) {
-					System.out.print((i + 1) + "번 째 학생의 국어 성적을 입력하세요 >> ");
+					System.out.print((i + 1) + "번 학생의 국어 성적을 입력하세요 >> ");
 					board[i][j] = sc.nextInt();
 				}
 				else if(j == 1) {
-					System.out.print((i + 1) + "번 째 학생의 수학 성적을 입력하세요 >> ");
+					System.out.print((i + 1) + "번 학생의 수학 성적을 입력하세요 >> ");
 					board[i][j] = sc.nextInt();
 				}
 				else {
-					System.out.print((i + 1) + "번 째 학생의 영어 성적을 입력하세요 >> ");
+					System.out.print((i + 1) + "번 학생의 영어 성적을 입력하세요 >> ");
 					board[i][j] = sc.nextInt();
 				}
 			}
@@ -50,7 +50,7 @@ public class StudentScore {
 				System.out.println("국어\t수학\t영어");
 			}
 			else {
-				System.out.println("# " + (i + 1) + "번 째 학생");
+				System.out.println("# " + (i + 1) + "번 학생");
 				System.out.println("국어\t수학\t영어\t점수합계");
 			}
 			
