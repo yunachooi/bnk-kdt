@@ -17,7 +17,7 @@ public class LottoNumber {
 			
 			for(int j = 0; j < i; j++) {
 				if (lotto[i] == lotto[j]) {
-					lotto[i] = rd.nextInt(45) + 1;
+					i--;
 				}
 			}
 		}
