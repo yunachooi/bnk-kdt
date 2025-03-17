@@ -1,0 +1,27 @@
+@charset "utf-8";
+.group1{
+    color : red;
+    background-color:aquamarine;
+}
+.group2{
+    color: blue;
+    background-color: yellowgreen;
+}
+#div2, #div3{
+    color: red;
+    width: 200px;
+    height: 200px;
+}
+#div5{
+    background-color: blue;
+    color: white;
+    font-size: 50px;
+    height: 30vh;
+
+}
+span{
+    color: blue;
+    /*크기지정이 소용 없음.*/
+    width: 200px;
+    height: 200px;
+}
