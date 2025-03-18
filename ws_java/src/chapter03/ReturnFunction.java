@@ -2,7 +2,7 @@ package chapter03;
 
 import java.util.Scanner;
 
-public class ReturnFn {
+public class ReturnFunction {
 
 	public static void f1() {
 		System.out.println("f1 함수를 실행합니다.");
