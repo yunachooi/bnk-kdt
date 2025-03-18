@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 150px;
+            height: 150px;
+            background-color: lightblue;
+            text-align: center;
+            line-height: 100px;
+            margin: 10px;
+        }
+
+        .left {
+            float: left;
+        }
+
+        .right {
+            float: right;
+        }
+
+        .clearfix {
+            clear: both;
+        }
+
+        .leftimg {
+            float: left;
+            margin-right: 10px;
+        }
+
+        .rightimg {
+            float: right;
+            margin-left: 10px;
+        }
+
+        p {
+            text-align: justify;
+        }
+
+        .clearfix::before {
+            content: "★ ";
+            /*p요소 앞에 별표 추가*/
+        }
+
+        .clearfix::after {
+            content: " ★";
+            /*p요소 뒤에 별표 추가*/
+        }
+
+        p::first-letter {
+            /*첫 글자 대문자, 크기 조정, 두껍게*/
+            text-transform: uppercase;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: row-reverse;
+            flex-wrap: wrap;
+        }
+
+        .item {
+            background: #0bd;
+            color: #fff;
+            margin: 10px;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box left">왼쪽</div>
+    <div class="box right">오른쪽</div>
+    <p class="clearfix">이 문장은 맨 아래 배치됩니다.</p>
+    <hr>
+
+    <img src="" style="width: 100px;height: 100px;" class="leftimg"> <!--인라인-->
+    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.
+        Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+        Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.
+        Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a,
+        venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt.</p> <!--블록-->
+    <hr>
+
+    <img src="" style="width: 100px;height: 100px;" class="rightimg"> <!--인라인-->
+    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.
+        Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+        Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.
+        Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a,
+        venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt.</p> <!--블록-->
+    <hr>
+
+    <div class="container">
+        <div class="item">Item1</div>
+        <div class="item">Item2</div>
+        <div class="item">Item3</div>
+        <div class="item">Item4</div>
+        <div class="item">Item5</div>
+        <div class="item">Item6</div>
+        <div class="item">Item7</div>
+        <div class="item">Item8</div>
+    </div>
+</body>
+
+</html>

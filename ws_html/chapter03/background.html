@@ -1,13 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="style2.css">
+    <style>
+        html {
+            font-size: 10px;
+        }
+
+        body {
+            background-image: url(assets/images/bg-airplane.jpg);
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: 30px 80px;
+
+            background: #70a2dc url(assets/images/bg-airplane.jpg) no-repeat center bottom/cover;
+        }
+
+        p {
+            text-align: center;
+            padding-top: 30px;
+        }
+
+        #div1 {
+            background-color: blue;
+            width: 50%;
+            height: 100px;
+            font-size: 20px;
+        }
+
+        #div2 {
+            background-color: red;
+            width: 50%;
+            font-size: 2rem;
+        }
+    </style>
 </head>
+
 <body id="body1">
     <p>배경이미지</p>
-    <div id="div1">부모<div id="div2">자식</div></div>
+    <div id="div1">부모<div id="div2">자식</div>
+    </div>
 </body>
+
 </html>

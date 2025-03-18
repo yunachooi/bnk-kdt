@@ -1,17 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        .group1 {
+            color: red;
+            background-color: aquamarine;
+        }
+
+        .group2 {
+            color: blue;
+            background-color: yellowgreen;
+        }
+
+        #div2,
+        #div3 {
+            color: red;
+            width: 200px;
+            height: 200px;
+        }
+
+        #div5 {
+            background-color: blue;
+            color: white;
+            font-size: 50px;
+            height: 30vh;
+
+        }
+
+        span {
+            color: blue;
+            /*크기지정이 소용 없음.*/
+            width: 200px;
+            height: 200px;
+        }
+    </style>
 </head>
+
 <body>
     <div>div 태그입니다.</div>
     <div>두 번째 div 태그입니다.</div>
     <hr>
     <div><input type="text"></div>
-    <div><p>div태그 안에 p태그 입니다.</p></div>
+    <div>
+        <p>div태그 안에 p태그 입니다.</p>
+    </div>
     <span>span태그 입니다.</span>
     <p>p태그 안에 <span>span태그 입니다.</span></p>
 
@@ -31,4 +67,5 @@
     <div id="div3" class="group2">세번 째 div 태그입니다.</div>
     <div id="div4" class="group2">세번 째 div 태그입니다.</div>
 </body>
+
 </html>
