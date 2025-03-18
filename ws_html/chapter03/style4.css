@@ -1,0 +1,21 @@
+@charset "uft-8";
+
+div {
+    width: 100px; height: 100px;
+
+    border-width: 1px;
+    border-style: solid;
+    border-color: black;
+}
+
+.group1{
+    background-color: red;
+}
+
+.group2{
+    background-color: green;
+}
+
+#div5{
+    color: white;
+}

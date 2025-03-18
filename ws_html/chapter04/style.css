@@ -1,0 +1,16 @@
+@charset "uft-8";
+
+h1 {
+    color: #036635;
+    text-align: center;
+}
+
+.menu {
+    display: grid;
+    grid-template-columns: 200px 200px 200px 200px;
+    gap: 10px;
+    height: 28vh;
+    text-align: center;
+    justify-content: center;
+
+}
