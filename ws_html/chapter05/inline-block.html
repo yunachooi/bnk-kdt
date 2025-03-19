@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        span{
+            border: solid 1px black;
+            background-color: yellow;
+        }
+        #a{ /*인라인 태그는 사이즈를 지정할 수 없음으로 변화 X */
+            width: 100px;
+            height: 100px;
+            margin: 20px;
+        }
+        #b{
+            display: block; /*블록 태그는 사이즈를 지정할 수 있음*/
+            width: 100px;
+            height: 100px;
+            margin: 20px;
+        }
+        #c{
+            display: inline-block;
+            width: 100px;
+            height: 100px;
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h3>인라인과 블록</h3>
+    <p>
+        글자 1
+        <span id="a">요소 A</span>
+        글자 2
+        <span id="b">요소 B</span>
+        글자 3
+        <span id="c">요소 C</span>
+        글자 4
+    </p>
+</body>
+</html>
