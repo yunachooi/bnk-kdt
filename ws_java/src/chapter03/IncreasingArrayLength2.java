@@ -23,7 +23,7 @@ public class IncreasingArrayLength2 {
 		int[] A = new int[5];
 		int cnt = 1;
 
-		while(true) { // A 배열 생성
+		while(true) {
 			System.out.print(cnt + ") 숫자를 입력하세요 >> ");
 			A[cnt - 1] = sc.nextInt();
 			
