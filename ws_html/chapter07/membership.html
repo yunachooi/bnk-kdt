@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입 폼</title>
+    <style>
+        body{
+            margin: 30px;
+        }
+        table{
+            border-top: 1px solid gray;
+            border-bottom: 1px solid gray;
+            padding: 30px;
+        }
+        #buttons{
+            width: 510px;
+            text-align: right;
+        }
+        #buttons button{
+            padding: 8px 20px;
+            margin-top: 20px;
+        }
+        .hello{
+            vertical-align: top;
+            height: 123px;
+            width: 298px;
+        }
+    </style>
+</head>
+<body>
+    <h3>회원가입 폼</h3>
+    <div></div>
+    <table>
+        <tr>
+            <td>아이디</td>
+            <td><input type="text" name="id"></td>
+        </tr>
+        <tr>
+            <td>비밀번호</td>
+            <td><input type="password" name="pwd"></td>
+        </tr>
+        <tr>
+            <td>비밀번호 확인</td>
+            <td><input type="password" name="pwd"></td>
+        </tr>
+        <tr>
+            <td>이름</td>
+            <td><input type="text" name="name"></td>
+        </tr>
+        <tr>
+            <td>이메일</td>
+            <td><input type="text" name="name"> @ 
+                <select name="mail">
+                    <option name="email" value="user">직접입력</option>
+                    <option name="email" value="naver">naver.com</option>
+                    <option name="email" value="gmail">gmail.com</option>
+                    <option name="email" value="hanmail">hanmail.com</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>이메일 수신</td>
+            <td><input type="radio" name="radio" value="no" checked>비수신
+                <input type="radio" name="radio" value="yes">수신</td>
+        </tr>
+        <tr>
+            <td>가입 경로</td>
+            <td><input type="checkbox" name="route" value="f">친구추천
+                <input type="checkbox" name="route" value="I">인터넷검색
+                <input type="checkbox" name="route"  value="A" checked>기타
+            </td>
+        </tr>
+        <tr>
+            <td>인사말</td>
+            <td><textarea name="textarea" class="hello"></textarea></td>
+        </tr>
+    </table>
+    <div id="buttons">
+        <button type="submit">저장하기</button> <button type="reset">취소하기</button>
+    </div>
+    
+</body>
+</html>
