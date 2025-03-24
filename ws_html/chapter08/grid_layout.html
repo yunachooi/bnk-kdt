@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .grid_continer {
+            display: grid;
+            grid-template-areas:
+                "header header"
+                "menu content"
+                "footer footer";
+            grid-template-columns: 1fr 3fr;
+            gap: 5px;
+            background-color: #2196f3;
+            padding: 5px;
+        }
+
+        .grid_continer div {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 10px;
+        }
+
+        .grid_continer div.header {
+            grid-area: header;
+            text-align: center;
+        }
+
+        .grid_continer div.menu {
+            grid-area: menu;
+        }
+
+        .grid_continer div.content {
+            grid-area: content;
+        }
+
+        .grid_continer div.footer {
+            grid-area: footer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="grid_continer">
+        <div class="header">
+            <h2>My Header</h2>
+        </div>
+        <div class="menu">
+            <a href="#">Link 1</a><br />
+            <a href="#">Link 2</a><br />
+            <a href="#">Link 3</a>
+        </div>
+        <div class="content">
+            <h2>Lorem lpsum</h2>
+            <p>Lorem ipsum odor amet, consectetuer adipiscing elit.
+                Ridiculus sit nisl laoreet facilisis aliquet.
+                Potenti dignissim litora eget montes rhoncus sapien neque urna.
+                Cursus libero sapien integer magnis ligula lobortis quam ut.
+            </p>
+        </div>
+        <div class="footer">
+            <h2>Footer</h2>
+        </div>
+    </div>
+</body>
+
+</html>

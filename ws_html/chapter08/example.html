@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            text-align: center;
+            border: 1px solid black;
+        }
+        #flex-container{
+            height: 100px;
+            background-color: yellow;
+        }
+        .h50{
+            height: 50px;
+        }
+        section{
+            background-color: red;
+            float: left;
+        }
+        aside{
+            background-color: blue;
+            color: white;
+            float: right;
+            margin-left: 10px;
+        }
+        #clear{
+            clear: both; /*float 해지*/
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <header class="h50">Header 영역</header>
+    <main id="flex-container">
+        <section>Section 영역</section>
+        <aside>Aside 영역</aside>
+        <div id="clear">추가</div>
+    </main>
+    <footer class="h50">Footer영역</footer>
+</body>
+</html>
