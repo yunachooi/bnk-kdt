@@ -5,24 +5,23 @@ import java.util.Scanner;
 public class BinarySearch {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		int arr[] = {1, 2, 5, 6, 8};
-		
+
+		int[] arr = new int[] {1, 2, 3, 5, 7, 9};
+
 		int start = 0, mid = 0;
 		int end = arr.length - 1;
-		
+
 		System.out.print("숫자를 입력하세요 >> ");
 		int n = sc.nextInt();
-		
-		while(start <= end) {
+
+		while (start <= end) {
 			mid = (start + end) / 2;
-			
-			if(arr[mid] < n) {
+
+			if (arr[mid] < n) {
 				start = mid + 1;
-			}
-			else if(arr[mid] > n) {
+			} else if (arr[mid] > n) {
 				end = mid - 1;
-			}
-			else {
+			} else {
 				System.out.println(n + "은 " + (mid + 1) + "번 째에 위치해 있습니다.");
 				break;
 			}
