@@ -1,7 +1,7 @@
 package chapter04;
 
 public class A { // class : 자료(data) + 기능
-	int n;
+	public int n; // 접근 제한자 public
 	String s;
 	
 	void f() {
