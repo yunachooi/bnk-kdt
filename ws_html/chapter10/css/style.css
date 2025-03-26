@@ -1,0 +1,126 @@
+@charset "utf-8";
+
+* {
+    margin: 0;
+    padding: 0;
+    align-items: center;
+    box-sizing: border-box;
+    font-family: "Spoqa, noto, 돋움";
+}
+
+li {
+    list-style-type: none;
+}
+.box {
+    width: 1100px;
+    margin: 0 auto;
+}
+header {
+    height: 90px;
+    border-bottom: 2px solid #b4c1d1;
+    margin-top: 15px;
+}
+header img{
+    width: 80px;
+}
+header span{
+    font-size: 20px;
+    font-weight: bold;
+}
+header #s1{
+    font-size: 23px;
+    color: #0082ca;
+}
+.playerimg{
+    margin: 15px;
+    padding: 15px;
+    display: flex;
+}
+main .item3{
+    text-align: center;
+    font-size: 20px;
+    margin: 20px;
+}
+main .item3 li{
+    padding-right: 35px;
+    font-weight: bold;
+    color: #b4c1d1;
+}
+main #blue{
+    color:#0082ca;
+}
+main .item4{
+    font-size: 17px;
+    font-weight: bold;
+}
+main .item5{
+    margin-right: 30px;
+}
+main #section1{
+    border-top: 2px solid #b4c1d1;
+    font-weight: bold;
+    background-color: #b4c1d1;
+}
+main #p1{
+    color: #0082ca;
+    font-size: 30px;
+    margin-bottom: 15px;
+}
+main #name{
+    font-size: 50px;
+}
+main #engname{
+    font-size: 20px;
+}
+main #p2{
+    color: white;
+    margin-top: 25px;
+    margin-bottom: 15px;
+    font-size: 20px;
+}
+main li{
+    display: inline-block;
+}
+main .item1{
+    font-size: 30px;
+    text-align: center;
+}
+main .item2{
+    font-size: 20px;
+    color:#0082ca;
+}
+main img{
+    height: 350px;
+    margin-left: 300px;
+}
+table {
+    border-top: 1px solid #444444;
+    border-collapse: collapse;
+    width: 100%;
+}
+th, td {
+    border-bottom: 1px solid #444444;
+    padding: 10px;
+    text-align: center;
+}
+th{
+    background-color: whitesmoke;
+}
+.title{
+    font-size: 20px;
+    font-weight: bold;
+    margin: 40px 0 20px 0;
+}
+footer{
+    border-top: 2px solid #b4c1d1;
+    margin-top: 50px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+#f1{
+    color: #b4c1d1;
+    margin-bottom: 10px;
+}
+#f2{
+    font-size: 18px;
+}
