@@ -1,11 +1,16 @@
 @charset "utf-8";
+@font-face { /* YouandiModern 폰트 적용 */
+    font-family: "YouandiModern";
+    src: url("/ws_html/chapter10/assets/font/fontYouandiModernTR.ttf") format("truetype");
+    font-weight: normal;
+  }
 
 * {
     margin: 0;
     padding: 0;
     align-items: center;
     box-sizing: border-box;
-    font-family: "Spoqa, noto, 돋움";
+    font-family: 'YouandiModern',"Spoqa, noto, 돋움";
 }
 
 li {
