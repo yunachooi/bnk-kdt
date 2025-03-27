@@ -1,6 +1,6 @@
 package chapter04;
 
-import vo.Human;
+import chapter04_vo.Human;
 
 public class HumanTest {
 

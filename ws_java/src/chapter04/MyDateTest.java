@@ -1,6 +1,6 @@
 package chapter04;
 
-import vo.MyDate;
+import chapter04_vo.MyDate;
 
 public class MyDateTest {
 
