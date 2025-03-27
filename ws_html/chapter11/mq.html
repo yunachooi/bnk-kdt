@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*화면 너비가 760px 이하일 때*/
+        @media(max-width: 760px){
+            /*조건이 만족될 때 적용할 스타일*/
+            body{
+                background-color: yellow;
+            }
+        }
+        /*화면너비가 761px 이상이고 1023px 이하일 때*/
+        @media(min-width: 761px) and (max-width: 1023px){
+            body{
+                background-color: red;
+            }
+        }
+        /*화면너비가 1024px 이상일 때*/
+        @media(min-width: 1024px){
+            body{
+                background-color: yellowgreen;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+</body>
+</html>
