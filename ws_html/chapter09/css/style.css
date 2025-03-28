@@ -82,7 +82,9 @@ main {
     width: 860px;
     height: 280px;
 }
-#s1 .main1, #s1 .main2 {
+
+#s1 .main1,
+#s1 .main2 {
     float: left;
     margin-left: 20px;
     padding-bottom: 10px;
@@ -123,6 +125,7 @@ main {
     text-align: center;
     font-size: 16px;
     color: #757575;
+    padding-right: 30px;
 }
 
 #s2 .p1 {
@@ -130,9 +133,11 @@ main {
     font-weight: bold;
     color: black;
 }
-#s3{
+
+#s3 {
     padding-top: 20px;
 }
+
 #s3 .title {
     padding-bottom: 8px;
     font-size: 17px;
@@ -152,7 +157,8 @@ main {
     height: 34px;
 }
 
-#s3 .main1, #s3 .main2 {
+#s3 .main1,
+#s3 .main2 {
     width: 350px;
     float: left;
     margin-right: 20px;
@@ -193,7 +199,8 @@ main {
 footer {
     border-top: 2px solid black;
 }
-footer .items{
+
+footer .items {
     margin-top: 20px;
 }
 
@@ -201,9 +208,10 @@ footer .items{
     color: #004890;
 }
 
-#bottom_menu{
+#bottom_menu {
     margin-top: 20px;
 }
+
 #bottom_menu ul {
     font-size: 13px;
     padding: 5px 0px;
@@ -231,9 +239,11 @@ footer li {
     color: #757575;
     font-size: 12px;
 }
-#social{
+
+#social {
     margin-top: 20px;
 }
-#social img{
+
+#social img {
     width: 130px;
 }
