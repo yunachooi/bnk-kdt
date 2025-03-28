@@ -1,6 +1,6 @@
 package chapter04;
 
-import vo.PrivateN;
+import chapter04_vo.PrivateN;
 
 public class PrivateNTest {
 

@@ -1,4 +1,4 @@
-package vo;
+package chapter04_vo;
 
 public class MyDate {
 	private int year;
