@@ -33,11 +33,10 @@ public class Human2Test {
 		Human2 h9 = new Human2('F');
 		Human2 h10 = new Human2('F');
 		
-		
 		humans[0] = h1;
 		humans[1] = h2;
 		humans[2] = h3;
-		humans[3] = h4;
+		humans[3] = h4; 
 		humans[4] = h5;
 		humans[5] = h6;
 		humans[6] = h7;
