@@ -62,7 +62,6 @@ header {
     border-radius: 4px;
     display: inline-block;
     border: 1px solid rgb(224, 224, 225);
-    font-size: 10px;
     height: 32px;
     width: 90px;
     background: url(/ws_html/chapter09/assets/images/search.png) no-repeat left;
@@ -75,7 +74,6 @@ header {
     border-radius: 4px;
     display: inline-block;
     border: 1px solid rgb(224, 224, 225);
-    font-size: 10px;
     height: 32px;
     width: 90px;
     background: url(/ws_html/chapter09/assets/images/menu.png) no-repeat left;
@@ -261,7 +259,7 @@ footer li {
     font-size: 15px;
 }
 
-#gray {
+.gray {
     color: #666666;
 }
 
