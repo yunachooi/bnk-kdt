@@ -1,0 +1,308 @@
+@charset "utf-8";
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css");
+
+* {
+    margin: 0;
+    padding: 0;
+    align-items: center;
+    box-sizing: border-box;
+    font-family: Pretendard, sans-serif;
+    text-decoration: none;
+    color: inherit;
+}
+
+li {
+    list-style-type: none;
+}
+
+.box {
+    width: 1350px;
+    margin: 0 auto;
+}
+
+#logo_menu {
+    float: left;
+    padding: 10px 20px;
+}
+#header1{
+    background-color: #111111;
+}
+#menu {
+    height: 40px;
+    text-align: right;
+    color: #c9c9c9;
+}
+
+#shop {
+    margin: 0 20px;
+}
+
+#shop li {
+    display: inline-block;
+    padding: 5px 10px;
+}
+
+#shop li img {
+    height: 20px;
+    padding-top: 5px;
+}
+
+#menu2 {
+    padding: 10px 20px;
+    height: 70px;
+}
+
+#logo_menu2 {
+    float: left;
+}
+
+#logo_like {
+    float: left;
+    margin: 10px;
+}
+
+#main_menu {
+    float: left;
+    margin-top: 13px;
+}
+
+#main_menu li {
+    display: inline-block;
+    margin-left: 10px;
+}
+
+#search {
+    float: right;
+    margin-top: 13px;
+}
+
+#s1 {
+    height: 850px;
+    border-top: #111111 1px solid;
+}
+
+#s1 img {
+    width: 100%;
+    height: 100%;
+}
+
+#img_text {
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+#p1 {
+    color: #ffffff;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+#p2 {
+    color: #ffffff;
+    font-size: 17px;
+}
+
+#s2 {
+    text-align: center;
+}
+
+#s2 h2 {
+    margin-top: 120px;
+}
+
+#lank {
+    margin: 20px;
+}
+
+#lank li {
+    display: inline-block;
+    font-size: 20px;
+    margin-right: 25px;
+    font-weight: bold;
+    color: #c9c9c9;
+}
+
+#lank #point {
+    text-decoration: underline;
+    color: #111111;
+}
+
+.items {
+    float: left;
+    padding: 8px;
+    margin: 5px;
+    text-align: left;
+}
+
+.i1 img {
+    width: 300px;
+}
+
+.i2 {
+    margin-top: 20px;
+    margin-bottom: 7px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.i4 {
+    color: #969696;
+    font-size: 13px;
+    text-decoration: line-through;
+}
+
+.i5 span {
+    color: #7e00ff;
+    margin-right: 10px;
+}
+
+.i5 {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+#s2 button {
+    width: 200px;
+    text-align: center;
+    margin: 40px 0;
+    border: #969696 solid 1px;
+    padding: 14px 0;
+    border-radius: 6px;
+    font-size: 14px;
+    background-color: #ffffff;
+}
+
+#s3 img {
+    height: 100px;
+    width: 1310px;
+    margin: 20px 0;
+}
+
+#img_text2 {
+    position: absolute;
+    padding: 50px;
+}
+
+#p3 {
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#p4 {
+    color: #ffffff;
+    font-size: 15px;
+}
+
+.imgs4 {
+    width: 627px;
+    height: 836.3px;
+    float: left;
+    margin: 15px;
+}
+
+#imgs41 {
+    margin-right: 7px;
+}
+
+#s4 {
+    text-align: center;
+    margin-bottom: 120px;
+}
+
+#s4 h2 {
+    margin-top: 50px;
+}
+
+#lank2 {
+    margin: 20px;
+}
+
+#lank2 li {
+    display: inline-block;
+    font-size: 14px;
+    border: 2px solid #111111;
+    border-radius: 70px;
+    width: 100px;
+    height: 40px;
+    margin: 5px 0;
+    padding: 10px 0;
+}
+
+#lank2 #point2 {
+    color: #ffffff;
+    background-color: #111111;
+}
+
+#s4 span {
+    margin: 0 30px;
+}
+
+#sp1 {
+    color: #969696;
+}
+
+#fd {
+    height: 59px;
+    padding: 20px 10px;
+    color: #969696;
+    border-bottom: 1px solid #dee2e6;
+}
+
+#fd li {
+    display: inline-block;
+    margin-right: 10px;
+    font-size: 15px;
+}
+
+#fd1 {
+    float: left;
+}
+
+#fd2 {
+    float: right;
+}
+
+#black {
+    color: #111111;
+    font-weight: bold;
+}
+
+#f_main{
+    height: 364px;
+    padding: 20px 0 0;
+    font-size: 13px;
+}
+footer{
+    background-color: #F9F9F9;
+}
+#gray{
+    color: #EFEFEF;
+}
+#zoo{
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.text_list li{
+    display: inline-block;
+    padding-right: 10px;
+    color: #969696;
+}
+.text_list{
+    padding-top: 8px;
+    color: #969696;
+}
+.text_list a{
+    text-decoration: underline;
+    color: #111111;
+}
+#mlist{
+    margin-top: 20px;
+}
+#blist{
+    color: #111111;
+}
