@@ -26,7 +26,6 @@ li {
 }
 #header1{
     background-color: #111111;
-    width: 100%;
 }
 #menu {
     height: 40px;
@@ -89,9 +88,8 @@ li {
 #img_text {
     position: absolute;
     text-align: center;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    margin-top: 400px;
+    margin-left: 550px;
 }
 
 
@@ -279,7 +277,6 @@ li {
 }
 footer{
     background-color: #F9F9F9;
-    width: 100%;
 }
 #gray{
     color: #EFEFEF;
