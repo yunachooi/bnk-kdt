@@ -81,15 +81,15 @@ li {
     border-top: #111111 1px solid;
 }
 #s1 img{
-    width: 100%;
+    width: 1900px;
     height: 850px;
 }
 
 #img_text {
     position: absolute;
     text-align: center;
-    margin-top: 400px;
-    margin-left: 550px;
+    margin-top: 20%;
+    margin-left: 45%;
 }
 
 
