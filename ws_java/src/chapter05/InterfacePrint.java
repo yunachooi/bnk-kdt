@@ -1,19 +1,19 @@
 package chapter05;
 
-import chapter05_vo.BlackPrinter;
-import chapter05_vo.ColorPrinter;
+import java.util.Scanner;
+
 import chapter05_vo.Document;
-import chapter05_vo.Printable;
+import chapter05_vo.PrinterSelector;
 
 public class InterfacePrint {
 
 	public static void main(String[] args) {
-		Printable black = new BlackPrinter();
-		Printable color = new ColorPrinter();
+		Scanner sc = new Scanner(System.in);
 		Document doc = new Document();
+		PrinterSelector ps = new PrinterSelector();
 		
-		black.print(doc);
-		color.print(doc);
+		doc.setContent(doc.write());
+		ps.select(doc);
 	}
 
 }

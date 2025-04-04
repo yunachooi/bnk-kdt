@@ -1,9 +1,11 @@
 package chapter05_vo;
 
 public class BlackPrinter implements Printable {
+	@Override
 	public void print(Document doc) {
-		doc.write();
-		System.out.println("흑백으로 프린트 합니다...");
-		System.out.println(doc.s);
+		System.out.println("---------------");
+		System.out.println(doc.getContent());
+		System.out.println("---------------");
+		System.out.println("흑백으로 프린터 합니다.");
 	}
 }

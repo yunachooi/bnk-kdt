@@ -1,6 +1,11 @@
 package chapter05_vo;
 
 public class SamsungTV implements TV {
+	public SamsungTV(){
+		System.out.println("----------------");
+		System.out.println("SamsungTV를 실행합니다...");
+		System.out.println("----------------");
+	}
 	@Override
 	public void powerOn() {
 		System.out.println("SamsungTV 전원 온...");

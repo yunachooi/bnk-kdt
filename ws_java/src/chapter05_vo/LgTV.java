@@ -1,6 +1,11 @@
 package chapter05_vo;
 
 public class LgTV implements TV {
+	public LgTV(){
+		System.out.println("----------------");
+		System.out.println("LgTV를 실행합니다...");
+		System.out.println("----------------");
+	}
 	@Override
 	public void powerOn() {
 		System.out.println("LgTV 전원 온...");

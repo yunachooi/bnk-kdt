@@ -1,11 +1,11 @@
 package chapter05_vo;
 
 public class BeanFactory {
-	public TV getBean(int n){
-		if(n == 1) {
+	public TV getBean(String tv){
+		if(tv.equals("samsung")) {
 			return new SamsungTV();
 		}
-		else if(n == 2) {
+		else if(tv.equals("lg")) {
 			return new LgTV();
 		}
 		return null;
