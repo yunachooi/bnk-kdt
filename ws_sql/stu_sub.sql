@@ -195,5 +195,55 @@ SELECT * FROM student WHERE stu_no LIKE '2014%' ORDER BY stu_name;
 -- 학과정보를 이름을 기준으로 내림차순으로 검색하시오.
 SELECT stu_dept FROM student ORDER BY stu_name DESC;
 
+--그룹(집계 함수와 함께 사용됨.)
+--MAX, MIN
+SELECT MAX(stu_height) FROM student;
+SELECT MIN(stu_height) FROM student;
+
+--SUM
+SELECT SUM(enr_grade) FROM enrol;
+
+--COUNT
+SELECT COUNT(*), COUNT(stu_height) FROM student;
+
+--GROUP BY
+--학생테이블에서 학과별 몸무게 평균을 구하시오.
+SELECT stu_dept, AVG(stu_weight) FROM student GROUP BY stu_dept;
+
+--학생테이블에서 체중이 50이상인 학생들의 학과별 인원수를 구하시오.
+SELECT stu_dept, COUNT(*) FROM student WHERE stu_weight >= 50 GROUP BY stu_dept;
+
+--학생테이블에서 학과별, 학년별 인원수를 구하시오.
+SELECT stu_dept, stu_grade, COUNT(*) FROM student GROUP BY stu_dept, stu_grade ORDER BY stu_dept;
+
+--'기계'과 학생들 중에 학년별 평균 신장이 160이상인 학년과 평균 신장을 구하시오.
+SELECT stu_grade, AVG(stu_height) FROM student WHERE stu_dept = '기계' GROUP BY stu_grade HAVING AVG(stu_height) >= 160;
+
+--최대 신장이 175이상인 학과들을 구하고 학과별 최대 신장을 구하시오.
+SELECT stu_dept, MAX(stu_height) FROM student GROUP BY stu_dept HAVING MAX(stu_height) >= 175;
+
+--학과별 평균 신장 중 가장 높은 평균 신장을 구하시오.
+SELECT to_char(MAX(AVG(stu_height)), '999.99') FROM student GROUP BY stu_dept;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
