@@ -67,29 +67,29 @@ INSERT INTO enrol VALUES ('105', '20153088', 78);
 SELECT * FROM enrol;
 
 ---------------------------------------
--- 학생 테이블의 구조를 확인하시오.
+--1.학생 테이블의 구조를 확인하시오.
 DESCRIBE student;
 
--- 과목 테이블의 구조를 확인하시오.
+--2.과목 테이블의 구조를 확인하시오.
 DESC subject;
 
--- 수강 테이블의 구조를 확인하시오.
+--3.수강 테이블의 구조를 확인하시오.
 DESC enrol;
 
--- 학생 테이블의 학번, 학생 이름을 조회하시오.
+--4.학생 테이블의 학번, 학생 이름을 조회하시오.
 SELECT stu_no, stu_name FROM student;
 
--- 학생 테이블에서 학과를 중복데이터 없이 조회하시오.
+--5.학생 테이블에서 학과를 중복데이터 없이 조회하시오.
 SELECT DISTINCT stu_dept FROM student;
 
--- 학생 테이블에서 학년과 반을 중복데이터 없이 조회하시오.
+--6.학생 테이블에서 학년과 반을 중복데이터 없이 조회하시오.
 SELECT DISTINCT stu_grade, stu_class FROM student;
 
--- 수강 테이블에서 학번, 과목번호, 점수 기존 점수에 10을 더한 점수를 조회하시오.
+--7.수강 테이블에서 학번, 과목번호, 점수 기존 점수에 10을 더한 점수를 조회하시오.
 SELECT stu_no, sub_no, enr_grade, enr_grade + 10 FROM enrol;
 
--- 수강 테이블에서 학번, 과목번호, 점수 기존 점수에 10을 더한 점수를 조회하시오.
--- 이때, 기존 점수에 10을 더한 점수의 열 제목은 plus10으로 하시오. (별칭 사용 : ALIAS)
+--8.수강 테이블에서 학번, 과목번호, 점수 기존 점수에 10을 더한 점수를 조회하시오.
+--이때, 기존 점수에 10을 더한 점수의 열 제목은 plus10으로 하시오. (별칭 사용 : ALIAS)
 SELECT stu_no, sub_no, enr_grade, enr_grade + 10 AS plus10 FROM enrol;
 
 -- 연결연산자 사용 : 두 개이상의 열을 함쳐서 조회할 수 있음.
@@ -97,54 +97,54 @@ SELECT stu_dept || stu_name AS 학과성명 FROM student;
 SELECT stu_dept || ',' || stu_name || '입니다.' AS 학과성명 FROM student;
 
 -- WHERE절 사용하기
--- 학과가 '컴퓨터정보'인 학생의 이름, 학과, 학년, 반 정보를 조회하시오.
+--9.학과가 '컴퓨터정보'인 학생의 이름, 학과, 학년, 반 정보를 조회하시오.
 SELECT stu_name, stu_dept, stu_grade, stu_class FROM student WHERE stu_dept = '컴퓨터정보';
 
--- 학과가 '컴퓨터정보'가 아닌 학생의 이름, 학과, 학년, 반 정보를 조회하시오.
+--10.학과가 '컴퓨터정보'가 아닌 학생의 이름, 학과, 학년, 반 정보를 조회하시오.
 SELECT stu_name, stu_dept, stu_grade, stu_class FROM student WHERE stu_dept != '컴퓨터정보';
 SELECT stu_name, stu_dept, stu_grade, stu_class FROM student WHERE stu_dept <> '컴퓨터정보';
 SELECT stu_name, stu_dept, stu_grade, stu_class FROM student WHERE stu_dept ^= '컴퓨터정보';
 
--- 학과가 '컴퓨터정보'이고, 2학년인 학생의 모든 정보를 조회하시오.
+--11.학과가 '컴퓨터정보'이고, 2학년인 학생의 모든 정보를 조회하시오.
 SELECT * FROM student WHERE stu_dept = '컴퓨터정보' AND stu_grade = 2;
 
--- 1, 2학년 학생의 모든 정보를 조회하시오.
+--12.1, 2학년 학생의 모든 정보를 조회하시오.
 SELECT * FROM student WHERE stu_grade = 1 OR stu_grade = 2;
 
--- 체중이 60이상 70이하인 학생의 이름과 학과, 학년을 조회하시오.
+--13.체중이 60이상 70이하인 학생의 이름과 학과, 학년을 조회하시오.
 SELECT stu_name, stu_dept, stu_grade FROM student WHERE stu_weight >= 60 AND stu_weight <= 70;
 SELECT stu_name, stu_dept, stu_grade FROM student WHERE stu_weight BETWEEN 60 AND 70;
 
--- 키가 170 이상인 학생의 이름과 학번, 학년을 조회하시오.
+--14.키가 170 이상인 학생의 이름과 학번, 학년을 조회하시오.
 SELECT stu_name, stu_dept, stu_grade FROM student WHERE stu_height >= 170;
 
--- 키가 170 이상인 학생의 수를 조회하시오.
+--15.키가 170 이상인 학생의 수를 조회하시오.
 SELECT COUNT(stu_no) FROM student WHERE stu_height >= 170;
 
 -- LIKE를 이용한 검색
 -- LIKE와 함께 쓰이는 기호(와일드카드) %, _(언더바)
--- 학생 중 성이 김씨인 학생들의 정보를 검색하시오.
+--16.학생 중 성이 김씨인 학생들의 정보를 검색하시오.
 SELECT * FROM student WHERE stu_name LIKE '김%';
 
--- 학생 중 이름의 두 번째 글자가 '수'인 학생의 이름을 검색하시오.
+--17.학생 중 이름의 두 번째 글자가 '수'인 학생의 이름을 검색하시오.
 SELECT * FROM student WHERE stu_name LIKE '_수%';
 
--- 학생 중 이름이 '우'로 끝나는 학생의 수가 몇 명인지 검색하시오.
+--18.학생 중 이름이 '우'로 끝나는 학생의 수가 몇 명인지 검색하시오.
 SELECT COUNT(*) FROM student WHERE stu_name LIKE '%우';
 
--- 학번이 2014번인 학생의 정보를 조회하시오.
+--19.학번이 2014번인 학생의 정보를 조회하시오.
 SELECT * FROM student WHERE stu_no LIKE '2014%';
 
--- NULL 확인
+--20.NULL 확인
 SELECT stu_no, stu_name, stu_height FROM student;
 
--- 학생정보 중 키 값이 없는 학생의 학번, 이름, 키를 조회하시오.
+--21.학생정보 중 키 값이 없는 학생의 학번, 이름, 키를 조회하시오.
 SELECT stu_no, stu_name, stu_height FROM student WHERE stu_height IS NULL;
 
--- 학생정보 중 키 값이 있는 학생의 학번, 이름, 키를 조회하시오.
+--22.학생정보 중 키 값이 있는 학생의 학번, 이름, 키를 조회하시오.
 SELECT stu_no, stu_name, stu_height FROM student WHERE stu_height IS NOT NULL;
 
--- 학과가 '컴퓨터정보'이거나 '기계'과인 학생의 학번과 이름, 학과을 검색하시오.
+--23.학과가 '컴퓨터정보'이거나 '기계'과인 학생의 학번과 이름, 학과을 검색하시오.
 SELECT stu_no, stu_name, stu_dept FROM student WHERE stu_dept = '컴퓨터정보' OR stu_dept = '기계';
 SELECT stu_no, stu_name, stu_dept FROM student WHERE stu_dept IN('컴퓨터정보', '기계');
 
@@ -154,45 +154,47 @@ SELECT stu_no, stu_name, stu_dept FROM student WHERE stu_dept IN('컴퓨터정�
 SELECT * FROM student ORDER BY stu_no DESC;
 SELECT stu_no, stu_name, stu_dept, stu_weight-5 AS target FROM student ORDER BY stu_dept, target DESC;
 
--- 남학생의 이름, 학과, 학년을 조회하시오.
--- 학생들의 이름과 현재 체중, 그리고 현재 체중에 5를 더한 체중값을 조회하시오.
+--24.남학생의 이름, 학과, 학년을 조회하시오.
+SELECT stu_name, stu_dept, stu_grade FROM student WHERE stu_gender = 'M';
+
+--25.학생들의 이름과 현재 체중, 그리고 현재 체중에 5를 더한 체중값을 조회하시오.
 -- 이 때, 별칭은 'plus5'로 하시오.
 SELECT stu_name, stu_dept, stu_grade, stu_weight+5 AS plus5 FROM student WHERE stu_gender = 'M';
 
--- 수강 테이블의 모든 정보를 검색하시오. 이 때, 별칭을 한글로 부여하여 검색하시오.
+--26.수강 테이블의 모든 정보를 검색하시오. 이 때, 별칭을 한글로 부여하여 검색하시오.
 SELECT sub_no AS 과목번호, stu_no AS 학번, enr_grade AS 점수 FROM enrol;
 
--- 학생의 이름과 학과를 '컴퓨터정보과 옥한빛입니다.' 식으로 검색하시오.
+--27.학생의 이름과 학과를 '컴퓨터정보과 옥한빛입니다.' 식으로 검색하시오.
 SELECT stu_dept || '과 ' || stu_name || '입니다.' AS 이름학과 FROM student;
 
--- '전기전자'과 이외 학생들의 모든 정보를 검색하시오.
+--28.'전기전자'과 이외 학생들의 모든 정보를 검색하시오.
 SELECT * FROM student WHERE stu_dept <> '전기전자';
 
--- '기계'과 이면서 2학년인 학생들의 모든 정보를 검색하시오.
+--29.'기계'과 이면서 2학년인 학생들의 모든 정보를 검색하시오.
 SELECT * FROM student WHERE stu_dept = '기계' AND stu_grade = 2;
 
--- 여학생 중 체중이 60이하인 학생을 모두 검색하시오.
+--30.여학생 중 체중이 60이하인 학생을 모두 검색하시오.
 SELECT * FROM student WHERE stu_gender = 'F' AND stu_weight <= 60;
 
--- 키가 160이상이며, 170이하인 학생의 학번과 이름을 검색하시오.
+--31.키가 160이상이며, 170이하인 학생의 학번과 이름을 검색하시오.
 SELECT stu_no, stu_name FROM student WHERE stu_height BETWEEN 160 AND 170;
 
--- 이름의 '옥'이 들어있는 학생의 이름을 검색하시오.
+--32.이름의 '옥'이 들어있는 학생의 이름을 검색하시오.
 SELECT stu_name FROM student WHERE stu_name LIKE '%옥%';
 
--- 키가 NULL인 학생의 이름을 검색하시오.
+--33.키가 NULL인 학생의 이름을 검색하시오.
 SELECT stu_name FROM student WHERE stu_height IS NULL;
 
--- 키가 NULL이 아닌 학생의 이름을 검색하시오.
+--34.키가 NULL이 아닌 학생의 이름을 검색하시오.
 SELECT stu_name FROM student WHERE stu_height IS NOT NULL;
 
--- 학번이 'XXXX20XX'인 학생의 모든 정보를 검색하시오.
+--35.학번이 'XXXX20XX'인 학생의 모든 정보를 검색하시오.
 SELECT * FROM student WHERE stu_no LIKE '____20%';
 
--- 학번이 2014인 학생들을 이름 순으로 조회하시오(오름차순)
+--36.학번이 2014인 학생들을 이름 순으로 조회하시오(오름차순)
 SELECT * FROM student WHERE stu_no LIKE '2014%' ORDER BY stu_name;
 
--- 학과정보를 이름을 기준으로 내림차순으로 검색하시오.
+--37.학과정보를 이름을 기준으로 내림차순으로 검색하시오.
 SELECT stu_dept FROM student ORDER BY stu_name DESC;
 
 --그룹(집계 함수와 함께 사용됨.)
@@ -207,22 +209,22 @@ SELECT SUM(enr_grade) FROM enrol;
 SELECT COUNT(*), COUNT(stu_height) FROM student;
 
 --GROUP BY
---학생테이블에서 학과별 몸무게 평균을 구하시오.
+--38.학생테이블에서 학과별 몸무게 평균을 구하시오.
 SELECT stu_dept, AVG(stu_weight) FROM student GROUP BY stu_dept;
 
---학생테이블에서 체중이 50이상인 학생들의 학과별 인원수를 구하시오.
+--39.학생테이블에서 체중이 50이상인 학생들의 학과별 인원수를 구하시오.
 SELECT stu_dept, COUNT(*) FROM student WHERE stu_weight >= 50 GROUP BY stu_dept;
 
---학생테이블에서 학과별, 학년별 인원수를 구하시오.
+--40.학생테이블에서 학과별, 학년별 인원수를 구하시오.
 SELECT stu_dept, stu_grade, COUNT(*) FROM student GROUP BY stu_dept, stu_grade ORDER BY stu_dept;
 
---'기계'과 학생들 중에 학년별 평균 신장이 160이상인 학년과 평균 신장을 구하시오.
+--41.'기계'과 학생들 중에 학년별 평균 신장이 160이상인 학년과 평균 신장을 구하시오.
 SELECT stu_grade, AVG(stu_height) FROM student WHERE stu_dept = '기계' GROUP BY stu_grade HAVING AVG(stu_height) >= 160;
 
---최대 신장이 175이상인 학과들을 구하고 학과별 최대 신장을 구하시오.
+--42.최대 신장이 175이상인 학과들을 구하고 학과별 최대 신장을 구하시오.
 SELECT stu_dept, MAX(stu_height) FROM student GROUP BY stu_dept HAVING MAX(stu_height) >= 175;
 
---학과별 평균 신장 중 가장 높은 평균 신장을 구하시오.
+--43.학과별 평균 신장 중 가장 높은 평균 신장을 구하시오.
 SELECT to_char(MAX(AVG(stu_height)), '999.99') FROM student GROUP BY stu_dept;
 
 

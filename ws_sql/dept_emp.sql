@@ -109,138 +109,197 @@ SELECT ename, job, comm FROM emp;
 SELECT ename, job, NVL2(comm, sal+comm, sal) FROM emp; --comm 값이 NULL이 아닐 경우 두번째 값 표기, NULL일 경우 세번째 값을 표기.
 
 --------------------------------------
---부서의 부서이름과 지역을 검색하시오.
+--1.부서의 부서이름과 지역을 검색하시오.
 SELECT dname, loc FROM dept;
 
---사원들의 입사일 중복을 제거하고 검색하시오.
+--2.사원들의 입사일 중복을 제거하고 검색하시오.
 SELECT DISTINCT hiredate FROM emp;
 
---사원들의 부서번호 중복을 제거하고 검색하시오.
+--3.사원들의 부서번호 중복을 제거하고 검색하시오.
 SELECT DISTINCT deptno FROM emp;
 
---사원들의 6개월 급여의 합을 검색하시오.
+--4.사원들의 6개월 급여의 합을 검색하시오.
 SELECT SUM(sal * 6) AS 급여의합 FROM emp;
 
---사원이름을 'Name'으로 사원의 급여를 'Salary'로 열의 이름을 부여하여 검색하시오.
+--5.사원이름을 'Name'으로 사원의 급여를 'Salary'로 열의 이름을 부여하여 검색하시오.
 SELECT ename AS Name, sal AS Salary FROM emp;
 
---부서번호, 부서이름, 지역을 한글 제목으로 검색하시오.
+--6.부서번호, 부서이름, 지역을 한글 제목으로 검색하시오.
 SELECT deptno AS 부서번호, dname AS 부서이름, loc AS 지역 FROM dept;
 
---사원의 직무와 사원이름을 합쳐서 검색하시오.(예:PRESIDENTKING)
+--7.사원의 직무와 사원이름을 합쳐서 검색하시오.(예:PRESIDENTKING)
 SELECT job || ename FROM emp;
 
---'WORD' 사원의 모든 정보를 검색하시오.
+--8.'WORD' 사원의 모든 정보를 검색하시오.
 SELECT * FROM emp WHERE ename = 'WORD';
 
---10번 부서에서 근무하는 사원의 이름을 검색하시오.
+--9.10번 부서에서 근무하는 사원의 이름을 검색하시오.
 SELECT ename FROM emp WHERE deptno = 10;
 
---급여가 2000이상인 사원들의 사원번호, 사원이름을 검색하시오.
+--10.급여가 2000이상인 사원들의 사원번호, 사원이름을 검색하시오.
 SELECT empno, ename FROM emp WHERE sal >= 2000;
 
---사원 직무가 'CLERK'인 사원들의 사원번호, 사원이름을 검색하시오.
+--11.사원 직무가 'CLERK'인 사원들의 사원번호, 사원이름을 검색하시오.
 SELECT empno, ename FROM emp WHERE job = 'CLERK';
 
---1980년 12월 17일에 입사한 사원의 이름을 검색하시오.
+--12.1980년 12월 17일에 입사한 사원의 이름을 검색하시오.
 SELECT ename FROM emp WHERE hiredate = '1980-12-17';
 
---부서번호 30이외의 부서이름과 지역을 검색하시오.
+--13.부서번호 30이외의 부서이름과 지역을 검색하시오.
 SELECT dname, loc FROM dept WHERE deptno <> 30;
 
---10번 부서에서 근무하는 MANAGER의 사원이름을 검색하시오.
+--14.10번 부서에서 근무하는 MANAGER의 사원이름을 검색하시오.
 SELECT ename FROM emp WHERE deptno = 10;
 
---급여가 2000이상이며, 30번 부서에 근무하는 사원들의 사원번호와 사원이름을 검색하시오.
+--15.급여가 2000이상이며, 30번 부서에 근무하는 사원들의 사원번호와 사원이름을 검색하시오.
 SELECT empno, ename FROM emp WHERE sal >= 2000 AND deptno = 30;
 
---20번 부서 외에 근무하는 MANAGER의 사원이름을 검색하시오.
+--16.20번 부서 외에 근무하는 MANAGER의 사원이름을 검색하시오.
 SELECT ename FROM emp WHERE job = 'MANAGER' AND deptno <> 20;
 
---SALESMAN의 급여가 1500이상인 사원이름을 검색하시오.
+--17.SALESMAN의 급여가 1500이상인 사원이름을 검색하시오.
 SELECT ename FROM emp WHERE job = 'SALESMAN' AND sal >= 1500;
 
---사원번호가 75xx인 사원의 사원번호, 사원이름, 부서번호를 검색하시오.
+--18.사원번호가 75xx인 사원의 사원번호, 사원이름, 부서번호를 검색하시오.
 SELECT empno, ename, deptno FROM emp WHERE empno LIKE '75__';
 
---부서번호가 10또는 30에 근무하는 사원들의 사원이름과 급여를 검색하시오.
+--19.부서번호가 10또는 30에 근무하는 사원들의 사원이름과 급여를 검색하시오.
 SELECT ename, sal FROM emp WHERE deptno IN(10, 30);
 
---상급자 사원번호가 76으로 시작하는 사원들의 사원이름을 검색하시오.
+--20.상급자 사원번호가 76으로 시작하는 사원들의 사원이름을 검색하시오.
 SELECT ename FROM emp WHERE mgr LIKE '76%';
 
---1981년 2월에 입사한 사원의 사원번호, 사원이름, 부서번호를 검색하시오.
+--21.1981년 2월에 입사한 사원의 사원번호, 사원이름, 부서번호를 검색하시오.
 SELECT empno, ename, deptno FROM emp
 WHERE EXTRACT(MONTH FROM hiredate) = 2 AND EXTRACT(YEAR FROM hiredate) = 1981;
 
---사원이름 중간에 'A'가 들어있는 사원의 사원번호와 사원이름을 검색하시오.
+--22.사원이름 중간에 'A'가 들어있는 사원의 사원번호와 사원이름을 검색하시오.
 SELECT empno, ename FROM emp WHERE ename LIKE '%A%';
 
---상급자 사원번호가 NULL인 사원의 사원번호와 사원이름을 검색하시오.
+--23.상급자 사원번호가 NULL인 사원의 사원번호와 사원이름을 검색하시오.
 SELECT empno, ename FROM emp WHERE mgr IS NULL;
 
---상급자 사원번호가 NULL이 아닌 사원의 사원번호와 사원이름, 상급자 사원번호를 검색하시오.
+--24.상급자 사원번호가 NULL이 아닌 사원의 사원번호와 사원이름, 상급자 사원번호를 검색하시오.
 SELECT empno, ename, mgr FROM emp WHERE mgr IS NOT NULL;
 
---사원들의 사원번호와 사원이름을 사원번호 순으로 검색하시오.(오름차순)
+--25.사원들의 사원번호와 사원이름을 사원번호 순으로 검색하시오.(오름차순)
 SELECT empno, ename FROM emp ORDER BY empno;
 
---사원들의 정보를 사원직무별 급여가 많은 순으로 검색하시오.
+--26.사원들의 정보를 사원직무별 급여가 많은 순으로 검색하시오.
 SELECT * FROM emp ORDER BY job, sal DESC;
 
---사원들의 사원이름을 소문자로 검색하시오.
-SELECT LOWER(ename) FROM emp;
+--27.사원들의 사원이름을 소문자로 검색하시오.
+SELECT LOWER(ename) AS ename FROM emp;
 
---사원들의 사원이름, 사원직무를 대문자로 검색하시오.
-SELECT UPPER(ename), UPPER(job) FROM emp;
+--28.사원들의 사원이름, 사원직무를 대문자로 검색하시오.
+SELECT UPPER(ename) AS ename, UPPER(job) AS job FROM emp;
 
---사원들의 사원이름을 첫 자만 대문자로 검색하시오.
-SELECT INITCAP(ename) FROM emp;
+--29.사원들의 사원이름을 첫 자만 대문자로 검색하시오.
+SELECT INITCAP(ename) AS ename FROM emp;
 
---사원들의 사원이름과 사원직무를 연결(CONCAT)하여 검색하시오.
-SELECT CONCAT(ename, job) FROM emp;
+--30.사원들의 사원이름과 사원직무를 연결(CONCAT)하여 검색하시오.
+SELECT CONCAT(ename, job)AS ename_job FROM emp;
 
---사원들의 사원이름과 사원이름의 첫 두 글자를 검색하시오.
+--31.사원들의 사원이름과 사원이름의 첫 두 글자를 검색하시오.
 SELECT ename, SUBSTR(ename, 0, 2) FROM emp;
 
---사원들의 사원이름, 사원직무 그리고 사원직무의 두 번째부터 세 글자를 검색하시오.
-SELECT ename, SUBSTR(job, 2, 3) FROM emp;
+--32.사원들의 사원이름, 사원직무 그리고 사원직무의 두 번째부터 세 글자를 검색하시오.
+SELECT ename, job, SUBSTR(job, 2, 3) FROM emp;
 
---사원들의 사원이름과 사원이름의 길이를 검색하시오.
+--33.사원들의 사원이름과 사원이름의 길이를 검색하시오.
 SELECT ename, LENGTH(ename) FROM emp;
 
---사원들의 사원이름에 'A'가 몇 번째 위치에 있는지 검색하시오.
+--34.사원들의 사원이름에 'A'가 몇 번째 위치에 있는지 검색하시오.
 SELECT ename, INSTR(ename, 'A') FROM emp;
 
---사원이름을 15자리로 하고, 뒤에 '&'를 채워 검색하시오.
+--35.사원이름을 15자리로 하고, 뒤에 '&'를 채워 검색하시오.
 SELECT RPAD(ename, 15, '&') FROM emp;
 
---사원직무를 20자리로 하고, 앞에 '%'를 채워 검색하시오.
+--36.사원직무를 20자리로 하고, 앞에 '%'를 채워 검색하시오.
 SELECT LPAD(job, 20, '%') FROM emp;
 
---사원의 사원번호, 사원이름, 급여를 검색하시오.(급여는 두 번째 자리에서 반올림함 - 예:2975 -> 3000)
+--37.사원의 사원번호, 사원이름, 급여를 검색하시오.(급여는 두 번째 자리에서 반올림함 - 예:2975 -> 3000)
 SELECT empno, ename, ROUND(sal, -3) FROM emp;
 
---사원의 사원번호, 사원이름, 급여를 검색하시오.(급여는 두 번째 자리에서 절삭함 - 예:2975 -> 2900)
+--38.사원의 사원번호, 사원이름, 급여를 검색하시오.(급여는 두 번째 자리에서 절삭함 - 예:2975 -> 2900)
 SELECT empno, ename, TRUNC(sal, -2)  FROM emp;
 
---사원번호와 급여를 100으로 나눈 나머지를 검색하시오.
+--39.사원번호와 급여를 100으로 나눈 나머지를 검색하시오.
 SELECT empno, MOD(sal, 100) FROM emp;
 
---사원번호, 사원이름, 입사일, 입사 후 100일의 날짜를 검색하시오.
+--40.사원번호, 사원이름, 입사일, 입사 후 100일의 날짜를 검색하시오.
 SELECT empno, ename, hiredate, hiredate + 100 FROM emp;
 
---사원번호, 사원이름, 입사일, 근무일자를 계산하여 검색하시오.
-SELECT empno, ename, hiredate, SYSDATE - TO_DATE(hiredate, 'YYYY-MM-DD') FROM emp;
+--41.사원번호, 사원이름, 입사일, 근무일자를 계산하여 검색하시오.
+SELECT empno, ename, hiredate, ROUND(SYSDATE - TO_DATE(hiredate, 'YYYY-MM-DD'), 0) AS 근무일자 FROM emp;
 
---사원들의 입사일에서 3달째 되는 날짜를 검색하시오.
-SELECT ADD_MONTHS(hiredate, 3) FROM emp;
+--42.사원들의 입사일에서 3달째 되는 날짜를 검색하시오.
+SELECT hiredate, ADD_MONTHS(hiredate, 3) AS after3 FROM emp;
 
---상급자 사원번호가 없는 사원의 경우 '상급자 없음'을 나타내도록 하시오.
-SELECT ename, NVL(mgr, '상급자 없음') FROM emp;
+--43.상급자 사원번호가 없는 사원의 경우 '상급자 없음'을 나타내도록 하시오.
+SELECT ename, NVL(mgr, '상급자 없음') AS mgr FROM emp;
 
---커미션을 포함한 급여를 사원번호, 사원이름과 함께 검색하시오.
-SELECT empno, ename, NVL2(comm, sal+comm, sal) FROM emp; 
+--44.커미션을 포함한 급여를 사원번호, 사원이름과 함께 검색하시오.
+SELECT empno, ename, NVL2(comm, sal+comm, sal) AS sal_comm FROM emp; 
 
---커미션을 포함한 연봉을 사원번호, 사원이름과 함께 검색하시오.
-SELECT empno, ename, NVL2(comm, (sal * 12) + comm, sal * 12) FROM emp;
+--45.커미션을 포함한 연봉을 사원번호, 사원이름과 함께 검색하시오.
+SELECT empno, ename, NVL2(comm, (sal * 12) + comm, sal * 12) AS sal_comm FROM emp;
+
+--46.10, 20번 부서 사원들 중 최고 급여를 받는 사원의 사원번호, 사원이름, 급여를 검색하시오.
+SELECT empno, ename, sal FROM emp WHERE deptno IN(10, 20) AND sal = (SELECT MAX(sal) FROM emp);
+
+--47.30번 부서의 사원 중 최저 급여를 받는 사원의 사원번호, 사원이름, 급여를 검색하시오.
+SELECT empno, ename, sal FROM emp WHERE sal = (SELECT MIN(sal) FROM emp WHERE deptno = 30);
+
+--48.전체 사원들 중 최고 커미션을 받는 사원의 사원번호, 사원이름, 커미션을 검색하시오.
+SELECT empno, ename, comm FROM emp WHERE comm = (SELECT MAX(comm) FROM emp);
+
+--49.전체 사원들 중 최저 커미션을 받는 사원의 사원번호, 사원이름, 커미션을 검색하시오.
+SELECT empno, ename, comm FROM emp WHERE comm = (SELECT MIN(comm) FROM emp);
+
+--50.전체 사원의 입사일 중 MAX와 MIN 값을 검색하시오.
+SELECT MAX(hiredate), MIN(hiredate) FROM emp;
+
+--51.사원번호의 MAX와 MIN 값을 검색하시오.
+SELECT MAX(empno), MIN(empno) FROM emp;
+
+--52.상급자 사원번호 열의 개수를 검색하시오.
+SELECT COUNT(mgr) FROM emp;
+
+--53.사원이름의 개수를 검색하시오.
+SELECT COUNT(ename) FROM emp;
+
+--54.사원 테이블의 튜플 수를 검색하시오.
+SELECT COUNT(*) FROM emp;
+
+--55.부서별 사원들의 인원수를 검색하시오.
+SELECT deptno, COUNT(empno) FROM emp GROUP BY deptno ORDER BY deptno;
+
+--56.상급자 사원번호별 사원들의 인원수를 검색하시오.
+SELECT mgr, COUNT(empno) FROM emp WHERE mgr IS NOT NULL GROUP BY mgr ORDER BY mgr;
+
+--57.부서별 사원들의 평균급여를 검색하시오.
+SELECT deptno, ROUND(AVG(sal),1) AS avg_sal FROM emp GROUP BY deptno ORDER BY deptno;
+
+--58.부서별 사원직무별 사원의 급여의 합을 검색하시오.
+SELECT deptno, job, SUM(sal) FROM emp GROUP BY deptno, job ORDER BY deptno;
+
+--59.부서별 사원직무별 사원들의 평균 급여를 검색하시오.
+SELECT deptno, job, AVG(sal) FROM emp GROUP BY deptno, job ORDER BY deptno;
+
+--60.부서별 사원직무별 사원들의 입사일의 MAX와 MIN 값을 검색하시오.
+SELECT deptno, MAX(hiredate), MIN(hiredate) FROM emp GROUP BY deptno ORDER BY deptno;
+---------------------------------------
+
+--join : 두 개 이상의 테이블을 참조하여 결과를 도출.
+SELECT emp.*, dept.* FROM emp, dept WHERE emp.deptno = dept.deptno;
+SELECT e.*, d.* FROM emp e, dept d WHERE e.deptno = d.deptno;
+
+--JONES의 부서이름을 알려주는 쿼리를 작성하시오.
+SELECT emp.ename, dept.dname FROM emp, dept WHERE emp.deptno = dept.deptno AND emp.ename = 'JONES';
+SELECT ename, dname FROM (SELECT emp.*, dept.* FROM emp, dept WHERE emp.deptno = dept.deptno) WHERE ename = 'JONES';
+
+
+
+
+
