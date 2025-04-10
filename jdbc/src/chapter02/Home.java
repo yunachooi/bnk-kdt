@@ -18,7 +18,6 @@ public class Home {
 		List<Board> list = new ArrayList<>();
 		Scanner sc = new Scanner(System.in);
 		int bno = 9;
-
 		/*connection*/
 		Class.forName("oracle.jdbc.driver.OracleDriver");
 
