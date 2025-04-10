@@ -19,7 +19,7 @@ public class Home {
 		Scanner sc = new Scanner(System.in);
 		int bno = 9;
 
-		/*jdbc*/
+		/*connection*/
 		Class.forName("oracle.jdbc.driver.OracleDriver");
 
 		String url = "jdbc:oracle:thin:@localhost:1521:testdb";
