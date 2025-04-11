@@ -5,15 +5,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import chapter02.SessionStorge;
-
 public class BoardService {
 	private final Scanner sc;
-	private final DBManager db;
+	private final JDBCService db;
 	private SessionStorge session = new SessionStorge();
 	private int bno = 9;
 
-	public BoardService(Scanner sc, DBManager db) {
+	public BoardService(Scanner sc, JDBCService db) {
 		this.sc = sc;
 		this.db = db;
 	}
@@ -36,7 +34,7 @@ public class BoardService {
 	public void viewAll() throws Exception {
 		/* 전체 게시글 조회 */
 		System.out.println("전체 게시글 조회를 시작합니다...");
-		System.out.println("==============");
+		System.out.println("================================");
 		List<Board> list = new ArrayList<>();
 		String query = "SELECT * FROM tbl_board";
 		ResultSet rs = db.getStatement().executeQuery(query);
@@ -60,7 +58,7 @@ public class BoardService {
 		/* 특정 게시글 번호 조회 */
 		System.out.print("조회를 원하는 게시글의 번호를 입력하시오 >> ");
 		int input = sc.nextInt();
-		System.out.println("==============");
+		System.out.println("================================");
 		String query = "SELECT * FROM tbl_board WHERE bno = " + input;
 		ResultSet rs = db.getStatement().executeQuery(query);
 
@@ -73,7 +71,7 @@ public class BoardService {
 			b.setWriter(rs.getString("writer"));
 			System.out.println(b);
 		} else {
-			System.out.println("해당 번호의 게시글이 존재하지 않습니다.");
+			System.out.println("해당 번호의 게시글이 존재하지 않습니다...");
 		}
 	}
 }

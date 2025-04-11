@@ -54,6 +54,7 @@ public class Member {
 
 	@Override
 	public String toString() {
-		return "Member [id=" + id + ", pw=" + pw + ", name=" + name + ", phone=" + phone + ", grade=" + grade + "]";
+		return String.format("%-5s", id) + " " + String.format("%-10s", pw) + " " + String.format("%-10s", name) + " " + 
+		String.format("%-13s", phone) + " " + String.format("%-2s", grade);
 	}
 }

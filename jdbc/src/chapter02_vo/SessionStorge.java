@@ -1,4 +1,4 @@
-package chapter02;
+package chapter02_vo;
 
 import java.util.HashMap;
 import java.util.Map;

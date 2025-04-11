@@ -2,7 +2,7 @@ package chapter02_vo;
 
 import java.sql.*;
 
-public class DBManager {
+public class JDBCService {
     private Connection conn;
     private Statement stmt;
 
