@@ -14,6 +14,14 @@ public class JDBCTest_Select {
 		List<Member> list = new ArrayList<>();
 
 		Class.forName("oracle.jdbc.driver.OracleDriver");
+//		try {
+//			Class.forName("org.mariadb.jdbc.Driver");
+//		}
+//		catch(ClassNotFoundException e) {
+//			e.printStackTrace();
+//			System.err.println("\n마리아DB가 설치되지 않았습니다...");
+//		}
+		
 
 		String url = "jdbc:oracle:thin:@localhost:1521:testdb";
 		String user = "green";
