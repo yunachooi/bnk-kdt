@@ -34,4 +34,9 @@ FROM (SELECT tbl_member.*, tbl_board.*
     FROM tbl_member, tbl_board
     WHERE tbl_member.id = tbl_board.writer);
     
+select * from tbl_member;
+delete from tbl_member where id = 'id5'; 
+delete from tbl_board where writer = 'id5';
+delete from tbl_board where bno = 10;
+
 commit;
