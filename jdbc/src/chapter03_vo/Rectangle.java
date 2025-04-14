@@ -1,5 +1,8 @@
 package chapter03_vo;
 
+import lombok.Data;
+
+@Data
 public class Rectangle implements Cloneable{
 	private Point upperLeft;
 	private Point lowerRight;
@@ -22,6 +25,7 @@ public class Rectangle implements Cloneable{
 	}
 	@Override
 	public Object clone() throws CloneNotSupportedException {
-		return (Rectangle) super.clone();
+		Rectangle r = new Rectangle(upperLeft.getXPos(), upperLeft.getYPos(), lowerRight.getXPos(), lowerRight.getYPos());
+		return r;
 	}
 }
