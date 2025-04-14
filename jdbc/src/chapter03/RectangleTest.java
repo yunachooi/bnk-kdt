@@ -29,7 +29,7 @@ public class RectangleTest {
 		
 		Llist.add(org);
 		Llist.add(cpy);
-		System.out.println("Llist2 size >> " + Llist.size());
+		System.out.println("Llist size >> " + Llist.size());
 	}
 
 }
