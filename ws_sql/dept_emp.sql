@@ -44,6 +44,7 @@ INSERT INTO emp VALUES (7369, 'SMITH', 'CLERK', 7902, TO_DATE('17-12-1980', 'dd-
 INSERT INTO emp VALUES (7876, 'ADAMS', 'CLERK', 7788, TO_DATE('13-7-1987', 'dd-mm-yyyy'), 1100, NULL, 20);
 --INSERT INTO emp VALUES (7876, '홍길동', 'CLERK', 7788, TO_DATE('23-7-2024', 'dd-mm-yyyy'), 550, NULL, 80); *생성오류
 --외래키를 사용 시 제약조건이 생성, 테이블에 저장된 데이터가 있어야만, 제약조건에 위배되지 않음.
+select  * from emp where deptno = 20;
 
 INSERT INTO salgrade VALUES(1, 700, 1200);
 INSERT INTO salgrade VALUES(2, 1201, 1400);
@@ -298,8 +299,5 @@ SELECT e.*, d.* FROM emp e, dept d WHERE e.deptno = d.deptno;
 --JONES의 부서이름을 알려주는 쿼리를 작성하시오.
 SELECT emp.ename, dept.dname FROM emp, dept WHERE emp.deptno = dept.deptno AND emp.ename = 'JONES';
 SELECT ename, dname FROM (SELECT emp.*, dept.* FROM emp, dept WHERE emp.deptno = dept.deptno) WHERE ename = 'JONES';
-
-
-
 
 

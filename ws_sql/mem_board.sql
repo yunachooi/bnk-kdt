@@ -19,6 +19,7 @@ INSERT INTO tbl_member VALUES('id1', '1234', '홍길동', '010-1234-1234', 'A');
 INSERT INTO tbl_member VALUES('id2', '1234', '홍길은', '010-5678-5678', 'B');
 INSERT INTO tbl_member VALUES('id3', '1234', '홍길금', '010-4321-4321', 'C');
 INSERT INTO tbl_member VALUES('id4', '1234', '홍길순', '010-8765-8765', 'A');
+INSERT INTO tbl_member VALUES('admin', 'admin', '관리자', '010-0000-0000', 'A');
 INSERT INTO tbl_board VALUES(1, 'test', 'test content', SYSDATE, 'id1');
 INSERT INTO tbl_board VALUES(2, 'test', 'test content', SYSDATE, 'id2');
 INSERT INTO tbl_board VALUES(3, 'test', 'test content', SYSDATE, 'id3');
