@@ -6,7 +6,7 @@ public class Member {
 	private String pw;
 	private String name;
 	private String phone;
-	private char grade = 'C';
+	private String grade = "C";
 	
 	public Member(){
 		
@@ -44,16 +44,17 @@ public class Member {
 		this.phone = phone;
 	}
 
-	public char getGrade() {
+	public String getGrade() {
 		return grade;
 	}
 
-	public void setGrade(char grade) {
-		this.grade = grade;
+	public void setGrade(String string) {
+		this.grade = string;
 	}
 
 	@Override
 	public String toString() {
-		return "Member [id=" + id + ", pw=" + pw + ", name=" + name + ", phone=" + phone + ", grade=" + grade + "]";
+		return String.format("%-5s", id) + " " + String.format("%-10s", pw) + " " + String.format("%-10s", name) + " " + 
+		String.format("%-13s", phone) + " " + String.format("%-2s", grade);
 	}
 }

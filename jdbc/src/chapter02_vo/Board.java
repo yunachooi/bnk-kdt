@@ -56,10 +56,7 @@ Scanner sc = new Scanner(System.in);
 
 	@Override
 	public String toString() {
-		return "Board [bno=" + bno + ", title=" + title + ", content=" + content + ", regdate=" + regdate + ", writer="
-				+ writer + "]";
+		return String.format("%-4s", bno) + " " + String.format("%-10s", title) + " " + String.format("%-20s", content) + " " + 
+				String.format("%-20s", regdate) + " " + String.format("%-4s", writer);
 	}
-	
-	
-	
 }
