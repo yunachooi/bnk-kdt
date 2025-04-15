@@ -5,8 +5,3 @@ CREATE TABLE bookinfo(
     publisher VARCHAR2(20),
     price NUMBER
 );
-
-SELECT * FROM bookinfo;
-DELETE FROM bookinfo WHERE bno = 102;
-DROP TABLE bookinfo;
-commit;
