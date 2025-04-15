@@ -7,18 +7,18 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class BookDAO {
+public class BookDao {
 	private final Scanner sc;
 	private final DBcon db;
 	PreparedStatement pstmt;
 
-	public BookDAO(Scanner sc, DBcon db) {
+	public BookDao(Scanner sc, DBcon db) {
 		this.sc = sc;
 		this.db = db;
 	}
 
 	/* INSERT */
-	public void insertData() throws SQLException, ClassNotFoundException {
+	public void insertInfo() throws SQLException, ClassNotFoundException {
 		Book b = new Book();
 		System.out.println("도서정보 작성을 시작합니다...");
 		System.out.print("도서 번호를 입력하세요 >> ");
@@ -46,9 +46,9 @@ public class BookDAO {
 			System.out.println("도서정보가 저장되었습니다...");
 		}
 	}
-
+	
 	/* SELECT */
-	public void selectData() throws SQLException, ClassNotFoundException {
+	public void viewAll() throws SQLException, ClassNotFoundException {
 		System.out.println("도서정보 조회를 시작합니다...");
 
 		List<Book> list = new ArrayList<>();
@@ -66,14 +66,43 @@ public class BookDAO {
 			list.add(b);
 		}
 
-		System.out.println("<< 도서목록 조회 화면 >>");
+		System.out.println("<< 도서목록 >>");
 		for (Book book : list) {
 			System.out.println(book);
 		}
 	}
+	
+	/* SELECT2 */
+	public void viewTitle() throws SQLException, ClassNotFoundException {
+		System.out.println("도서정보 조회를 시작합니다...");
+		System.out.println("찾는 도서의 제목을 입력하세요 >> ");
+		String t = sc.next();
+		t = "%" + t + "%";
+		
+		String query = "SELECT * FROM bookinfo WHERE title Like ?";
+		pstmt = db.connect().prepareStatement(query);
+		pstmt.setString(1, t);
+		ResultSet rs = pstmt.executeQuery();
+		
+		System.out.println("<< 도서목록 >>");
+		int flag = 0;
+		while(rs.next()) {
+			Book b = new Book();
+			b.setBno(rs.getInt("bno"));
+			b.setTitle(rs.getString("title"));
+			b.setAuthor(rs.getString("author"));
+			b.setPublisher(rs.getString("publisher"));
+			b.setPrice(rs.getInt("price"));
+			System.out.println(b);
+			flag = 1;
+		}
+		if (flag == 0) {
+			System.out.println("해당 도서가 존재하지 않습니다...");
+		}
+	}
 
 	/* UPDATE */
-	public void updateData() throws SQLException, ClassNotFoundException {
+	public void updateInfo() throws SQLException, ClassNotFoundException {
 		Book b = new Book();
 		int ivalue = 0;
 		String svalue = null;
@@ -93,11 +122,12 @@ public class BookDAO {
 		default -> null;
 		};
 
-		System.out.println("수정할 내용을 입력하세요 >> ");
 		if (choice == 1 || choice == 5) {
+			System.out.println("수정할 내용을 입력하세요 >> ");
 			ivalue = sc.nextInt();
 		} else {
-			svalue = sc.nextLine();
+			System.out.println("수정할 내용을 입력하세요 >> ");
+			svalue = sc.next();
 		}
 
 		String query = "UPDATE bookinfo SET " + items + " = ? WHERE bno = ?";
@@ -116,7 +146,7 @@ public class BookDAO {
 	}
 
 	/* DELETE */
-	public void deleteData() throws SQLException, ClassNotFoundException {
+	public void deleteInfo() throws SQLException, ClassNotFoundException {
 		Book b = new Book();
 		System.out.println("도서정보 삭제를 시작합니다...");
 		System.out.print("삭제를 원하는 도서번호를 입력하세요 >> ");
