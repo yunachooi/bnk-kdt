@@ -21,7 +21,8 @@ public class LambdaTest1 {
 //		unit.move();
 		
 		/* 방법3 */
-		Unit unit = () -> {
+		//람다식 : 인터페이스에 메서드가 하나일 경우에 아래와 같은 방식으로 호출 가능
+		Unit unit = () -> { 
 			System.out.println("인간이 움직인다구요...");
 		};
 		unit.move();
