@@ -68,7 +68,7 @@ public class BookDao {
 		List<Book> list = new ArrayList<>();
 		String query = "SELECT * FROM bookinfo";
 		pstmt = db.connect().prepareStatement(query);
-		ResultSet rs = pstmt.executeQuery(query);
+		ResultSet rs = pstmt.executeQuery();
 
 		while (rs.next()) {
 			Book b = new Book();
