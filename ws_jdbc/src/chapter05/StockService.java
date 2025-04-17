@@ -25,15 +25,16 @@ public class StockService {
 		System.out.println("상품재고 조회를 시작합니다...");
 
 		List<Stock> list = new ArrayList<>();
-		String query = "SELECT p_group, product.p_code, p_name, s_qty FROM product, stock WHERE product.p_code = stock.p_code";
+		String query = "SELECT * FROM stock";
 		pstmt = db.connect().prepareStatement(query);
 		ResultSet rs = pstmt.executeQuery();
 
 		while (rs.next()) {
 			Stock s = new Stock();
-
+			
 			s.setP_code(rs.getString("p_code"));
 			s.setS_qty(rs.getInt("s_qty"));
+			
 			list.add(s);
 		}
 
@@ -50,7 +51,7 @@ public class StockService {
 		String code = sc.next();
 		code = "%" + code + "%";
 
-		String query = "SELECT p_group, product.p_code, p_name, s_qty FROM product, stock WHERE product.p_code = stock.p_code AND product.p_code LIKE ?";
+		String query = "SELECT * FROM stock p_code LIKE ?";
 		pstmt = db.connect().prepareStatement(query);
 		pstmt.setString(1, code);
 		ResultSet rs = pstmt.executeQuery();

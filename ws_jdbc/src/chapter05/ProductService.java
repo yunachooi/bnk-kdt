@@ -28,7 +28,7 @@ public class ProductService {
 		System.out.print("상품단가를 입력하세요 >> ");
 		p.setP_cost(sc.nextInt());
 		sc.nextLine();
-		System.out.print("상품 소문류를 입력하세요 >> ");
+		System.out.print("상품 소분류를 입력하세요 >> ");
 		p.setP_group(sc.nextLine());
 
 		String query = "INSERT INTO product VALUES (?, ?, ?, ?)";
