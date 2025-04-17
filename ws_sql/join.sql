@@ -103,10 +103,3 @@ SELECT student.stu_no, stu_name, enr_grade FROM student, enrol WHERE student.stu
 
 --학과별 평균 신장보다 큰 학생의 정보를 구하시오.
 SELECT * FROM student WHERE stu_height > (SELECT AVG(AVG(stu_height)) FROM student GROUP BY stu_dept);
-
-
-
-
-
-
-
