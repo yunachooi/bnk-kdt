@@ -1,4 +1,4 @@
-package chapter05_vo;
+package chapter05;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -6,6 +6,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+
+import chapter05_vo.DBcon;
+import chapter05_vo.Stock;
 
 public class StockService {
 	private final Scanner sc;

@@ -3,11 +3,7 @@ package chapter05;
 import java.sql.SQLException;
 import java.util.Scanner;
 
-import chapter05_vo.CustomerService;
 import chapter05_vo.DBcon;
-import chapter05_vo.EmployeeService;
-import chapter05_vo.ProductService;
-import chapter05_vo.StockService;
 
 public class Index {
 

@@ -1,8 +1,11 @@
-package chapter05_vo;
+package chapter05;
 
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.Scanner;
+
+import chapter05_vo.DBcon;
+import chapter05_vo.Product;
 
 public class ProductService {
 	private final Scanner sc;
