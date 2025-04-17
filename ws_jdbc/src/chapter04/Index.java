@@ -3,7 +3,6 @@ package chapter04;
 import java.sql.SQLException;
 import java.util.Scanner;
 
-import chapter04_vo.BookDao;
 import chapter04_vo.DBcon;
 
 public class Index {
