@@ -47,8 +47,10 @@ CREATE TABLE trade(
 
 CREATE TABLE employee(
     e_no NUMBER PRIMARY KEY,
+    e_pw VARCHAR2(10),
     e_name VARCHAR2(10),
-    e_rank VARCHAR2(10),
+    e_pos VARCHAR2(10),
+    e_dept VARCHAR2(10),
     e_date DATE
 );
 
@@ -92,23 +94,39 @@ INSERT INTO stock VALUES('m-r-03', 3);
 
 --3)영업사원
 --3)1.영업사원고용
-INSERT INTO employee VALUES(202501, '김사원', '사원', '2025-01-01');
-INSERT INTO employee VALUES(202502, '이대리', '대리', '2024-01-01');
-INSERT INTO employee VALUES(202503, '박팀장', '팀장', '2022-01-01');
-INSERT INTO employee VALUES(202504, '최사원', '사원', '2025-01-01');
-INSERT INTO employee VALUES(202505, '문대리', '대리', '2023-01-01');
+INSERT INTO employee VALUES(202501, '1234', '김사원', '사원', '영업', '2025-01-01');
+INSERT INTO employee VALUES(202502, '1234', '이대리', '대리', '영업', '2024-01-01');
+INSERT INTO employee VALUES(202503, '1234', '박팀장', '팀장', '인사', '2022-01-01');
+INSERT INTO employee VALUES(202504, '1234', '최사원', '사원', '영업', '2025-01-01');
+INSERT INTO employee VALUES(202505, '1234', '문대리', '대리', '영업', '2023-01-01');
 
 --4)거래 -> 거래 단가 + (거래 단가 * 0.1) (JAVA구현)
 --5)판매실적 -> (JAVA구현)
 
 
+SELECT e_pos FROM employee WHERE e_no = 202501 AND e_pw = '1234';
 
 
+drop table sales;
+drop table employee;
+drop table trade;
+drop table stock;
+drop table delivery;
+drop table store;
+drop table product;
+drop table customer;
 
+select * from product;
+delete from product;
 
+select * from employee;
+delete from employee;
 
+select * from stock;
+delete from stock;
 
+select * from customer;
+delete from customer;
 
-
-
+commit;
 
