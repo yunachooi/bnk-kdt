@@ -1,4 +1,4 @@
-package chapter05_vo;
+package chapter05;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -6,6 +6,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+
+import chapter05_vo.DBcon;
+import chapter05_vo.Stock;
 
 public class StockService {
 	private final Scanner sc;
@@ -16,9 +19,9 @@ public class StockService {
 		this.sc = sc;
 		this.db = db;
 	}
-	
+
 	/* 상품재고조회 */
-	public void getProductStock() throws ClassNotFoundException, SQLException {
+	public void getStock() throws ClassNotFoundException, SQLException {
 		System.out.println("상품재고 조회를 시작합니다...");
 
 		List<Stock> list = new ArrayList<>();
@@ -28,9 +31,10 @@ public class StockService {
 
 		while (rs.next()) {
 			Stock s = new Stock();
-
+			
 			s.setP_code(rs.getString("p_code"));
 			s.setS_qty(rs.getInt("s_qty"));
+			
 			list.add(s);
 		}
 
@@ -41,13 +45,13 @@ public class StockService {
 	}
 	
 	/* 특정상품재고조회 */
-	public void getProductStockByCode() throws ClassNotFoundException, SQLException {
+	public void getProductStock() throws ClassNotFoundException, SQLException {
 		System.out.println("상품재고 조회를 시작합니다...");
 		System.out.println("찾는 상품의 상품코드를 입력하세요 >> ");
 		String code = sc.next();
 		code = "%" + code + "%";
 
-		String query = "SELECT * FROM stock WHERE title Like ?";
+		String query = "SELECT * FROM stock p_code LIKE ?";
 		pstmt = db.connect().prepareStatement(query);
 		pstmt.setString(1, code);
 		ResultSet rs = pstmt.executeQuery();

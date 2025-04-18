@@ -1,10 +1,12 @@
-package chapter02_vo;
+package chapter02;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+
+import chapter02_vo.Member;
 
 public class MemberService {
 	private final Scanner sc;

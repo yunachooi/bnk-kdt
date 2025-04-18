@@ -2,11 +2,6 @@ package chapter02;
 
 import java.util.Scanner;
 
-import chapter02_vo.BoardService;
-import chapter02_vo.JDBCService;
-import chapter02_vo.MemberService;
-import chapter02_vo.SessionStorge;
-
 public class Index {
 	public static void main(String[] args) throws Exception {
 		Scanner sc = new Scanner(System.in);

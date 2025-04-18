@@ -1,4 +1,4 @@
-package chapter04_vo;
+package chapter04;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -6,6 +6,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+
+import chapter04_vo.Book;
+import chapter04_vo.DBcon;
 
 public class BookDao {
 	private final Scanner sc;
