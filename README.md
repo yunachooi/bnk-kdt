@@ -1,1 +1,1 @@
-# BNK-KDT
+# bnk-kdt
