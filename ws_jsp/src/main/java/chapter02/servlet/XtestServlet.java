@@ -12,6 +12,9 @@ public class XtestServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String num = "1";
+		int n = Integer.parseInt(num);
+		
 		String grade = "A";
 		request.setAttribute("grade", grade);
 		request.getRequestDispatcher("chapter04/result.jsp").forward(request, response);
