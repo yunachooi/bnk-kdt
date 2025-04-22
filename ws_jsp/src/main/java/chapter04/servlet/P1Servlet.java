@@ -1,4 +1,4 @@
-package chapter02.servlet;
+package chapter04.servlet;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
