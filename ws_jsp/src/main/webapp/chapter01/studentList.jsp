@@ -35,7 +35,7 @@
 	%>
 	<tr>
 		<td><%=rs.getString("stu_no") %></td>
-		<td><a href="c.jsp?stu_no=<%=rs.getString("stu_no") %>"><%=rs.getString("stu_name")%></a></td>
+		<td><a href="b.jsp?stu_no=<%=rs.getString("stu_no") %>"><%=rs.getString("stu_name")%></a></td>
 		<td><%=rs.getString("stu_dept") %></td>
 		<td><%=rs.getInt("stu_grade") %></td>
 		<td><%=rs.getString("stu_class") %></td>
