@@ -13,11 +13,11 @@ public class MemberDao {
 	private Connection conn = DBcon.connect();
 	private PreparedStatement pstmt;
 	private ResultSet rs;
-	
+
 	public void insert(String id, String pw, String name, String grade) throws ClassNotFoundException, SQLException {
 		String query = "INSERT INTO t_member VALUES (?, ?, ?, ?)";
 		pstmt = conn.prepareStatement(query);
-		
+
 		pstmt.setString(1, id);
 		pstmt.setString(2, pw);
 		pstmt.setString(3, name);
@@ -31,7 +31,7 @@ public class MemberDao {
 
 	public List<MemberVO> selectAll() throws ClassNotFoundException, SQLException {
 		List<MemberVO> list = new ArrayList<>();
-		
+
 		String query = "SELECT * FROM t_member";
 		pstmt = conn.prepareStatement(query);
 		rs = pstmt.executeQuery();
@@ -46,7 +46,7 @@ public class MemberDao {
 
 			list.add(m);
 		}
-		
+
 		return list;
 	}
 }
