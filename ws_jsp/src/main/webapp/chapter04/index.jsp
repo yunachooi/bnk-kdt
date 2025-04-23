@@ -1,8 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%
-  String path = request.getContextPath();
-%>
+<%String path = request.getContextPath();%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,7 +23,7 @@
 	* 응답(response)
 		1.요청을 처리하는 과정에서 view를 지정하는 것
 			request 객체를 활용
-			request.getRequesDisptcher("페이지지정")forward(request, response);
+			request.getRequesDisptcher("페이지지정").forward(request, response);
 			
 		2.클라이언트의 요청을 완료한 후 view를 지정하는 것
 			response 객체를 활용 
