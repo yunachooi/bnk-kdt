@@ -1,4 +1,4 @@
-package chapter03.Servlet;
+package chapter03.servlet;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -15,7 +15,7 @@ public class MemberServlet extends HttpServlet {
 			throws ServletException, IOException {
 		String grade = "일반";
 		request.setAttribute("grade", grade);
-		request.getRequestDispatcher("chapter03/Result.jsp").forward(request, response);
+		request.getRequestDispatcher("/chapter03/Result.jsp").forward(request, response);
 	}
 
 }

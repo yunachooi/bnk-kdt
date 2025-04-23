@@ -1,4 +1,4 @@
-<%@page import="chapter03.Dao.MemberDao"%>
+<%@page import="chapter03.dao.MemberDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%
@@ -26,6 +26,5 @@ member.insert(id, pw, name, grade);
 			<tr><td>grade</td><td>:</td><td><%=grade%></td></tr>
 		</tbody>
 	</table>
-	<a href="chapter03/index.jsp">회원가입 페이지로 돌아가기</a>
 </body>
 </html>

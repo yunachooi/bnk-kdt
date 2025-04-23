@@ -1,4 +1,4 @@
-package chapter03.Dao;
+package chapter03.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import chapter03.Vo.MemberVO;
+import chapter03.vo.MemberVO;
 
 public class MemberDao {
 	private Connection conn = DBcon.connect();
@@ -23,10 +23,7 @@ public class MemberDao {
 		pstmt.setString(3, name);
 		pstmt.setString(4, grade);
 
-		int result = pstmt.executeUpdate();
-		if (result == 1) {
-			System.out.println("회원 정보가 정상적으로 등록되었습니다 ! ");
-		}
+		pstmt.executeUpdate();
 	}
 
 	public List<MemberVO> selectAll() throws ClassNotFoundException, SQLException {

@@ -1,4 +1,4 @@
-package chapter03.Dao;
+package chapter03.dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
