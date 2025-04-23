@@ -16,26 +16,35 @@
 	    font-size: 14px;
 	    font-family: 'Roboto', sans-serif;
 	}
-	.login-wrapper{
+	.board-wrapper {
 	    width: 400px;
-	    height: 350px;
 	    padding: 40px;
 	    box-sizing: border-box;
 	}
-	.login-wrapper > h2{
+	.board-wrapper > h2{
+	    font-size: 24px;
 	    color: #6A24FE;
 	    margin-bottom: 20px;
 	}
-	#page-form > input{
+	#login-form > input{
 	    width: 100%;
-	    height: 48px;
 	    padding: 0 10px;
 	    box-sizing: border-box;
 	    margin-bottom: 16px;
 	    border-radius: 6px;
 	    background-color: #F8F8F8;
 	}
-	#page-form > input[type="submit"]{
+	#title{
+		height: 48px
+	}
+	#content{
+		height: 200px
+	}
+	#login-form > input::placeholder{
+	    color: #D2D2D2;
+	}
+	#login-form > input[type="submit"]{
+		height: 40px;
 	    color: #fff;
 	    font-size: 16px;
 	    background-color: #6A24FE;
@@ -44,13 +53,15 @@
 </style>
 </head>
 <body>
-	<div class="login-wrapper">
-		<h2><%=session.getAttribute("id") %>(<%=session.getAttribute("name") %>)님 환영합니다.</h2>
-		<form action="<%=path%>/memberOnly" method="POST" id="page-form">
-			<input type="submit" value="회원게시판 바로가기">
+	<div class="board-wrapper">
+		<h2>게시물 작성하기</h2>
+		<form action="<%=path %>/write" method="POST" id="login-form">
+			<input type="text" name="title" placeholder="title" id="title"><br />
+			<input type="text" name="content" placeholder="content" id="content"><br />
+			<input type="submit" value="완료">
 		</form>
-		<form action="<%=path%>/logout" method="POST">
-			<input type="submit" value="로그아웃">
+		<form action="onlyMemberIndex.jsp" method="POST">
+			<input type="submit" value="게시판보기">
 		</form>
 	</div>
 </body>

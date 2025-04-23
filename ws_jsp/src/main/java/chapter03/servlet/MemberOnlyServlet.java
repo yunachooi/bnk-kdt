@@ -19,9 +19,9 @@ public class MemberOnlyServlet extends HttpServlet {
 		String id = (String) session.getAttribute("id");
 		
 		if(id != null){
-			request.getRequestDispatcher("/chapter03/onlyMemberIndex.jsp").forward(request, response);
+			response.sendRedirect("chapter03/onlyMemberIndex.jsp");
 		} else {
-			request.getRequestDispatcher("/chapter03/loginIndex.jsp").forward(request, response);
+			response.sendRedirect("chapter03/loginIndex.jsp");
 		}
 	}
 

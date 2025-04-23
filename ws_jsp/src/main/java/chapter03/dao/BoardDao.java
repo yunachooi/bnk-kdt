@@ -28,11 +28,23 @@ public class BoardDao {
 			b.setTitle(rs.getString("title"));
 			b.setContent(rs.getString("content"));
 			b.setWriter(rs.getString("writer"));
-			b.setDate(rs.getString("date"));
+			b.setRegdate(rs.getString("regdate"));
 
 			list.add(b);
 		}
 		return list;
+	}
+
+	public void insert(BoardVO b) throws SQLException {
+		String query = "INSERT INTO tbl_board VALUES(seq_board.NEXTVAL, ?, ?, ?, SYSDATE)";
+		
+		pstmt = conn.prepareStatement(query);
+
+		pstmt.setString(1, b.getTitle());
+		pstmt.setString(2, b.getContent());
+		pstmt.setString(3, b.getWriter());
+
+		pstmt.executeUpdate();
 	}
 
 }

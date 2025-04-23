@@ -1,10 +1,11 @@
 <%@page import="chapter03.dao.MemberDao"%>
+<%@page import="chapter03.vo.MemberVO"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%
 MemberDao member = new MemberDao();
-List<chapter03.vo.MemberVO> list = member.selectAll();
+List<MemberVO> list = member.selectAll();
 %>
 
 <!DOCTYPE html>
@@ -22,7 +23,7 @@ List<chapter03.vo.MemberVO> list = member.selectAll();
 		</thead>
 		<tbody>
 			<%
-			for (chapter03.vo.MemberVO m : list) {
+			for (MemberVO m : list) {
 			%>
 			<tr>
 				<td><%=m.getId()%></td>
