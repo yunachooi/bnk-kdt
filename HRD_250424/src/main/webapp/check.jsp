@@ -18,6 +18,7 @@
 	<%@include file="header.jsp" %>
 	<%@include file="nav.jsp" %>
 	<div class="section-wrapper">
+	<div class="center-wrapper">
 		<h1>회원목록조회/수정</h1>
 		<table border="1">
 			<thead>
@@ -38,6 +39,7 @@
 					<%}%>
 			</tbody>
 		</table>
+	</div>
 	</div>
 	<%@include file="footer.jsp" %>
 </body>

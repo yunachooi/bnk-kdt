@@ -22,7 +22,11 @@ a{
     text-decoration:none;
 }
 .section-wrapper{
-    	height: 669px;
+    height: 669px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
 }
 .footer-wrapper{
     background-color: #1d51b9;
@@ -36,4 +40,7 @@ a{
     	vertical-align: center;
     	color: #fff;
     	height: 100px;
+}
+.center-wrapper {
+    text-align: center;
 }

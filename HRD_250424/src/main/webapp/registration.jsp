@@ -12,11 +12,12 @@
 	<%@include file="header.jsp" %>
 	<%@include file="nav.jsp" %>
 	<div class="section-wrapper">
+	<div class="center-wrapper">
 		<h1>홈쇼핑 회원 등록</h1>
 		<form action="regist" method="POST">
 		<table border="1">
 			<tbody>
-				<tr><td>회원번호(자동발생)</td><td><input type="text" name="custno" value= ></td></tr>
+				<tr><td>회원번호</td><td><input type="text" name="custno"></td></tr>
 				<tr><td>회원성명</td><td><input type="text" name="custname" id="custname"></td></tr>
 				<tr><td>회원전화</td><td><input type="text" name="phone"></td></tr>
 				<tr><td>회원주소</td><td><input type="text" name="address"></td></tr>
@@ -44,6 +45,7 @@
 			</tbody>
 		</table>
 		</form>
+	</div>
 	</div>
 	<%@include file="footer.jsp" %>
 </body>

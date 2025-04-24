@@ -45,7 +45,7 @@ public class UpdateServlet extends HttpServlet {
 		}
 		
 		request.setAttribute("custno", custno);
-		response.sendRedirect("registration.jsp");
+		response.sendRedirect("check.jsp");
 	}
 
 }

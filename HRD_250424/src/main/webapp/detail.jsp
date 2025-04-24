@@ -20,6 +20,7 @@
 	<%@include file="header.jsp" %>
 	<%@include file="nav.jsp" %>
 	<div class="section-wrapper">
+	<div class="center-wrapper">
 		<h1>홈쇼핑 회원 정보 수정</h1>
 		<form action="update" method="POST">
 		<table border="1">
@@ -49,6 +50,7 @@
 			</tbody>
 		</table>
 		</form>
+	</div>
 	</div>
 	<%@include file="footer.jsp" %>
 </body>
