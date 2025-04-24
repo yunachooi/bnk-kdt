@@ -29,7 +29,7 @@ public class MemberDao {
 	public List<MemberVO> selectAll() throws ClassNotFoundException, SQLException {
 		List<MemberVO> list = new ArrayList<>();
 
-		String query = "SELECT * FROM t_member";
+		String query = "SELECT  FROM t_member";
 		pstmt = conn.prepareStatement(query);
 		rs = pstmt.executeQuery();
 
