@@ -24,4 +24,8 @@ hs_err_pid*
 replay_pid*
 
 .DS_Store
+<<<<<<< HEAD
 /build/
+=======
+/.metadata/
+>>>>>>> branch 'main' of https://github.com/yunachooi/bnk-kdt.git
