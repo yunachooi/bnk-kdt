@@ -1,4 +1,4 @@
-package vo;
+package chapter06;
 
 import lombok.Data;
 

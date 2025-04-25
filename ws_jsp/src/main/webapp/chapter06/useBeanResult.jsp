@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<jsp:useBean id="man" class="chapter06.vo.Man" />
+	<jsp:useBean id="man" class="chapter06.Man" />
 	<jsp:setProperty property="*" name="man" />
 	
 	이름 : <jsp:getProperty property="name" name="man" />

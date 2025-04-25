@@ -1,8 +1,8 @@
-<%@page import="chapter06.vo.Man"%>
+<%@page import="chapter06.Man"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
-	Man man = new Man();
+Man man = new Man();
 	man.setName("홍길동");
 	man.setAge(27);
 	man.setJob("개발자");
@@ -14,7 +14,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<jsp:useBean id="m" class="vo.Man" />
+	<jsp:useBean id="m" class="chapter06.Man" />
 	<jsp:setProperty property="name" name="m" value="홍길순" />
 	<jsp:setProperty property="age" name="m" value="32" />
 	<jsp:setProperty property="job" name="m" param="job" />

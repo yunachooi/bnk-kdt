@@ -16,7 +16,7 @@
 </c:set>
 <p>age : ${age }</p>
 <a href="jstlTest2.jsp">jstl 페이지 2로 가기</a>
-<c:set var="man" value="<%=new vo.Man() %>" />
+<c:set var="man" value="<%=new chapter06.Man()%>" />
 <c:set target="${man }" property="name" value="James" />
 <c:set target="${man }" property="age" value="33" />
 <c:set target="${man }" property="job" value="student" />
