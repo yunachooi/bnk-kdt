@@ -17,7 +17,6 @@ public class RegistrationServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		HttpSession session = request.getSession();
 		MemberVO m = new MemberVO();
 		MemberDAO member = new MemberDAO();
 		
@@ -44,7 +43,6 @@ public class RegistrationServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 		
-		request.setAttribute("custno", custno);
 		response.sendRedirect("registration.jsp");
 	}
 
