@@ -79,7 +79,7 @@ msg 정보(session) : %{sessionScope.msg }<hr />
 <c:import url="http://localhost:8090/ws_jsp/chapter06/header.jsp" var="data" />
 	${data }<hr />
 	
-<c:url value="/images/cat1.jpg" var="img" />
+<c:url value="images/cat1.jpg" var="img" />
 <h3>${img }</h3>
 <img src="${img }" width="200" height="150"><hr />
 
