@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-size: 30px;
+            text-align: center;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 40px;
+        }
+
+        .confrontation {
+            margin: 0 40px;
+        }
+
+        #comRSP,
+        #userRSP {
+            width: 300px;
+            height: 300px;
+        }
+
+        #com,
+        #user {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        #vs {
+            font-weight: bold;
+            margin: 0 20px;
+        }
+
+        .record {
+            margin-top: 40px;
+            padding: 10px 20px;
+            display: inline-block;
+            width: 1000px;
+            height: 100px;
+            align-items: center;
+            font-weight: bold;
+        }
+
+        .rsp {
+            width: 80px;
+            height: 80px;
+        }
+
+        #txt_c, #txt_u{
+            height: 30px;
+            color: red;
+            font-weight: bold;
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <h3>가위바위보 게임</h3>
+    <div class="btn">
+        <button onclick="f(1)" id="sissors"><img src="/chapter01/images/sissors.jpg" alt="sissors" class="rsp"></button>
+        <button onclick="f(2)" id="rock"><img src="/chapter01/images/rock.jpg" alt="rock" class="rsp"></button>
+        <button onclick="f(3)" id="paper"><img src="/chapter01/images/paper.jpg" alt="paper" class="rsp"></button>
+    </div>
+    <div class="container">
+        <div class="confrontation">
+            <div id="com">COM</div>
+            <img src="/chapter01/images/questionMark.jpg" alt="computer" id="comRSP">
+            <div id="txt_c"></div>
+        </div>
+        <div id="vs">VS</div>
+        <div class="confrontation">
+            <div id="user">USER</div>
+            <img src="/chapter01/images/questionMark.jpg" alt="user" id="userRSP">
+            <div id="txt_u"></div>
+        </div>
+    </div>
+
+    <div class="record">
+        무 : <span id="draw">0</span> 
+        승 : <span id="win">0</span> 
+        패 : <span id="lose">0</span> 
+    </div>
+    <script>
+        let draw = 0;
+        let win = 0;
+        let lose = 0;
+
+        function f(userNum) {
+            const rdNum = Math.floor(Math.random() * 3) + 1;
+            const txt = document.getElementById("txt");
+
+            //user가 낸 것
+            if (userNum == 1) {
+                document.getElementById('userRSP').src = "/chapter01/images/sissors.jpg";
+            } else if (userNum == 2) {
+                document.getElementById('userRSP').src = "/chapter01/images/rock.jpg";
+            } else {
+                document.getElementById('userRSP').src = "/chapter01/images/paper.jpg";
+            }
+
+            //computer가 낸 것
+            if (rdNum == 1) {
+                document.getElementById('comRSP').src = "/chapter01/images/sissors.jpg";
+            } else if (rdNum == 2) {
+                document.getElementById('comRSP').src = "/chapter01/images/rock.jpg";
+            } else {
+                document.getElementById('comRSP').src = "/chapter01/images/paper.jpg";
+            }
+
+            let result = rdNum - userNum;
+
+            //게임 결과
+            if (result == 0) {
+                txt_c.innerText = '무승부입니다.';
+                txt_u.innerText = '무승부입니다.';
+                draw++;
+                document.getElementById('draw').textContent = draw;
+            } else if (result == -1 || result == 2) {
+                txt_u.innerText = '이겼습니다.';
+                txt_c.innerText = '';
+                win++;
+                document.getElementById('win').textContent = win;
+            } else {
+                txt_u.innerText = '';
+                txt_c.innerText = '이겼습니다.';
+                lose++;
+                document.getElementById('lose').textContent = lose;
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //템플릿 문자열
+        let a = 5;
+        let b = 10;
+        console.log('a + b = ' + (a + b));
+        console.log(`a + b = ${a + b}`); //el 표기법, 자바 스트립트에서도 사용 가능(` backtick)
+
+        //랜덤 수
+        const rdNum = Math.random();
+        console.log(`rdNum = ${rdNum}`);
+
+        //1~10 사이의 랜덤 수
+        const rdNum1to10 = Math.floor(Math.random() * 10) + 1;
+        console.log(`rdNum1to10 = ${rdNum1to10}`);
+
+        //반복문
+        for(let i = 0; i < 10; i++){
+            console.log(i);
+        }
+        let cnt = 0;
+        while(cnt < 5){
+            console.log(cnt++);
+            if(cnt == 3) break;
+        }
+
+        //정수와 (정수)문자의 비교
+        console.log(100 == 100); //true
+        console.log(100 == '100'); //true
+        console.log(100 === '100'); //false (타입(자료형) 동일 시 true)
+
+        //하나 이상의 자료를 저장(객체 자료 저장 !배열)
+        const user = {no : 1, name : 'James'};
+        console.log(user['name']);
+        console.log(user.no);
+        console.log(user);
+
+        //배열
+        let fruit = ['apple', 'banana', 'cherry'];
+        console.log(fruit);
+        console.log(fruit[1]); //banana
+        console.log(fruit.length);
+
+        fruit.push('peach');
+        console.log(fruit);
+
+        fruit.unshift('melon'); //앞쪽에 추가
+        console.log(fruit);
+
+        fruit.pop();
+        console.log(fruit);
+
+        fruit.shift(); //앞쪽에 pop
+        console.log(fruit);
+    </script>
+</body>
+</html>

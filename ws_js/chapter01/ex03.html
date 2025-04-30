@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <input type="text" id="txt" value="A">
+        <button onclick="trans()" id="click">아스키코드로 변환하기</button>
+        <p id="ASCII">here</p>
+    </div>
+    <hr />
+    <div>
+        <input type="text" id="txt2" value="a">
+        <button onclick="check()" id="click2">시도하기</button>
+        <p id="result">***</p>
+    </div>
+    <hr />
+    <div>
+        <button onclick="alphabet(0)" id="A1">A</button>
+        <button onclick="alphabet(1)" id="B1">B</button>
+        <button onclick="alphabet(2)" id="C1">C</button>
+        <button onclick="alphabet(3)" id="D1">D</button>
+        <button onclick="alphabet(4)" id="E1">E</button>
+    </div>
+    <hr />
+    <div>
+        <button onclick="bomb(65)" id="1">A</button>
+        <button onclick="bomb(66)" id="2">B</button>
+        <button onclick="bomb(67)" id="3">C</button>
+        <button onclick="bomb(68)" id="4">D</button>
+        <button onclick="bomb(69)" id="5">E</button><br>
+        <button onclick="bomb(70)" id="6">F</button>
+        <button onclick="bomb(71)" id="7">G</button>
+        <button onclick="bomb(72)" id="8">H</button>
+        <button onclick="bomb(73)" id="9">I</button>
+        <button onclick="bomb(74)" id="10">J</button><br>
+        <button onclick="bomb(75)" id="11">K</button>
+        <button onclick="bomb(76)" id="12">L</button>
+        <button onclick="bomb(77)" id="13">M</button>
+        <button onclick="bomb(78)" id="14">N</button>
+        <button onclick="bomb(79)" id="15">O</button><br>
+        <button onclick="bomb(80)" id="16">P</button>
+        <button onclick="bomb(81)" id="17">Q</button>
+        <button onclick="bomb(82)" id="18">R</button>
+        <button onclick="bomb(83)" id="19">S</button>
+        <button onclick="bomb(84)" id="20">T</button><br>
+        <button onclick="bomb(85)" id="21">U</button>
+        <button onclick="bomb(86)" id="22">V</button>
+        <button onclick="bomb(87)" id="23">W</button>
+        <button onclick="bomb(88)" id="24">X</button>
+        <button onclick="bomb(89)" id="25">Y</button><br>
+        <button onclick="bomb(90)" id="26">Z</button>
+        <p id="result2"></p>
+    </div>
+
+    <script>
+        let str = 'Hello, World!';
+        console.log(str.includes('World'));
+
+        str = 'abcdef';
+        console.log(str.slice(2, 5));
+        console.log(str);
+
+        str = 'JavaScript';
+        console.log(str.toUpperCase());
+        console.log(str.toLowerCase());
+
+        str = 'I like apples';
+        console.log(str.replace('apples', 'bananas'));
+
+        str = 'red,green,blue';
+        let colors = str.split(',');
+        console.log(colors);
+
+        str = '   hello   ';
+        console.log(str.trim());
+
+        let numStr = '5';
+        console.log(numStr.padStart(3, '0'));
+        console.log(numStr.padEnd(3, '*'));
+
+        str = 'ABC';
+        console.log(str.charAt(1));
+        console.log(str.charCodeAt(1));
+
+        /* text 박스에 영문자 입력 후 버튼을 입력하면 p태그에 아스키 코드 값이 나오도록 설계 */
+        function trans() {
+            const text = document.getElementById("txt").value;
+            document.getElementById('ASCII').innerText = text.charCodeAt();
+        }
+
+        /* hangman 게임 */
+        const arr = ['*', '*', '*'];
+
+        function check() {
+            const myTxt = 'cat';
+            const text2 = document.getElementById("txt2").value;
+
+            for (let i = 0; i < myTxt.length; i++) {
+                if (myTxt.charAt(i) == text2) {
+                    arr[i] = text2;
+                }
+            }
+
+            document.getElementById('result').innerText = arr[0] + arr[1] + arr[2];
+        }
+
+        /* 버튼을 누르면 ASCII 코드 전환 */
+        function alphabet(Num){
+            const arr2 = ['A1', 'B1', 'C1', 'D1', 'E1'];
+
+            const text3 = document.getElementById(arr2[Num]).id;
+            const Ascii = text3.charCodeAt();
+            console.log(Ascii);
+            document.getElementById(arr2[Num]).innerText = Ascii;
+        }
+
+        /* 폭탄 찾기 게임 */
+        const rdNum = Math.floor(Math.random() * 26) + 65;
+
+        function bomb(Num){
+            if(Num == rdNum){
+                document.getElementById('result2').innerText = 'Boom!';
+            }
+            else{
+                document.getElementById('result2').innerText = '';
+            }
+        }
+
+    </script>
+</body>
+
+</html>

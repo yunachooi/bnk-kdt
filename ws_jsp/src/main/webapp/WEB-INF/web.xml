@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://jakarta.ee/xml/ns/jakartaee" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd" version="5.0">
+  <display-name>ws_jsp</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  
+  <context-param>
+  	<param-name>OracleDriver</param-name>
+  	<param-value>oracle.jdbc.driver.OracleDriver</param-value>
+  </context-param>
+   <context-param>
+  	<param-name>OracleUrl</param-name>
+  	<param-value>jdbc:oracle:thin:@localhost:1521:testdb</param-value>
+  </context-param>
+   <context-param>
+  	<param-name>OracleId</param-name>
+  	<param-value>green</param-value>
+  </context-param>
+   <context-param>
+  	<param-name>OraclePw</param-name>
+  	<param-value>1234</param-value>
+  </context-param>
+  
+</web-app>

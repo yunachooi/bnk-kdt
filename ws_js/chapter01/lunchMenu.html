@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css' rel='stylesheet' type='text/css'>
+    <title>점메추</title>
+    <style>
+        body {
+            font-family: 'Spoqa Han Sans Neo', sans-serif;
+            background-color: #fefefe;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+    
+        .container {
+            text-align: center;
+            padding: 40px;
+            border-radius: 20px;
+            background: #ffffff;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+    
+        h2 {
+            font-size: 2em;
+            color: #333;
+            margin-bottom: 20px;
+        }
+    
+        img {
+            width: 300px;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease-in-out;
+        }
+    
+        button {
+            margin-top: 20px;
+            padding: 12px 30px;
+            font-size: 1em;
+            background-color: #ff8c42;
+            color: white;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+    
+        button:hover {
+            background-color: #ff7b29;
+            transform: scale(1.05);
+        }
+    
+        button:active {
+            transform: scale(0.98);
+        }
+    </style>
+    
+</head>
+
+<body>
+    <div class="container">
+        <h2 id="h">오늘 점심 메뉴는...</h2>
+        <img src="/chapter01/images/questionMark.jpg" alt="점심 이미지" id="question">
+        <div><button onclick="f()" id="menu">점메추</button></div>
+    </div>
+
+    <script>
+        function f() {
+            const menuImages = [
+                "/chapter01/images/김밥.jpg",
+                "/chapter01/images/냉면.jpg",
+                "/chapter01/images/돈가스.jpg",
+                "/chapter01/images/떡볶이.jpg",
+                "/chapter01/images/마라탕.jpg",
+                "/chapter01/images/비빔밥.jpg",
+                "/chapter01/images/샌드위치.jpg",
+                "/chapter01/images/샐러드.jpg",
+                "/chapter01/images/샤브샤브.jpg",
+                "/chapter01/images/쌀국수.jpg"
+            ];
+
+            const rdNum = Math.floor(Math.random() * 10) ;
+            document.getElementById('question').src = menuImages[rdNum];
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #fdfbfb, #ebedee);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background: #ffffff;
+            width: 500px;
+            height: 200px;
+            padding: 30px 40px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h2 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+
+        #subject2,
+        #object2,
+        #predicate2 {
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: #5a5a5a;
+        }
+
+        button#make {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 1rem;
+            background-color: #ff8a65;
+            border: none;
+            border-radius: 10px;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button#make:hover {
+            background-color: #ff7043;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="container">
+        <h2>랜덤 문자열 생성기</h2>
+        <span id="subject2">랜덤으로</span> <span id="object2"> 문자열을 </span> <span id="predicate2">생성해요</span><br />
+        <button onclick="f()" id="make">생성하기</button>
+    </div>
+    <script>
+
+        function f() {
+            const subject = ['광화문에서', '버스정류장에서', '술집에서', '엘리베이터에서', '영화관에서', '예쁜 공원에서', '우리집에서',
+                '좋은 레스토랑에서', '지하철에서', '크리스마스트리 앞에서', '파리(Paris)에서', '편의점에서', '화장실에서', '회사에서'];
+            const object = [' 캐롤을 들으며 ', ' 저세상 텐션으로 ', ' 운좋게 ', ' 애절하게 ', ' 아무도 모르게 ', ' 소떡소떡을 먹으며 ',
+                ' 셀카 찍으면서 ', ' 산타복장을 하고 ', ' 사랑스럽게 ', ' 미친듯이 ', ' 말없이 ', ' 당당하게 ', ' 눈치없이 ', ' 기쁘게 '];
+            const predicate = ['국밥을 먹는다', '넘어진다', '노래를 부른다', '다리에 쥐가 난다', '데이트 한다', '로또에 당첨된다', '뽀뽀를 한다',
+                '사랑에 빠진다', '새벽 출근을 한다', '소주를 마신다', '영어공부를 한다', '집으로 다시 돌아간다', '폭풍 오열한다', '헤어진다'];
+
+            const rdNum1 = Math.floor(Math.random() * subject.length);
+            const rdNum2 = Math.floor(Math.random() * object.length);
+            const rdNum3 = Math.floor(Math.random() * predicate.length);
+
+            document.getElementById('subject2').innerText = subject[rdNum1];
+            document.getElementById('object2').innerText = object[rdNum2];
+            document.getElementById('predicate2').innerText = predicate[rdNum3];
+        }
+    </script>
+</body>
+
+</html>

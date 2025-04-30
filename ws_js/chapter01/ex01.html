@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #demo{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <!--
+    - 변수 선언 방법
+    1. var : 함수형 스코프로 함수 안에서 유효
+    2. let : 블록형 스코프로 블록 안에서 유효
+    - 호이스팅(Hoisting) : 변수의 선언문이나 함수의 정의문은 코드의 상단으로 끌어올림
+    -->
+
+    <h1>Test</h1>
+    <p id="demo">여기에 써집니다..</p>
+    <button onclick="f()">실행</button><hr />
+
+    <input type="text" id="txt" value="-----">
+    <button onclick="f2()">f2함수 실행</button>
+
+    <script>
+
+
+
+        const txt = document.getElementById("txt");
+
+        function f(){
+            const demo = document.querySelector("#demo");
+            demo.innerHTML = '<h1>xyz</h1>';
+        }
+
+        function f2(){
+            txt.value = demo.innerText;
+        }
+    </script>
+</body>
+</html>
