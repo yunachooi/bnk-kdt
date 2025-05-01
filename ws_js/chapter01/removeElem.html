@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="container">
+        <hr />
+        <h1>제거할 엘리먼트</h1>
+        <hr />
+    </div>
+
+    <script>
+        const container = document.querySelector('#container');
+        const h1 = document.querySelector('h1');
+
+        setTimeout(function(){
+            container.removeChild(h1);
+        }, 2000); //setTimeout(함수, 시간(ms, 초));
+
+        setTimeout(() => {
+            container.removeChild(h1);
+        }, 2000); //java : 람다식, js : 화살표함수
+    </script>
+</body>
+</html>

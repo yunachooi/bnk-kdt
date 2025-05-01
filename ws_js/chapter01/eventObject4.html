@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #outer{
+            border: 1px solid black;
+            width: 300px;
+            height: 300px;
+            line-height: 50px;
+            background-color: pink;
+            margin: 3px;
+        }
+        #middle{
+            border: 1px solid black;
+            width: 200px;
+            height: 200px;
+            background-color: yellow;
+            margin: 3px;
+        }
+        #inner{
+            border: 1px solid black;
+            width: 100px;
+            height: 100px;
+            background-color: greenyellow;
+            margin: 3px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="outer">
+        <div id="middle">
+            <div id="inner">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const inner = document.getElementById("inner");
+        const middle = document.getElementById("middle");
+        const outer = document.getElementById("outer");
+
+        outer.addEventListener('click', function(event){
+            console.log(event.currentTarget.id);
+        }, true);
+        middle.addEventListener('click', function(event){
+            console.log(event.currentTarget.id);
+        }, true);
+        inner.addEventListener('click', function(event){
+            console.log(event.currentTarget.id);
+        }, true);
+    </script>
+</body>
+
+</html>

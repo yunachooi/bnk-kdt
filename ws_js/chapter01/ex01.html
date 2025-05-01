@@ -15,28 +15,47 @@
     - 변수 선언 방법
     1. var : 함수형 스코프로 함수 안에서 유효
     2. let : 블록형 스코프로 블록 안에서 유효
-    - 호이스팅(Hoisting) : 변수의 선언문이나 함수의 정의문은 코드의 상단으로 끌어올림
-    -->
+    !-->
 
     <h1>Test</h1>
     <p id="demo">여기에 써집니다..</p>
-    <button onclick="f()">실행</button><hr />
+    <button onclick="f4()">실행</button><hr />
 
     <input type="text" id="txt" value="-----">
-    <button onclick="f2()">f2함수 실행</button>
+    <button onclick="f5()">f4함수 실행</button>
 
     <script>
+        /*호이스팅(Hoisting) : 변수의 선언문이나 함수의 정의문은 코드의 상단으로 끌어올림*/
+        f();
+        function f(){
+            alert('f함수...');
+        }
 
+        /*함수(대입연산자 사용 여부로 판단됨)는 return 후에 값으로 변환 즉, void 함수는 값이 없으므로 대입을 할 수 없음*/
+        function f2(){
+            return 10;
+        }
+        let result = f2();
+        console.log(result);
 
+        function f3(a){
+            return a - 3;
+        }
+        let result2 = f3(); //매개변수를 선언하지 않았기에 오류 발생
+        console.log(result2); //result : NaN
 
+        let result3 = f3(10);
+        console.log(result3); //7이라는 결과 도출
+
+        /*식별하는 방법*/
         const txt = document.getElementById("txt");
 
-        function f(){
+        function f4(){
             const demo = document.querySelector("#demo");
             demo.innerHTML = '<h1>xyz</h1>';
         }
 
-        function f2(){
+        function f5(){
             txt.value = demo.innerText;
         }
     </script>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .row {
+            display: flex;
+        }
+
+        [class^="item"] {
+            border: 1px solid black;
+            width: 100px;
+            height: 100px;
+            text-align: center;
+            line-height: 100px;
+            background-color: lightgray;
+            font-size: 2rem;
+            margin: 3px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container" onclick="f(event)"></div>
+
+    <script>
+        /*이벤트버블링(기본) - 부모 요소의 이벤트도 같이 발생되는 이벤트 전파*/
+        /*이벤트캡처링 - 부모 요소의 이벤트가 자식 요소의 이벤트도 같이 발생하는 이벤트 전파 */
+
+        const container = document.querySelector('#container');
+
+        let row = null;
+
+        for (let i = 0; i < 10; i++) {
+            if (i % 3 === 0) {
+                row = document.createElement('div');
+                row.setAttribute('class', 'row');
+                container.appendChild(row);
+            }
+
+            const div = document.createElement('div');
+            div.setAttribute('class', 'item');
+            div.setAttribute('id', 'item' + (i + 1));
+            div.textContent = i;
+
+            row.appendChild(div);
+        }
+
+        function f(event) {
+            console.log(event.target.id);
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #item{
+            border: 1px solid black;
+            width: 100px;
+            height: 100px;
+            text-align: center;
+            line-height: 100px;
+            background-color: palevioletred;
+            font-size: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <h1>Event 객체</h1><hr />
+    <div id="item" onclick="f(event)">1</div>
+
+    <script>
+        /*이벤트 객체를 사용할 것을 명시*/
+        function f(event){ 
+            console.log(event.target); //이벤트가 발생한 요소 출력
+            console.log(event.target.id); //id 속성의 값 출력 > item
+            console.log(event.target.innerText); // 1
+            console.log(event.target.tagName); // DIV
+
+            const targetTagName = event.target.tagName;
+            if(targetTagName == 'DIV'){
+                console.log('div 태그 입니다.');
+            } else {
+                console.log('div 태그가 아닙니다.');
+            }
+        }
+    </script>
+</body>
+</html>
