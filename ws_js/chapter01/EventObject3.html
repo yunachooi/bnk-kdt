@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #outer{
+            border: 1px solid black;
+            width: 300px;
+            height: 300px;
+            line-height: 50px;
+            background-color: pink;
+            margin: 3px;
+        }
+        #middle{
+            border: 1px solid black;
+            width: 200px;
+            height: 200px;
+            background-color: yellow;
+            margin: 3px;
+        }
+        #inner{
+            border: 1px solid black;
+            width: 100px;
+            height: 100px;
+            background-color: greenyellow;
+            margin: 3px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="outer">
+        outer
+        <div id="middle">
+            middle
+            <div id="inner">
+                inner
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const inner = document.getElementById("inner");
+        const middle = document.getElementById("inner");
+        const outer = document.getElementById("outer");
+
+        outer.addEventListener('click', f);
+
+        function f(event) {
+            console.log('이벤트가 발생한 곳 : ' + event.target.id);
+            console.log('이벤트를 처리하는 곳 : ' + event.currentTarget.id);
+        }
+    </script>
+</body>
+
+</html>
