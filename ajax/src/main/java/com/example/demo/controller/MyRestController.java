@@ -3,6 +3,7 @@ package com.example.demo.controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -45,34 +46,41 @@ public class MyRestController {
 	public String req3(@RequestParam("param") String param) {
 		System.out.println("req3..." + param);
 		
-		return "Good!";
+		return "req3.Good!";
 	}
 	
 	@GetMapping("/req4/{name}/{age}")
 	public String req4(@PathVariable("name") String name, @PathVariable("age") int age) {
 		System.out.println("req4..." + name + "..." + age);
 		
-		return "Good!";
+		return "req4.Good!";
 	}
 	
 	@GetMapping("/req5")
 	public String req5(User user) {
 		System.out.println("req5..." + user);
 		
-		return "Good!";
+		return "req5.Good!";
 	}
 	
 	@PostMapping("/req6")
 	public String req6(@RequestParam("name") String name, @RequestParam("age") int age) {
 		System.out.println("req6..." + name + "..." + age);
 		
-		return "Good!";
+		return "req6.Good!";
 	}
 	
 	@PostMapping("/req7")
 	public String req7(User user) {
 		System.out.println("req7..." + user);
 		
-		return "Good!";
+		return "req7.Good!";
+	}
+	
+	@PostMapping("/req8")
+	public String req8(@RequestBody User user) {
+		System.out.println("req8..." + user);
+		
+		return "req8.Good!";
 	}
 }

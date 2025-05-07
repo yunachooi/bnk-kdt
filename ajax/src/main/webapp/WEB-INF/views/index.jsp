@@ -41,9 +41,13 @@
 	<button onclick="regData()">6. Ajax Post 요청</button><br />
 	<div id="demo6"></div><hr />
 	
-	<h4>7. Ajax Post 요청2</h4>
+	<h4>7. Ajax Post 요청2(커맨드객체 사용)</h4>
 	<button onclick="regData2()">7. Ajax Post 요청2</button><br />
 	<div id="demo7"></div><hr />
+	
+	<h4>8. Ajax Post 요청3(JSON 데이터 전송)</h4>
+	<button onclick="regData3()">8. Ajax Post 요청3</button><br />
+	<div id="demo8"></div><hr />
 	
 	<script>
 		const demo2_1 = document.getElementById("demo2_1");
@@ -53,6 +57,7 @@
 		const demo5 = document.getElementById("demo5");
 		const demo6 = document.getElementById("demo6");
 		const demo7 = document.getElementById("demo7");
+		const demo8 = document.getElementById("demo8");
 		
 		/*1. Ajax Get 요청*/
 		function getData(){
@@ -128,7 +133,7 @@
 			xhr.send('name=Jackson&age=29');
 		}
 		
-		/*7. Ajax Post 요청2*/
+		/*7. Ajax Post 요청2(커멘드객체 사용)*/
 		function regData2(){
 			const xhr = new XMLHttpRequest();
 			xhr.onload = function(){
@@ -139,6 +144,23 @@
 			xhr.send('name=Jackson&age=29');
 		}
 		
+		/*8. Ajax Post 요청3(JSON 데이터 전송)*/
+		function regData3(){
+			const obj = {
+					name : 'Hong',
+					age : 33
+			}
+			
+			const jsonStr = JSON.stringify(obj);
+			
+			const xhr = new XMLHttpRequest();
+			xhr.onload = function(){
+				demo8.innerHTML = xhr.responseText;
+			}
+			xhr.open('POST', 'req8');
+			xhr.setRequestHeader("Content-Type", "application/json");
+			xhr.send(jsonStr);
+		}
 	</script>
 </body>
 </html>
