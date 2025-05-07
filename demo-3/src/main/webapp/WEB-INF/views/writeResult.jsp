@@ -7,11 +7,13 @@
 <title>Insert title here</title>
 </head>
 <body>
+<h1>회원가입 성공</h1><hr />
 
-	<h1>Index Page</h1><hr/>
-	
-	<a href="/list">회원정보 페이지로 이동</a> <br>
-	<a href="/viewMember">회원 ccc 정보 열람</a> <br>
-	<a href="/writeForm">회원 등록</a>
+id: ${member.id } <br />
+name: ${member.name }<br />
+phone: ${member.phone }<br />
+grade: ${member.grade }<hr />
+
+<a href="/">Index Page 바로가기</a>
 </body>
 </html>

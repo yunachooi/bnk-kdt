@@ -7,17 +7,17 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
-import com.example.demo.dto.MemberDTO;
+import com.example.demo.DTO.MemberDTO;
 
-@Repository // 인스턴스 자동 연결, Spring 프레임워크에서 관리
+@Repository
 public class MemberDAO {
-	
-	@Autowired // JDBC API 쿼리 실행 시 자동으로 리스트에 생성(Controller가 DAO를 참조)
+	@Autowired
 	private JdbcTemplate jt;
 	
-	/*INSERT*/
-	public int writeMember(MemberDTO member) {
+	/*회원등록*/
+	public int writerMember(MemberDTO member) {
 		String query = "INSERT INTO tbl_member VALUES(?, ?, ?, ?, ?)";
+		
 		int result = jt.update(query,
 				member.getId(),
 				member.getPw(),
@@ -25,43 +25,46 @@ public class MemberDAO {
 				member.getPhone(),
 				member.getGrade());
 		
-		return result;		
+		return result;
 	}
 	
-	/*SELECT-하나의 데이터 조회*/
+	/*특정 회원 자료 조회*/
 	public MemberDTO viewMember(String id) {
 		String query = "SELECT * FROM tbl_member WHERE id = ?";
-		MemberDTO member =jt.queryForObject(query, //queryForObject: 단 하나의 행 데이터 추출, 타입을 지정해주기 위함
-				new BeanPropertyRowMapper<MemberDTO>(MemberDTO.class), id);
 		
-		return member ;
+		MemberDTO member = jt.queryForObject(query,
+					new BeanPropertyRowMapper<>(MemberDTO.class),
+					id);
+		// 하나의 데이터만 추출
+		
+		return member;
 	}
 	
-	/*SELECT-전체 데이터 조회*/
-	public List<MemberDTO> list() {
+	/*전체 자료 조회*/
+	public List<MemberDTO> list(){
 		String query = "SELECT * FROM tbl_member";
-		List<MemberDTO> list = jt.query(query, //목록 데이터 얻을 때
-				new BeanPropertyRowMapper<MemberDTO>(MemberDTO.class));
+		
+		List<MemberDTO> list = jt.query(query, new BeanPropertyRowMapper<MemberDTO>(MemberDTO.class));
+		/* while문으로 나오는 memberDTO 타입의 자료형을 리스트에 넣는다.(1개 이상의 데이터)*/
 		
 		return list;
-	}
-	
-	/*UPDATE*/
-	public int updateMember(MemberDTO member) {
-		String query = "UPDATE tbl_member SET pw = ?, name = ?, phone =?, grade = ? WHERE id =?";
-		int result = jt.update(query,
-				member.getPw(),
-				member.getName(),
-				member.getPhone(),
-				member.getGrade(),
-				member.getId());
+	}	
+
+	/*id 정보로 자료 조회*/
+	public MemberDTO detail(String id) {
+		String query = "SELECT * FROM tbl_member WHERE id = ?";
 		
-		return result ; 
+		MemberDTO member = jt.queryForObject(query,
+				new BeanPropertyRowMapper<>(MemberDTO.class),
+				id);
+		
+		return member;
 	}
 	
-	/*DElETE*/
-	public int deleteMember(String id) {
+	/*회원탈퇴*/
+	public int remove(String id) {	
 		String query = "DELETE FROM tbl_member WHERE id = ?";
+		
 		int result = jt.update(query, id);
 		
 		return result;

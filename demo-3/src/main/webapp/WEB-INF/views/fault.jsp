@@ -7,11 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-
-	<h1>Index Page</h1><hr/>
-	
-	<a href="/list">회원정보 페이지로 이동</a> <br>
-	<a href="/viewMember">회원 ccc 정보 열람</a> <br>
-	<a href="/writeForm">회원 등록</a>
+<h1>실패 페이지</h1>
+<h1>오류가 발생하였습니다. Index Page로 이동하세요.</h1><hr />
+<a href="/">Index Page 바로가기</a>
 </body>
 </html>

@@ -7,23 +7,20 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>Detail Page</h1><hr />
-	
+	<h1>회원정보조회</h1><hr />
 	<table border="1">
 		<thead>
-			<tr>id</th><th>pw</th><th>name</th><th>phone</th><th>grade</th></tr>
+			<tr><th>id</th><th>name</th><th>phone</th></tr>
 		</thead>
 		<tbody>
 			<tr>
-				<td>${member.id }</td>
-				<td>${member.pw }</td>
-				<td>${member.name }</td>
-				<td>${member.phone }</td>
-				<td>${member.grade }</td>
+				<td>${member1.id }</td>
+				<td>${member1.name }</td>
+				<td>${member1.phone }</td>
 			</tr>
 		</tbody>
 	</table><hr />
 	
 	<a href="/">Index Page 바로가기</a>
 </body>
-</html></html>
+</html>
