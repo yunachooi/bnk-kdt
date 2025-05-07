@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>비동기식 함수 실행 순서 테스트</h1>
+    <!--
+    동기 함수란, 순차적인 진행(like 계주, 수박 옮기기)
+    비동기 함수란, 실행권을 가질 때 순서를 넘김, 흐름에서 제외됨
+    인수: 매개변수에 할당되는 값
+    실인수: 함수를 호출할 때 넘겨주는 인자로, 실제로 넘겨주는 값
+    CallBack함수: 함수는 어떤 함수의 매개변수(파라미터)로 선언될 수 있음(대부분의 경우 =>로 전환가능)
+    -->
+    <script>
+        console.log("1");
+        setTimeout(() => {
+            console.log("2");
+        }, 2000);
+        console.log("3");
+        console.log("4");
+    </script>
+</body>
+</html>
