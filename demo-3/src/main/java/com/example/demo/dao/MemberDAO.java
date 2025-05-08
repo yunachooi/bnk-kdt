@@ -7,7 +7,7 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
-import com.example.demo.DTO.MemberDTO;
+import com.example.demo.dto.MemberDTO;
 
 @Repository
 public class MemberDAO {
