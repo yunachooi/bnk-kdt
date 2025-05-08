@@ -14,6 +14,5 @@ name: ${member.name }<br />
 phone: ${member.phone }<br />
 grade: ${member.grade }<hr />
 
-<a href="/">Index Page 바로가기</a>
 </body>
 </html>

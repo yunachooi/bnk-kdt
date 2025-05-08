@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>List Page</h1><hr />
+	<h1>회원정보</h1><hr />
 	
 	<table border="1">
 		<thead>

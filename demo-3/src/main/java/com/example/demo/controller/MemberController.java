@@ -22,41 +22,23 @@ public class MemberController {
 	
 	@RequestMapping("/")
 	public String root() {
-		System.out.println("root..........");
+		System.out.println("root...");
 		return "index";
 	}
 	
-	/*list page로 연결*/
 	@GetMapping("/list")
-	public String list(Model model) {
-		System.out.println("list...");
-		
-		List<MemberDTO> list = memberDao.list();
-		model.addAttribute("list", list);
-		
-		return "list";
+	@ResponseBody
+	public List<MemberDTO> getMemberList() {
+	    return memberDao.list();
 	}
-	
+
+
 	/*id를 클릭하여 상세 조회*/
 	@GetMapping("/detail")
-	public String detail(@RequestParam("id")String id, Model model) {
-		System.out.println("detail...");
-		
-		MemberDTO member = memberDao.detail(id);
-		model.addAttribute("member", member);
-		
-		return "detail";
-	}
-	
-	/* ccc인 사람 정보 보여주기 */
-	@GetMapping("/viewMember")
-	public String viewMember(Model model) {
-		System.out.println("view member...");
-		
-		MemberDTO member1 = memberDao.viewMember("ccc");
-		model.addAttribute("member1", member1);
-		
-		return "viewMember";
+	@ResponseBody
+	public MemberDTO detail(@RequestParam("id") String id) {
+	    System.out.println("detail...");
+	    return memberDao.detail(id);
 	}
 	
 	/*회원등록 페이지로 연결*/
@@ -77,23 +59,20 @@ public class MemberController {
 		
 		int result = memberDao.writerMember(memberDTO);
 		
-		if(result == 1)
-			return "registResult";
-		else
-			return "fault";
+		return "index";
 	}
 	
 	/*회원탈퇴*/
 	@GetMapping("/remove")
-	public String remove(@RequestParam("id") String id) {
+	public @ResponseBody String remove(@RequestParam("id") String id) {
 		System.out.print("remove...");
 		
 		int result = memberDao.remove(id);
 		
 		if(result == 1)
-			return "index";
+			return "1";
 		else
-			return "fault";
+			return "0";
 	}
 	
 	/*아이디 중복 검사*/

@@ -13,11 +13,11 @@
 		<input type="text" name="id" id="id" placeholder="Input id">
 		<button type="button" onclick="idCheck()">중복확인</button><br />
 		<div id="demo">아이디 중복 검사를 진행하세요.</div>
-		<input type="text" id="hid" value="0"><br />
-		<input type="password" id="pw1" oninput="pwCheck()" placeholder="Input pw"><br />
+		<input type="hidden" id="hid" value="0"><br />
+		<input type="password" name="pw" id="pw1" oninput="pwCheck()" placeholder="Input pw"><br />
 		<input type="password" id="pw2" oninput="pwCheck()" placeholder="Check pw"><br />
 		<div id="demo2">비밀번호가 불일치 합니다.</div>
-		<input type="text" id="hpw" value="0"><br />
+		<input type="hidden" id="hpw" value="0"><br />
 		<input type="text" name="name" placeholder="Input name"><br />
 		<input type="text" name="phone" placeholder="Input phone"><br />
 		<button type="submit">회원등록</button>

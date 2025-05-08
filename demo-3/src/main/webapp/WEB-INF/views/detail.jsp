@@ -11,7 +11,7 @@
 	
 	<table border="1">
 		<thead>
-			<tr>id</th><th>pw</th><th>name</th><th>phone</th><th>grade</th></tr>
+			<tr><th>id</th><th>pw</th><th>name</th><th>phone</th><th>grade</th></tr>
 		</thead>
 		<tbody>
 			<tr>
