@@ -10,8 +10,7 @@
 
 	<h1>Index Page</h1><hr/>
 	
-	<a href="/list">회원정보 페이지로 이동</a> <br>
-	<a href="/viewMember">회원 ccc 정보 열람</a> <br>
-	<a href="/writeForm">회원 등록</a>
+	<a href="/list">회원정보 페이지로 이동</a><br/>
+	<a href="/registForm">회원 등록</a>
 </body>
 </html>

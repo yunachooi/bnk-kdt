@@ -24,6 +24,7 @@ repositories {
 }
 
 dependencies {
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 	implementation 'org.apache.tomcat.embed:tomcat-embed-jasper'
 	implementation 'jakarta.servlet:jakarta.servlet-api'
 	implementation 'jakarta.servlet.jsp.jstl:jakarta.servlet.jsp.jstl-api'

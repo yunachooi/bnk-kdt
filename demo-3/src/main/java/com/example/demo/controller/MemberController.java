@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.example.demo.dao.MemberDAO;
 import com.example.demo.dto.MemberDTO;
@@ -59,17 +60,17 @@ public class MemberController {
 	}
 	
 	/*회원등록 페이지로 연결*/
-	@GetMapping("/writeForm")
-	public String writeForm() {
-		System.out.println("write form...");
+	@GetMapping("/registForm")
+	public String registForm() {
+		System.out.println("regist Form...");
 		
-		return "writeForm";
+		return "registForm";
 	}
 	
 	/*회원등록 후 DB 처리*/
 	@PostMapping("/writeMember")
 	public String writeMember(MemberDTO memberDTO, Model model) {
-		System.out.println("write to db...");
+		System.out.println("registResult...");
 		
 		memberDTO.setGrade("B");
 		model.addAttribute("member", memberDTO);
@@ -77,14 +78,14 @@ public class MemberController {
 		int result = memberDao.writerMember(memberDTO);
 		
 		if(result == 1)
-			return "writeResult";
+			return "registResult";
 		else
 			return "fault";
 	}
 	
 	/*회원탈퇴*/
 	@GetMapping("/remove")
-	public String remove(@RequestParam("id")String id) {
+	public String remove(@RequestParam("id") String id) {
 		System.out.print("remove...");
 		
 		int result = memberDao.remove(id);
@@ -93,6 +94,20 @@ public class MemberController {
 			return "index";
 		else
 			return "fault";
+	}
+	
+	/*아이디 중복 검사*/
+	@PostMapping("/idCheck")
+	public @ResponseBody String idCheck(@RequestParam("id") String id) {
+		System.out.println("idCheck..." + id);
+		
+		int result = memberDao.idCheck(id);
+		
+		if(result == 1) {
+			return "중복된 아이디입니다.";
+		} else {
+			return "사용가능한 아이디입니다.";
+		}
 	}
 	
 }

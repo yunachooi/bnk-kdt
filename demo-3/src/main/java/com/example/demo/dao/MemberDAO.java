@@ -3,6 +3,7 @@ package com.example.demo.dao;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
@@ -34,8 +35,7 @@ public class MemberDAO {
 		
 		MemberDTO member = jt.queryForObject(query,
 					new BeanPropertyRowMapper<>(MemberDTO.class),
-					id);
-		// 하나의 데이터만 추출
+					id); // 하나의 데이터만 추출
 		
 		return member;
 	}
@@ -69,4 +69,18 @@ public class MemberDAO {
 		
 		return result;
 	}
+	
+	/*아이디 중복 확인*/
+	public int idCheck(String id) {
+	    String query = "SELECT id FROM tbl_member WHERE id = ?";
+	    
+	    try {
+	        jt.queryForObject(query, String.class, id);
+	        return 1;
+	        
+	    } catch (EmptyResultDataAccessException e) {
+	        return 0;
+	    }
+	}
+
 }

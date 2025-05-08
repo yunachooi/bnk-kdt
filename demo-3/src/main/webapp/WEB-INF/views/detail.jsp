@@ -24,6 +24,5 @@
 		</tbody>
 	</table><hr />
 	
-	<a href="/">Index Page 바로가기</a>
 </body>
 </html></html>
