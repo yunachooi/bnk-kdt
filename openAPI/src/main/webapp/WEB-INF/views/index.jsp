@@ -14,7 +14,8 @@
 </head>
 <body>
 	<h1>경상남도_자주찾는 문화재</h1>
-	<button onclick="viewAll()">문화재 전체 조회</button>
+	<button onclick="viewAll()">문화재 전체 조회</button><br />
+	<button onclick="beforePage()">이전페이지</button>
 	<button onclick="nextPage()">다음페이지</button>
 	<div id="msg"></div>
 	
@@ -50,6 +51,11 @@
 		
 		function nextPage(){
 			page++;
+			viewAll();
+		}
+		
+		function beforePage(){
+			page--;
 			viewAll();
 		}
 	</script>
