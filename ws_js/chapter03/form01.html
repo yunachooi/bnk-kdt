@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="sendData()">formData 전송</button>
+    <button onclick="sendData1()">formData 전송1</button>
+    <button onclick="sendData2()">JsonData 전송</button>
+
+    <form id="frm">
+        name: <input type="text" name="name"><br />
+        age: <input type="text" name="age"><br />
+        role: <input type="text" name="role"><br />
+    </form>
+
+    <script>
+        function sendData(){
+            const form = new FormData();
+            form.append('name', '홍길동');
+            form.append('age', 30);
+            form.append('role', 'MEMBER');
+
+            //Promise 객체: 비동기 작업의 성공 또는 실패 결과에 따라 .then(), .catch(), .finally()로 후속 처리를 연결할 수 있는 객체
+            fetch('http://localhost:8090/member', {
+                method: 'post',
+                body: form
+            })
+            .then(response => response.text())
+            .then(data => console.log(data))
+            .catch(error => console.error('Error', error));
+
+            /*
+            const xhr = new XMLHttpRequest();
+            xhr.onload = () =>{
+                console.log(xhr.responseText);
+            }
+            xhr.open('POST', 'http://localhost:8090/member');
+            xhr.send(form);
+            */
+        }
+
+        function sendData1(){
+            const frm = document.getElementById('frm');
+            const formData = new FormData(frm);
+
+            const xhr = new XMLHttpRequest();
+            xhr.onload = () =>{
+                console.log(xhr.responseText);
+            }
+            xhr.open('POST', 'http://localhost:8090/member');
+            xhr.send(formData);
+        }
+
+        function sendData2(){
+            const member = {
+                name : 'Benjamin',
+                age : 52,
+                role: 'teacher'
+            }
+
+            fetch('http://localhost:8090/member2', {
+                method: 'POST',
+                headers: { // 메타정보(요청의 형식을 나타냄)
+                    'Content-Type': 'application/json' // 대소문자 정확히!
+                },
+                body: JSON.stringify(member) // 전송할 실제 데이터 (JavaScript 객체 → JSON 문자열로 변환)
+            }) 
+            .then(response => response.text()) // 서버 응답의 body를 텍스트 형태로 반환 (비동기 처리)
+            .then(data => console.log(data)) // 위에서 받은 데이터를 출력 (이 또한 비동기 처리의 일환)
+            .catch(error => console.error('Error', error)); // 오류 발생 시 콘솔에 출력
+
+            /*
+            const xhr = new XMLHttpRequest();
+            xhr.onload = () =>{
+                console.log(xhr.responseText);
+            }
+            xhr.open('POST', "http://localhost:8090/member2");
+            xhr.setRequestHeader('Content-type', 'application/json')
+            xhr.send(JSON.stringify(member));
+            */
+        }
+
+        const promise = new Promise((resolve, reject) => {
+            resolveFn = resolve;
+
+            setTimeout(() =>{
+                resolve('success');
+            }, 2000);
+        });
+
+        console.log(promise);
+        setTimeout(() =>{
+            console.log(promise);
+        }, 3000);
+
+    </script>
+</body>
+</html>

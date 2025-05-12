@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .bold{
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Let AJAX change this text</h2>
+    <div id="demo">
+        <button type="button" onclick="loadDoc()">Change Content</button>
+    </div><br />
+    <div id="demo2"></div>
+
+    <script>
+        function loadDoc() {
+            const xhttp = new XMLHttpRequest();
+            xhttp.onload = function () {
+                let obj = JSON.parse(this.responseText);
+                document.getElementById("demo2").innerHTML = 
+                "<table border='1'>" + 
+                "<tbody>" + 
+                "<tr><td class='bold'>id</td><td>" + obj.id + "</td></tr>" + 
+                "<tr><td class='bold'>name</td><td>" + obj.name + "</td></tr>" + 
+                "<tr><td class='bold'>username</td><td>" + obj.username + "</td></tr>" + 
+                "<tr><td class='bold'>email</td><td>" + obj.email + "</td></tr>" + 
+                "<tr><td class='bold'>address</td><td>" + obj.address.street + " " + obj.address.suite + " " + obj.address.city + "</td></tr>" + 
+                "<tr><td class='bold'>phone</td><td>" + obj.phone + "</td></tr>" + 
+                "<tr><td class='bold'>website</td><td>" + obj.website + "</td></tr>" + 
+                "<tr><td class='bold'>company</td><td>" + obj.company.name + "<br />" + obj.company.catchPhrase + "<br />" + obj.company.bs + "</td></tr>" + 
+                "</tbody></table>";
+            }
+
+            xhttp.open("GET", "https://jsonplaceholder.typicode.com/users/1", true);
+            xhttp.send();
+        }
+    </script>
+</body>
+
+</html>
