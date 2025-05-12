@@ -63,14 +63,14 @@
 
             fetch('http://localhost:8090/member2', {
                 method: 'POST',
-                headers: {
-                    'Content-type': 'application/json'
+                headers: { // 메타정보(요청의 형식을 나타냄)
+                    'Content-Type': 'application/json' // 대소문자 정확히!
                 },
-                body: JSON.stringify(member)
-            })
-            .then(response => response.text())
-            .then(data => console.log(data))
-            .catch(error => console.error('Error', error));
+                body: JSON.stringify(member) // 전송할 실제 데이터 (JavaScript 객체 → JSON 문자열로 변환)
+            }) 
+            .then(response => response.text()) // 서버 응답의 body를 텍스트 형태로 반환 (비동기 처리)
+            .then(data => console.log(data)) // 위에서 받은 데이터를 출력 (이 또한 비동기 처리의 일환)
+            .catch(error => console.error('Error', error)); // 오류 발생 시 콘솔에 출력
 
             /*
             const xhr = new XMLHttpRequest();
@@ -82,6 +82,20 @@
             xhr.send(JSON.stringify(member));
             */
         }
+
+        const promise = new Promise((resolve, reject) => {
+            resolveFn = resolve;
+
+            setTimeout(() =>{
+                resolve('success');
+            }, 2000);
+        });
+
+        console.log(promise);
+        setTimeout(() =>{
+            console.log(promise);
+        }, 3000);
+
     </script>
 </body>
 </html>
