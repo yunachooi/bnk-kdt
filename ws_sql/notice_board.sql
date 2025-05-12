@@ -1,0 +1,17 @@
+CREATE TABLE tbl_board (
+    bno NUMBER PRIMARY KEY,
+    title VARCHAR2(100),
+    content VARCHAR2(1000),
+    writer VARCHAR2(10),
+    regdate DATE
+);
+
+CREATE SEQUENCE seq_board2
+START WITH 1
+INCREMENT BY 1
+NOCACHE
+NOCYCLE;
+
+SELECT * FROM(SELECT ROWNUM rn, b.* FROM tbl_board b) WHERE rn BETWEEN 11 AND 20;
+
+COMMIT;
