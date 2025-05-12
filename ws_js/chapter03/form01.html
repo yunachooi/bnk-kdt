@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="sendData()">formData 전송</button>
+    <button onclick="sendData1()">formData 전송1</button>
+    <button onclick="sendData2()">JsonData 전송</button>
+
+    <form id="frm">
+        name: <input type="text" name="name"><br />
+        age: <input type="text" name="age"><br />
+        role: <input type="text" name="role"><br />
+    </form>
+
+    <script>
+        function sendData(){
+            const form = new FormData();
+            form.append('name', '홍길동');
+            form.append('age', 30);
+            form.append('role', 'MEMBER');
+
+            //Promise 객체: 비동기 작업의 성공 또는 실패 결과에 따라 .then(), .catch(), .finally()로 후속 처리를 연결할 수 있는 객체
+            fetch('http://localhost:8090/member', {
+                method: 'post',
+                body: form
+            })
+            .then(response => response.text())
+            .then(data => console.log(data))
+            .catch(error => console.error('Error', error));
+
+            /*
+            const xhr = new XMLHttpRequest();
+            xhr.onload = () =>{
+                console.log(xhr.responseText);
+            }
+            xhr.open('POST', 'http://localhost:8090/member');
+            xhr.send(form);
+            */
+        }
+
+        function sendData1(){
+            const frm = document.getElementById('frm');
+            const formData = new FormData(frm);
+
+            const xhr = new XMLHttpRequest();
+            xhr.onload = () =>{
+                console.log(xhr.responseText);
+            }
+            xhr.open('POST', 'http://localhost:8090/member');
+            xhr.send(formData);
+        }
+
+        function sendData2(){
+            const member = {
+                name : 'Benjamin',
+                age : 52,
+                role: 'teacher'
+            }
+
+            fetch('http://localhost:8090/member2', {
+                method: 'POST',
+                headers: {
+                    'Content-type': 'application/json'
+                },
+                body: JSON.stringify(member)
+            })
+            .then(response => response.text())
+            .then(data => console.log(data))
+            .catch(error => console.error('Error', error));
+
+            /*
+            const xhr = new XMLHttpRequest();
+            xhr.onload = () =>{
+                console.log(xhr.responseText);
+            }
+            xhr.open('POST', "http://localhost:8090/member2");
+            xhr.setRequestHeader('Content-type', 'application/json')
+            xhr.send(JSON.stringify(member));
+            */
+        }
+    </script>
+</body>
+</html>
