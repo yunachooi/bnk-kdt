@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.PerformanceSite.dao.IQnaDAO">
+	<select id="listAll" resultType="com.example.PerformanceSite.dto.QnaDTO">
+		SELECT * FROM tbl_qna ORDER BY q_no DESC
+	</select>
+	<insert id="insert" parameterType="com.example.PerformanceSite.dto.QnaDTO">
+		INSERT INTO tbl_qna
+		VALUES (qna_seq.nextval, #{q_title}, #{q_content}, '진행중', #{q_writer}, SYSDATE)
+	</insert>
+	<select id="detail" resultType="com.example.PerformanceSite.dto.QnaDTO">
+		SELECT * FROM tbl_qna WHERE q_no = #{q_no}
+	</select>
+	<delete id="remove">
+		DELETE FROM tbl_qna WHERE q_no = #{q_no}
+	</delete>
+</mapper>

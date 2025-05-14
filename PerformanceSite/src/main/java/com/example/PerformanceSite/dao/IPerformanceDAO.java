@@ -13,4 +13,5 @@ public interface IPerformanceDAO {
 	List<PerformanceDTO> listAll();
 	PerformanceDTO detail(@Param("p_code") String p_code);
 	List<PerformanceDTO> listState(@Param("p_state") String p_state);
+	void remove(@Param("p_code") String p_code);
 }

@@ -2,12 +2,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="jakarta.tags.core"%>
-<%MemberDTO member = (MemberDTO) session.getAttribute("member");%>
+<%
+MemberDTO member = (MemberDTO) session.getAttribute("member");
+%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>공연 일정</title>
+<title>공연 예약 사이트</title>
 </head>
 <body>
 	<jsp:include page="./header.jsp" />
@@ -39,7 +41,7 @@
 							<td>${item.p_genre}</td>
 							<td>${item.p_name}</td>
 							<td>${item.p_schedule}</td>
-							<td>${item.p_runningTime}</td>
+							<td>${item.p_runningTime}분</td>
 							<td>${item.p_grade}</td>
 							<td><c:choose>
 									<c:when test="${item.p_state == '상영중'}">
@@ -49,7 +51,10 @@
 										<button onclick="noTicket()">예매불가</button>
 									</c:otherwise>
 								</c:choose></td>
-							<td><button onclick="detail('${item.p_code}')">상세보기</button></td>
+							<td><button onclick="detail('${item.p_code}')">상세보기</button>
+							 <c:if test="${member != null && member.name == 'admin'}">
+				                <button onclick="removeInfobtn('${item.p_code}')">삭제하기</button>
+				            </c:if></td>
 						</tr>
 					</c:forEach>
 				</tbody>
@@ -57,9 +62,15 @@
 		</div>
 		<br />
 
-		<%if (member != null && "admin".equals(member.getName())) {%>
-		<button onclick="registInfobtn()">공연등록</button>
-		<%}%>
+		<%
+		if (member != null && "admin".equals(member.getName())) {
+		%>
+		<div id="admin-buttons">
+			<button onclick="registInfobtn()">공연등록</button>
+		</div>
+		<%
+		}
+		%>
 	</div>
 
 	<script>
@@ -93,12 +104,12 @@
 
 						html += `
 							<tr>
-								<td>${item.p_genre}</td>
-								<td>${item.p_name}</td>
-								<td>${item.p_schedule}</td>
-								<td>${item.p_runningTime}</td>
-								<td>${item.p_grade}</td>
-								<td>${ticketButton}</td>
+								<td>\${item.p_genre}</td>
+								<td>\${item.p_name}</td>
+								<td>\${item.p_schedule}</td>
+								<td>\${item.p_runningTime}분</td>
+								<td>\${item.p_grade}</td>
+								<td>\${ticketButton}</td>
 								<td><button onclick="detail('${item.p_code}')">상세보기</button></td>
 							</tr>
 						`;
@@ -117,6 +128,11 @@
 		    xhr.onreadystatechange = function() {
 		        if (xhr.readyState === 4 && xhr.status === 200) {
 		            const data = JSON.parse(xhr.responseText);
+		            
+		            const adminButtons = document.getElementById("admin-buttons");
+		            if (adminButtons) {
+		                adminButtons.style.display = "none";
+		            }
 
 		            let ticketButton = '';
 		            if (data.p_state === '상영중') {
@@ -132,13 +148,22 @@
 		            commentXhr.onreadystatechange = function() {
 		                if (commentXhr.readyState === 4 && commentXhr.status === 200) {
 		                    const comments = JSON.parse(commentXhr.responseText);
+		                    
+		                    const sessionId = '<%= (member != null) ? member.getId() : "" %>';
+
 		                    let commentHtml = '';
 		                    comments.forEach(comment => {
+		                    	let deleteBtn = '';
+		                    	if (sessionId === comment.c_writer || sessionId === 'admin') {
+		                    		deleteBtn = `<button onclick="rmComment('\${comment.c_no}')">삭제하기</button>`;
+		                    	}
+		                    	
 		                        commentHtml += `
 		                            <tr>
 		                                <td>\${comment.c_comment}</td>
 		                                <td>\${comment.c_writer}</td>
 		                                <td>\${comment.c_regdate}</td>
+		                                <td>\${deleteBtn}</td>
 		                            </tr>
 		                        `;
 		                    });
@@ -190,12 +215,13 @@
 		                                    <th>내용</th>
 		                                    <th>작성자</th>
 		                                    <th>등록일</th>
+		                                    <th>비고</th>
 		                                </tr>
 		                            </thead>
 		                            <tbody id="commentTableBody">
 		                                \${commentHtml}
 		                            </tbody>
-		                        </table>
+		                        </table><br />
 
 		                        <button onclick="closeDetail()">목록보기</button>
 		                    `;
@@ -208,7 +234,6 @@
 		    };
 		    xhr.send();
 		}
-
 
 		function closeDetail(){
 			location.reload();
@@ -227,7 +252,16 @@
 		        alert("기대/감상평을 입력해주세요.");
 		    }
 		}
-
+		
+		function removeInfobtn(p_code){
+			location.href="/rmPerformance/" + p_code;
+			alert("공연정보가 삭제되었습니다.");
+		}
+		
+		function rmComment(c_no){
+			location.href="/rmComment/" + c_no;
+			alert("기대/감상평이 삭제되었습니다.");
+		}
 	</script>
 </body>
 </html>

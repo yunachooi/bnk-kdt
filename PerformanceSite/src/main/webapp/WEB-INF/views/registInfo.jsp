@@ -9,7 +9,7 @@
 <body>
 	<jsp:include page="./header.jsp" />
 	<jsp:include page="./nav.jsp" />
-	
+
 	<div id="registInfoContainer">
 		<h2>공연정보등록 - 관리자전용</h2>
 		<form action="registInfo" method="POST">
@@ -33,7 +33,14 @@
 			<input type="hidden" name="p_state" value="상영예정"><br />
 			<button type="submit">등록하기</button>
 			<button type="reset">다시쓰기</button>
+			<button type="button" onclick="closeinfo()">등록취소</button>
 		</form>
 	</div>
+
+	<script>
+		function closeinfo() {
+			location.href="/";
+		}
+	</script>
 </body>
 </html>

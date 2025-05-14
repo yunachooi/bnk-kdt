@@ -11,8 +11,7 @@ import com.example.PerformanceSite.dto.PerformanceDTO;
 @Mapper
 public interface INoticeDAO {
 	List<NoticeDTO> listAll();
-
 	void insert(NoticeDTO notice);
-
 	NoticeDTO detail(@Param("n_no") String n_no);
+	void remove(@Param("n_no") String n_no);
 }

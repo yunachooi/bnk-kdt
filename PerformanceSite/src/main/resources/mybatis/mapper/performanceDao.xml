@@ -15,4 +15,7 @@
 	<select id="detail" resultType="com.example.PerformanceSite.dto.PerformanceDTO">
 		SELECT * FROM tbl_performance WHERE p_code = #{p_code}
 	</select>
+	<delete id="remove">
+		DELETE FROM tbl_performance WHERE p_code = #{p_code}
+	</delete>
 </mapper>

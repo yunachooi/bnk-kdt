@@ -9,4 +9,7 @@
 	<select id="pCodeList" resultType="com.example.PerformanceSite.dto.CommentDTO">
 		SELECT * FROM tbl_comment WHERE p_code = #{p_code}
 	</select>
+	<delete id="remove">
+		DELETE FROM tbl_comment WHERE c_no = #{c_no}
+	</delete>
 </mapper>
