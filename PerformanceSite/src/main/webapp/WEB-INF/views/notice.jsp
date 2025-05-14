@@ -10,6 +10,7 @@ MemberDTO member = (MemberDTO) session.getAttribute("member");
 <head>
 <meta charset="UTF-8">
 <title>홈 > 공지사항</title>
+<link rel="stylesheet" type="text/css" href="./css/style.css">
 </head>
 <body>
 	<jsp:include page="./header.jsp" />
@@ -18,7 +19,7 @@ MemberDTO member = (MemberDTO) session.getAttribute("member");
 	<div id="noticeContrainer">
 		<div id="msg">
 			<h2>홈 > 공지사항</h2>
-			<table border="1">
+			<table>
 				<thead>
 					<tr>
 						<th>No.</th>
@@ -87,7 +88,7 @@ MemberDTO member = (MemberDTO) session.getAttribute("member");
 		}
 
 		function closeDetail(){
-			location.reload();
+			location.href="/notice";
 		}
 		
 		function removeDetail(n_no){

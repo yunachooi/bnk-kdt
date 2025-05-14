@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>공지사항등록 - 관리자전용</title>
+<link rel="stylesheet" type="text/css" href="./css/style.css">
 </head>
 <body>
 	<jsp:include page="./header.jsp" />

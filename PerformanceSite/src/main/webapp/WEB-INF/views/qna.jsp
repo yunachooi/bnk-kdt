@@ -10,6 +10,7 @@ MemberDTO member = (MemberDTO) session.getAttribute("member");
 <head>
 <meta charset="UTF-8">
 <title>홈 > Q&A</title>
+<link rel="stylesheet" type="text/css" href="./css/style.css">
 </head>
 <body>
 	<jsp:include page="./header.jsp" />
@@ -17,7 +18,7 @@ MemberDTO member = (MemberDTO) session.getAttribute("member");
 	<div id="qnaContainer">
 		<div id="msg">
 			<h2>홈 > Q&A</h2>
-			<table border="1">
+			<table>
 				<thead>
 					<tr>
 						<th>No.</th>
@@ -65,7 +66,7 @@ MemberDTO member = (MemberDTO) session.getAttribute("member");
 
 					let html = `
 						<h2>홈 > Q&A > Q&A 상세</h2><br />
-					    <table border="1">
+					    <table>
 					    	<tbody>
 					    		<tr><td>제목</td><td>\${data.q_title}  [\${data.q_status}]</td></tr>
 					    		<tr><td>문의 일자</td><td>\${data.q_regdate}</td></tr>

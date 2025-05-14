@@ -10,6 +10,7 @@ MemberDTO member = (MemberDTO) session.getAttribute("member");
 <head>
 <meta charset="UTF-8">
 <title>공연 예약 사이트</title>
+<link rel="stylesheet" type="text/css" href="./css/style.css">
 </head>
 <body>
 	<jsp:include page="./header.jsp" />
@@ -23,7 +24,7 @@ MemberDTO member = (MemberDTO) session.getAttribute("member");
 				<li><a href="#" onclick="state('상영종료')">상영종료</a></li>
 			</ul>
 
-			<table border="1">
+			<table>
 				<thead>
 					<tr>
 						<th>공연장르</th>
@@ -110,7 +111,7 @@ MemberDTO member = (MemberDTO) session.getAttribute("member");
 								<td>\${item.p_runningTime}분</td>
 								<td>\${item.p_grade}</td>
 								<td>\${ticketButton}</td>
-								<td><button onclick="detail('${item.p_code}')">상세보기</button></td>
+								<td><button onclick="detail('\${item.p_code}')">상세보기</button></td>
 							</tr>
 						`;
 					});
@@ -181,7 +182,7 @@ MemberDTO member = (MemberDTO) session.getAttribute("member");
 
 		                    const html = `
 		                        <h2>홈 > 공연일정 > 공연상세</h2><br />
-		                        <table border="1">
+		                        <table>
 		                            <tbody>
 		                                <tr>
 		                                    <td rowspan="6"><img src="./images/img.jpeg" width="300" height="400"/></td>
@@ -209,7 +210,7 @@ MemberDTO member = (MemberDTO) session.getAttribute("member");
 
 		                        <h3>한줄 기대/감상평</h3>
 		                        \${reviewForm}<br />
-		                        <table border="1">
+		                        <table>
 		                            <thead>
 		                                <tr>
 		                                    <th>내용</th>

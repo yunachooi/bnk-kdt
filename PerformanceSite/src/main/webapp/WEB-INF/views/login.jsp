@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>로그인</title>
+<link rel="stylesheet" type="text/css" href="./css/style.css">
 </head>
 <body>
 	<jsp:include page="./header.jsp" />
