@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!--
+        [정규표현식]
+        ^ 문자열의 시작
+        $ 문자열의 끝
+        . 임의의 한 문자
+        * 앞 문자가 없을 수도 있고 많을 수도 있음
+        + 반복을 표현하며 앞 문자가 한 번 이상 반복함을 의미
+        ? 존재 여부를 포함하며 앞 문자가 없거나 있음
+        {} 횟수 또는 범위
+        () 그룹을 의미
+        [] 문자의 집합이나 범위를 나타냄, 두 문자 사이는 - 기호로 범위를 나타냄
+        [^] 문자 외(해당 집합 문자 제외)의 집합이나 범위를 나타냄
+        | OR을 의미
+        \d 숫자[0-9]와 동일
+        \s 공백 문자
+        \S 공백 문자가 아님을 의미
+        \w 단어를 만들 수 있는 알파벳 또는 숫자
+        \W 알파벳 숫자를 제외한 문자
+        \특수문자 특수문자 자체를 의미
+    -->
+
+    <!--
+        [아이디 입력조건]
+        1. 입력되는 전체 길이는 5~8 사이여야한다.
+        2. 아이디는 숫자와 영문자로만 사용 가능하다.
+        3. 아이디의 첫 글자는 영문자로 한다.
+    -->
+    <h1>정규 표현식</h1>
+    
+    id : <input type="text" name="mid" id="mid">
+    <input type="button" value="commit" onclick="process()">
+    <div id="demo"></div>
+
+    <!--
+        [날짜 입력 조건]
+        연도 4자리, 월이나 일은 1자리이거나 2자리로 한다.
+        예) 2018-05-24
+        -->
+
+    입사년도 : <input type="text" name="hire_date" id="hire_date">
+    <input type="button" value="commit" onclick="pro()">
+    <div id="demo2"></div>
+
+
+    <script>
+        function process() {
+            const mid = document.getElementById('mid').value;
+            const patt = new RegExp('^[a-zA-Z][0-9a-zA-Z]{4,7}$'); //정규표현식 사용을 알림
+
+            if (patt.test(mid)) {
+                document.getElementById('demo').innerHTML = '성공';
+            } else {
+                alert('입력 조건에 맞지 않습니다...');
+                document.getElementById('mid').value = '';
+                document.getElementById('mid').focus();
+                document.getElementById('demo').innerHTML = '';
+            }
+        }
+
+        function pro(){
+            const date = document.getElementById('hire_date').value;
+            const patt = new RegExp('^[0-9]{4}\-0[1-9]|1[012]\-0[1-9]|1[0-9]|2[0-9]|3[01]$');
+
+            if(patt.test(date)){
+                document.getElementById('demo2').innerHTML = '성공';
+            } else {
+                alert('입력 조건에 맞지 않습니다...');
+                document.getElementById('hire_date').value = '';
+                document.getElementById('hire_date').focus;
+                document.getElementById('demo2').innerHTML = '';
+            }
+        }
+
+    </script>
+</body>
+
+</html>
