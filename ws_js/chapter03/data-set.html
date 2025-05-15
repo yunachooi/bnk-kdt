@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="ptxt" data-greet="hello">---</p>
+    <input type="text" data-name="James" data-nickname="JJ" name="name">
+    <div id="demo">div</div>
+    <div id="user" data-user='{"name": "James Dean", "age": 23, "job": "Actor"}'></div>
+    <div id="hobby" data-hobby='["독서", "달리기", "코딩"]'></div>
+
+    <script>
+        //hidden input을 사용하지 않고 데이터 사용 가능
+        const ptxt = document.getElementById('ptxt');
+        console.log(ptxt.dataset.greet);
+        console.log(ptxt.dataset['greet']);
+        console.log(ptxt.dataset.greet === 'hello');
+
+        const $txt = document.querySelector('input[data-name="James"]'); //$ : Element를 의미
+        //const txt = document.querySelector('input[data-name="James"]').value; .value : 값을 의미
+        $txt.value = "I miss you";
+
+        const $demo = document.getElementById('demo');
+        $demo.dataset.comment = 'good job';
+        console.log($demo.dataset.comment);
+
+        $demo.setAttribute('data-encode-char', 'utf-8');
+        console.log($demo.getAttribute('data-encode-char'));
+
+        $demo.dataset.nickName = 'apple'; //카멜표기법 사용 시 nick-name 이렇게 추가됨
+        console.log($demo.dataset.nickName);
+        console.log($demo.getAttribute('data-nick-name'));
+
+        //JSON 데이터 Set
+        const $div1 = document.querySelector('#user');
+        const obj = $div1.dataset.user;
+        console.log(obj);
+        const user = JSON.parse(obj);
+
+        console.log('name: ' + user.name);
+        console.log('age: ' + user.age);
+        console.log('job: ' + user.job);
+
+        //배열 데이터 Set
+        const $div2 = document.getElementById('hobby');
+        const arr = $div2.dataset.hobby;
+        console.log(arr);
+        const hobbies = JSON.parse(arr);
+
+        console.log(hobbies);
+        console.log(hobbies[2]);
+    </script>
+</body>
+</html>
