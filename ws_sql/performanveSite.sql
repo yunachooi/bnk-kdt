@@ -10,11 +10,6 @@ CREATE TABLE tbl_performance(
     p_state VARCHAR2(20)
 );
 
-SELECT * FROM tbl_member;
-SELECT * FROM tbl_performance;
-
-DROP TABLE tbl_performance;
-
 INSERT INTO tbl_performance VALUES ('P001', '햄릿', '연극', '2025-06-01~2025-06-30', '19:00', '120', '15세 이상 관람가', '셰익스피어의 고전 비극을 현대적으로 재해석한 작품입니다.', '상영예정');
 INSERT INTO tbl_performance VALUES ('P002', '리어왕', '연극', '2025-07-05~2025-07-25', '18:30', '130', '15세 이상 관람가', '가족 간의 배신과 권력 투쟁을 다룬 비극.', '상영예정');
 INSERT INTO tbl_performance VALUES ('P011', '뮤지컬 레미제라블', '공연', '2025-06-01~2025-06-20', '19:30', '150', '12세 이상 관람가', '프랑스 혁명을 배경으로 한 감동적인 뮤지컬.', '상영예정');
@@ -31,7 +26,6 @@ INSERT INTO tbl_performance VALUES ('P009', '타이타닉', '영화', '2025-02-0
 INSERT INTO tbl_performance VALUES ('P010', '어벤져스: 엔드게임', '영화', '2025-01-10~2025-01-30', '22:00', '181', '12세 이상 관람가', '마블 슈퍼히어로들의 최종 전투를 그린 영화.', '상영종료');
 INSERT INTO tbl_performance VALUES ('P015', 'K-pop 콘서트', '공연', '2025-03-10~2025-03-25', '19:00', '120', '12세 이상 관람가', '인기 K-pop 아이돌들이 총출동하는 대형 공연.', '상영종료');
 
-
 CREATE TABLE tbl_notice (
     n_no NUMBER PRIMARY KEY,
     n_genre VARCHAR(10),
@@ -46,8 +40,6 @@ INCREMENT BY 1
 NOCACHE
 NOCYCLE;
 
-SELECT * FROM tbl_notice;
-
 CREATE TABLE tbl_comment(
     c_no NUMBER PRIMARY KEY,
     c_writer VARCHAR2(30),
@@ -58,17 +50,41 @@ CREATE TABLE tbl_comment(
     FOREIGN KEY(p_code) REFERENCES tbl_performance(p_code)
 );
 
-DROP TABLE tbl_comment;
-
-SELECT * FROM tbl_comment;
-
-SELECT * FROM tbl_comment WHERE p_code = 'P003';
-
-
 CREATE SEQUENCE comment_seq
 START WITH 1
 INCREMENT BY 1
 NOCACHE
 NOCYCLE;
 
-commit;
+CREATE TABLE tbl_qna(
+    q_no NUMBER PRIMARY KEY,
+    q_title VARCHAR2(100),
+    q_content VARCHAR2(2000),
+    q_status VARCHAR2(10),
+    q_writer VARCHAR2(30),
+    q_regdate DATE
+);
+
+CREATE SEQUENCE qna_seq
+START WITH 1
+INCREMENT BY 1
+NOCACHE
+NOCYCLE;
+
+
+SELECT * FROM tbl_qna;
+SELECT * FROM tbl_comment;
+SELECT * FROM tbl_notice;
+SELECT * FROM tbl_member;
+SELECT * FROM tbl_performance;
+SELECT * FROM tbl_member;
+
+DROP TABLE tbl_performance;
+DROP TABLE tbl_comment;
+DROP TABLE tbl_qna;
+DROP TABLE tbl_notice;
+DROP SEQUENCE notice_seq;
+DROP SEQUENCE comment_seq;
+DROP SEQUENCE qna_seq;
+
+COMMIT;
