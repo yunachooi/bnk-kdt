@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="ajax/src/main/java"/>
+	<classpathentry kind="src" path="ajax/src/test/java"/>
+	<classpathentry kind="src" path="cbq_250425/src/main/java"/>
+	<classpathentry kind="src" path="demo/src/main/java"/>
+	<classpathentry kind="src" path="demo/src/test/java"/>
+	<classpathentry kind="src" path="demo-3/src/main/java"/>
+	<classpathentry kind="src" path="demo-3/src/test/java"/>
+	<classpathentry kind="src" path="HRD_250424/src/main/java"/>
+	<classpathentry kind="src" path="noticeBoard/src/main/java"/>
+	<classpathentry kind="src" path="noticeBoard/src/test/java"/>
+	<classpathentry kind="src" path="openAPI/src/main/java"/>
+	<classpathentry kind="src" path="openAPI/src/test/java"/>
+	<classpathentry kind="src" path="ws_java/src"/>
+	<classpathentry kind="src" path="ws_jdbc/src"/>
+	<classpathentry kind="src" path="ws_jsp/src/main/java"/>
+	<classpathentry kind="lib" path="ajax/gradle/wrapper/gradle-wrapper.jar"/>
+	<classpathentry kind="lib" path="cbq_250425/src/main/webapp/WEB-INF/lib/jakarta.servlet.jsp.jstl-3.0.0.jar"/>
+	<classpathentry kind="lib" path="cbq_250425/src/main/webapp/WEB-INF/lib/jakarta.servlet.jsp.jstl-api-3.0.0.jar"/>
+	<classpathentry kind="lib" path="cbq_250425/src/main/webapp/WEB-INF/lib/lombok-1.18.38.jar"/>
+	<classpathentry kind="lib" path="cbq_250425/src/main/webapp/WEB-INF/lib/ojdbc11-23.5.0.24.07.jar"/>
+	<classpathentry kind="lib" path="demo/gradle/wrapper/gradle-wrapper.jar"/>
+	<classpathentry kind="lib" path="demo-3/gradle/wrapper/gradle-wrapper.jar"/>
+	<classpathentry kind="lib" path="HRD_250424/src/main/webapp/WEB-INF/lib/jakarta.servlet.jsp.jstl-3.0.0.jar"/>
+	<classpathentry kind="lib" path="HRD_250424/src/main/webapp/WEB-INF/lib/jakarta.servlet.jsp.jstl-api-3.0.0.jar"/>
+	<classpathentry kind="lib" path="HRD_250424/src/main/webapp/WEB-INF/lib/lombok-1.18.38.jar"/>
+	<classpathentry kind="lib" path="HRD_250424/src/main/webapp/WEB-INF/lib/ojdbc11-23.5.0.24.07.jar"/>
+	<classpathentry kind="lib" path="noticeBoard/gradle/wrapper/gradle-wrapper.jar"/>
+	<classpathentry kind="lib" path="openAPI/gradle/wrapper/gradle-wrapper.jar"/>
+	<classpathentry kind="lib" path="ws_jsp/src/main/webapp/WEB-INF/lib/jakarta.servlet.jsp.jstl-3.0.0.jar"/>
+	<classpathentry kind="lib" path="ws_jsp/src/main/webapp/WEB-INF/lib/jakarta.servlet.jsp.jstl-api-3.0.0.jar"/>
+	<classpathentry kind="lib" path="ws_jsp/src/main/webapp/WEB-INF/lib/lombok-1.18.38.jar"/>
+	<classpathentry kind="lib" path="ws_jsp/src/main/webapp/WEB-INF/lib/ojdbc11-23.5.0.24.07.jar"/>
+	<classpathentry kind="output" path="HRD_250424/build/classes"/>
+</classpath>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.PerformanceSite.dao.ICommentDAO">
+	<insert id="insert" parameterType="map">
+	    INSERT INTO tbl_comment VALUES (comment_seq.NEXTVAL, #{c_writer}, #{c_comment}, SYSDATE, #{p_code})
+	</insert>
+	<select id="pCodeList" resultType="com.example.PerformanceSite.dto.CommentDTO">
+		SELECT * FROM tbl_comment WHERE p_code = #{p_code}
+	</select>
+	<delete id="remove">
+		DELETE FROM tbl_comment WHERE c_no = #{c_no}
+	</delete>
+</mapper>
