@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        function makeFriedEgg(){
+            return new Promise(resolve => {
+                //Promise로 매핑(반환하도록 함)
+                setTimeout(()=>{
+                    resolve('짜잔, 계란후라이 완성!');
+                }, 1000);
+            })
+        }
+
+        async function cookBreakfast(){ //async: 비동기 함수를 내포하고 있음, 함수 자체가 비동기 함수는 아님.
+            console.log('계란후라이를 만들기 시작합니다.');
+
+            const friedEggResult = await makeFriedEgg(); //실제 비동기 함수: makeFriedEgg, await: 동기함수처럼 사용 가능
+            console.log(friedEggResult); // async-await를 붙이지 않으면 실행이 완료되지않아 오류 발생
+            
+            //메인요리를 요청해서 받는 코드 추가하기(fetch 사용)
+            const response = await fetch("http://localhost:8092/cook/maindish");
+            const mainDish = await response.text();
+            console.log(mainDish);
+            
+            console.log('토스트도 준비완료!');
+        }
+
+        cookBreakfast();
+        console.log('커피를 내리는 중...');
+    </script>
+</body>
+</html>
