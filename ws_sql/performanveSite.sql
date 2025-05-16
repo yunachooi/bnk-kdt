@@ -1,3 +1,11 @@
+CREATE TABLE tbl_member(
+    id VARCHAR2(20) PRIMARY KEY,
+    pw VARCHAR2(10),
+    name VARCHAR2(50),
+    phone CHAR(13),
+    grade CHAR(1)
+);
+
 CREATE TABLE tbl_performance(
     p_code VARCHAR2(10) primary key,
     p_name VARCHAR2(100),
@@ -62,7 +70,8 @@ CREATE TABLE tbl_qna(
     q_content VARCHAR2(2000),
     q_status VARCHAR2(10),
     q_writer VARCHAR2(30),
-    q_regdate DATE
+    q_regdate DATE,
+    FOREIGN KEY(q_writer) REFERENCES tbl_member(id)
 );
 
 CREATE SEQUENCE qna_seq
@@ -71,13 +80,11 @@ INCREMENT BY 1
 NOCACHE
 NOCYCLE;
 
-
 SELECT * FROM tbl_qna;
 SELECT * FROM tbl_comment;
 SELECT * FROM tbl_notice;
 SELECT * FROM tbl_member;
 SELECT * FROM tbl_performance;
-SELECT * FROM tbl_member;
 
 DROP TABLE tbl_performance;
 DROP TABLE tbl_comment;
