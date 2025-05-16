@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.cbtSite.dao.ExamDAO">
+	<select id="getCorrectAnswer" resultType="com.example.cbtSite.dto.CorrectAnswerDTO">
+        SELECT * FROM tbl_correct_answer
+        WHERE subject_number = #{subject_number}
+        AND q_number = #{q_number}
+    </select>
+
+   <insert id="insertResponse">
+	    INSERT INTO tbl_exam_response VALUES (#{response.e_number}, #{response.q_number}, #{response.answer})
+	</insert>
+
+
+    <select id="getAllCorrectAnswers" resultType="com.example.cbtSite.dto.CorrectAnswerDTO">
+        SELECT * FROM tbl_correct_answer WHERE subject_number = #{subject_number}
+    </select>
+</mapper>

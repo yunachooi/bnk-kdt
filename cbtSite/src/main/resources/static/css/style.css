@@ -1,0 +1,244 @@
+@charset "UTF-8";
+
+body {
+	font-family: "Noto Sans KR", sans-serif;
+	margin: 0;
+	padding: 0;
+	background-color: #f5f7fa;
+}
+
+/* 공통 Header 스타일 */
+header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 16px 32px;
+	background-color: #003366;
+	color: white;
+	height: 70px;
+}
+
+.left {
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.right {
+	font-size: 15px;
+	color: black;
+	font-weight: bold;
+}
+
+table.right {
+	border-collapse: collapse;
+}
+
+table.right td {
+	padding: 6px 12px;
+	border: 1px solid #aaa;
+	background-color: #ffffff;
+}
+
+/* 상단 네비게이션 */
+nav {
+	display: flex;
+	justify-content: space-between;
+	padding: 12px 32px;
+	background-color: #e0e7f1;
+	font-weight: bold;
+}
+
+/* 문제 폼 공통 스타일 */
+form {
+	padding: 32px;
+}
+
+#exam1, #exam2, #exam3, #exam4, #exam5 {
+	background-color: white;
+	border: 1px solid #ccc;
+	border-radius: 8px;
+	padding: 24px;
+	margin-bottom: 20px;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+	height: 500px;
+}
+
+p {
+	font-size: 16px;
+	margin-bottom: 12px;
+	font-weight: bold;
+}
+
+label {
+	margin-left: 8px;
+	font-size: 15px;
+}
+
+input[type="radio"] {
+	margin: 6px 0;
+}
+
+button#btn {
+	padding: 12px 24px;
+	background-color: #007bff;
+	color: white;
+	border: none;
+	border-radius: 8px;
+	font-size: 16px;
+	cursor: pointer;
+	transition: background-color 0.2s ease;
+}
+
+button#btn:hover {
+	background-color: #0056b3;
+}
+
+/* 시험 결과 페이지 */
+#result {
+	text-align: center;
+	margin: 40px auto;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+#good, #bad {
+	margin-bottom: 20px;
+}
+
+.bold {
+	font-weight: bold;
+	font-size: 23px;
+}
+
+#red {
+	color: red;
+}
+
+/* index.jsp: 시험 시작 폼 중앙 정렬 */
+#controller {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 80vh;
+}
+
+/* 시험 시작 폼 박스 */
+.form-box {
+	background-color: #ffffff;
+	padding: 40px;
+	border-radius: 12px;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+	width: 320px;
+	text-align: center;
+}
+
+/* 폼 제목 */
+.form-box h2 {
+	margin-bottom: 24px;
+	color: #003366;
+}
+
+/* 입력 필드 */
+.input-group {
+	margin-bottom: 20px;
+	text-align: left;
+}
+
+.input-group label {
+	display: block;
+	margin-bottom: 6px;
+	font-weight: bold;
+	color: #333;
+}
+
+.input-group input {
+	width: 100%;
+	padding: 10px;
+	border: 1px solid #ccc;
+	border-radius: 6px;
+	font-size: 14px;
+	box-sizing: border-box;
+}
+
+/* 시작 버튼 */
+.start-btn {
+	width: 100%;
+	padding: 12px;
+	background-color: #007bff;
+	color: white;
+	border: none;
+	border-radius: 6px;
+	font-size: 16px;
+	cursor: pointer;
+	transition: background-color 0.2s ease;
+}
+
+.start-btn:hover {
+	background-color: #0056b3;
+}
+
+/* form 박스 수정: 로그인 스타일 */
+form.form-box {
+  background-color: #ffffff;
+  padding: 40px 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  width: 360px;
+  max-width: 90vw;
+  text-align: center;
+  font-size: 16px;
+}
+
+form.form-box h2 {
+  margin-bottom: 28px;
+  font-weight: 700;
+  color: #003366;
+  letter-spacing: 1.2px;
+}
+
+.input-group {
+  margin-bottom: 24px;
+  text-align: left;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #555;
+  letter-spacing: 0.5px;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 12px 14px;
+  font-size: 15px;
+  border: 1.8px solid #ccc;
+  border-radius: 8px;
+  transition: border-color 0.3s ease;
+  box-sizing: border-box;
+}
+
+.input-group input:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.start-btn {
+  width: 100%;
+  padding: 14px;
+  font-size: 17px;
+  background-color: #007bff;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.25s ease;
+}
+
+.start-btn:hover {
+  background-color: #0056b3;
+  box-shadow: 0 4px 12px rgba(0, 86, 179, 0.6);
+}

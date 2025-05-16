@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.cbtSite.dao.ExamMemberDAO">
+	<select id="selectMember" resultType="com.example.cbtSite.dto.ExamMemberDTO">
+		SELECT * FROM tbl_exam_member WHERE e_number = #{e_number}
+	</select>
+	<select id="getId" resultType="String">
+		SELECT e_name FROM tbl_exam_member WHERE e_number = #{e_number}
+	</select>
+</mapper>
