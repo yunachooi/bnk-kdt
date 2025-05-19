@@ -11,6 +11,8 @@
     <!--
         클로저의 핵심은 내부함수가 외부함수의 실행이 끝난 후에도 외부함수의 변수를 기억하고 접근할 수 있다는 점이다.
     -->
+    <button id="myBtn">Click!</button>
+    <button id="myBtn2">Click!</button>
     <script>
         //클로저 사용 예1: 카운터
         function createCounter() {
@@ -91,12 +93,43 @@
                     return `현재잔액 ${balance}원`;
                 }
             };
-        }
+        } 
 
         const myAccount = createBankAccount(1000);
         console.log(myAccount.getBalance());
         console.log(myAccount.deposit(1000));
         console.log(myAccount.widthdraw(1000));
+
+        //클로저 사용 예5: 함수팩토리
+        function multiplyBy(factor){
+            return function(number){
+                return number * factor;
+            };
+        }
+
+        const double = multiplyBy(2);
+        const triple = multiplyBy(3);
+        const quadurple = multiplyBy(4);
+
+        console.log(double(5));
+        console.log(triple(5));
+        console.log(quadurple(5));
+
+        const numbers = [1, 2, 3, 4, 5];
+        console.log(numbers.map(double));
+
+    //클로저 사용 예6: 이벤트 핸들러
+    function setupButton(buttonElement, message){
+        buttonElement.addEventListener('click', function(){
+            alert(message);
+        });
+    }
+
+    const myBtn = document.getElementById('myBtn');
+    setupButton(myBtn, '버튼이 클릭되었습니다.');
+
+    const myBtn2 = document.getElementById('myBtn2');
+    setupButton(myBtn2, '버튼2가 클릭되었습니다.');
     </script>
 </body>
 </html>
