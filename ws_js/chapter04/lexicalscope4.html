@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!--
+        클로저의 핵심은 내부함수가 외부함수의 실행이 끝난 후에도 외부함수의 변수를 기억하고 접근할 수 있다는 점이다.
+    -->
+    <script>
+        //클로저 사용 예1: 카운터
+        function createCounter() {
+            let count = 0;
+
+            return function () {
+                count++;
+                return count;
+            }
+        }
+
+        const counter1 = createCounter();
+        console.log(counter1());
+        console.log(counter1());
+        console.log(counter1());
+
+        const counter2 = createCounter();
+        console.log(counter2());
+        console.log(counter2());
+
+        //클로저 사용 예2: 카운터
+        function createCounter2() {
+            let count2 = 0;
+            return {
+                increment: function () {
+                    count2++;
+                    return count2;
+                },
+                decrement: function () {
+                    count2--;
+                    return count2;
+                }
+            };
+        }
+
+        const counter3 = createCounter2();
+        console.log(counter3.increment());
+        console.log(counter3.increment());
+        console.log(counter3.decrement());
+
+        const counter4 = createCounter2();
+        console.log(counter4.increment());
+        console.log(counter4.decrement());
+
+        //클로저 사용 예3: 정보은닉/캡슐화
+        function createSecret(secret){
+            return{
+                getSecret: function(key){
+                    if(key === 'green1234'){
+                        return secret;
+                    } else{
+                        return '비밀 접근 실패!';
+                    }
+                }
+            };
+        }
+        const mySecret = createSecret('JS 짱!');
+        console.log(mySecret.getSecret('wrongpw'));
+        console.log(mySecret.getSecret('green1234'));
+
+        //클로저 사용 예4: private 변수 구현
+        function createBankAccount(initialBalance){
+            let balance = initialBalance;
+
+            return {
+                deposit: function(amount){
+                    balance += amount;
+                    return `입금완료 : 현재잔액 ${balance}원`;
+                }, 
+                widthdraw: function(amount){
+                    if(amount > balance){
+                        return `잔액부족`;
+                    }
+                    balance -= amount;
+                    return `출금완료 : 현재잔액 ${balance}원`;
+                },
+                getBalance: function(){
+                    return `현재잔액 ${balance}원`;
+                }
+            };
+        }
+
+        const myAccount = createBankAccount(1000);
+        console.log(myAccount.getBalance());
+        console.log(myAccount.deposit(1000));
+        console.log(myAccount.widthdraw(1000));
+    </script>
+</body>
+</html>

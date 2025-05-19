@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let globalVar = '전역변수';
+        function outerFunction(){
+            let outerVar = '외부함수 지역변수';
+
+            return function innerFunction(){
+                console.log(globalVar);
+                console.log(outerVar);
+            };
+        }
+        const myInnerFunc = outerFunction();
+        
+        myInnerFunc();
+    </script>
+</body>
+</html>
