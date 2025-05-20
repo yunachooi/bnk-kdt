@@ -6,4 +6,34 @@
 	<select id="login" resultType="com.example.sessionEx.dto.UserDTO">
 		SELECT * FROM tbl_user WHERE id=#{id} AND pw=#{pw}
 	</select>
+	<select id="getUserList" resultType="com.example.sessionEx.dto.UserDTO">
+		SELECT * FROM tbl_user
+	</select>
+	<select id="getUserListWithParam" resultType="com.example.sessionEx.dto.UserDTO">
+		SELECT * FROM tbl_user
+		<where>
+			<if test="#{user.name} != null">
+				AND name LIKE '%' || #{user.name} || '%'
+			</if>
+			<if test="#{user.role} != null">
+				AND role = #{user.role}
+			</if>
+		</where>
+	</select>
+	<select id="getUserListWithParam2" resultType="com.example.sessionEx.dto.UserDTO">
+		SELECT * FROM tbl_user
+		<where>
+			<choose>
+				<when test="user.name != null and user.name.trim() != ''">
+					name = #{user.name}
+				</when>
+				<when test="user.role != null and user.role != ''">
+					role = #{user.role}
+				</when>
+				<otherwise>
+					1 = 1 <!-- 무조건 참, 문법적인 완성을 위함 -->
+				</otherwise>
+			</choose>
+		</where>
+	</select>
 </mapper>
