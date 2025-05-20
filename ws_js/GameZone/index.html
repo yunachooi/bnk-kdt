@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GameZone</title>
+    <style>
+        .item {
+            margin: 20px;
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid lightgray;
+        }
+
+        body.dark {
+            background-color: black;
+            color: white;
+        }
+
+        #detailModal {
+            display: none;
+            position: fixed;
+            top: 20%;
+            left: 50%;
+            transform: translateX(-50%);
+            border: 1px solid;
+            padding: 20px;
+            width: 600px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>GameZone🎮</h1>
+    <button id="darkMode">다크모드</button>
+    <form>
+        <input type="text" placeholder="게임 검색..." onkeyup="searchGames()" id="search" />
+        <span id="basket">0</span>
+        <span>🛒</span>
+        <br />
+        <select id="selectedGenre" onchange="genre()">
+            <option value="all" selected>모든장르</option>
+            <option value="fps">FPS</option>
+            <option value="hfps">HFPS</option>
+            <option value="racing">레이싱</option>
+            <option value="puzzle">퍼즐</option>
+            <option value="rpg">RPG</option>
+        </select>
+    </form>
+
+    <div class="item" data-genre="rpg">
+        <h2 class="title">던전 크롤러</h2>
+        <h4>가격: $29.99</h4>
+        <h4>평점: ★★★★☆</h4>
+        <button onclick="basket()">장바구니 추가</button>
+        <button onclick="detail('던전 크롤러')">상세보기</button>
+    </div>
+
+    <div class="item" data-genre="rpg">
+        <h2 class="title">소드 앤 스펠</h2>
+        <h4>가격: $27.99</h4>
+        <h4>평점: ★★★★☆</h4>
+        <button onclick="basket()">장바구니 추가</button>
+        <button onclick="detail('소드 앤 스펠')">상세보기</button>
+    </div>
+
+    <div class="item" data-genre="fps">
+        <h2 class="title">타이탄 스톰</h2>
+        <h4>가격: $39.99</h4>
+        <h4>평점: ★★★★☆</h4>
+        <button onclick="basket()">장바구니 추가</button>
+        <button onclick="detail('타이탄 스톰')">상세보기</button>
+    </div>
+
+    <div class="item" data-genre="fps">
+        <h2 class="title">아이언 블래스트</h2>
+        <h4>가격: $31.99</h4>
+        <h4>평점: ★★★☆☆</h4>
+        <button onclick="basket()">장바구니 추가</button>
+        <button onclick="detail('아이언 블래스트')">상세보기</button>
+    </div>
+
+    <div class="item" data-genre="hfps">
+        <h2 class="title">고스트 오퍼레이션</h2>
+        <h4>가격: $34.99</h4>
+        <h4>평점: ★★★★☆</h4>
+        <button onclick="basket()">장바구니 추가</button>
+        <button onclick="detail('고스트 오퍼레이션')">상세보기</button>
+    </div>
+
+    <div class="item" data-genre="racing">
+        <h2 class="title">쉐도우 엘리트</h2>
+        <h4>가격: $42.99</h4>
+        <h4>평점: ★★★★★</h4>
+        <button onclick="basket()">장바구니 추가</button>
+        <button onclick="detail('쉐도우 엘리트')">상세보기</button>
+    </div>
+    <div class="item" data-genre="racing">
+        <h2 class="title">네온 레이스</h2>
+        <h4>가격: $14.99</h4>
+        <h4>평점: ★★★★☆</h4>
+        <button onclick="basket()">장바구니 추가</button>
+        <button onclick="detail('네온 레이스')">상세보기</button>
+    </div>
+    <div class="item" data-genre="hfps">
+        <h2 class="title">터보 드라이브</h2>
+        <h4>가격: $17.99</h4>
+        <h4>평점: ★★★★☆</h4>
+        <button onclick="basket()">장바구니 추가</button>
+        <button onclick="detail('터보 드라이브')">상세보기</button>
+    </div>
+
+    <div class="item" data-genre="puzzle">
+        <h2 class="title">디멘션 브레이커</h2>
+        <h4>가격: $24.99</h4>
+        <h4>평점: ★★★★☆</h4>
+        <button onclick="basket()">장바구니 추가</button>
+        <button onclick="detail('디멘션 브레이커')">상세보기</button>
+    </div>
+
+    <div class="item" data-genre="puzzle">
+        <h2 class="title">코드 마스터즈</h2>
+        <h4>가격: $12.99</h4>
+        <h4>평점: ★★★★☆</h4>
+        <button onclick="basket()">장바구니 추가</button>
+        <button onclick="detail('코드 마스터즈')">상세보기</button>
+    </div>
+
+    <div id="detailModal">
+        <h3 id="detailTitle"></h3>
+        <p id="detailContent"></p>
+        <button onclick="closeDetail()">닫기</button>
+    </div>
+
+    <script>
+        const darkMode = document.getElementById('darkMode');
+        darkMode.addEventListener('click', () => {
+            document.body.classList.toggle('dark');
+        });
+
+        function basket() {
+            let basket = document.getElementById('basket');
+            basket.innerText = parseInt(basket.innerText) + 1;
+        }
+        function detail(gameName) {
+            const title = document.getElementById('detailTitle');
+            const detailContent = document.getElementById('detailContent');
+            const detailModal = document.getElementById('detailModal');
+
+            let gameInfo = {
+                "던전 크롤러": {
+                    desc: "던전 크롤러 상세페이지 입니다."
+                },
+                "소드 앤 스펠": {
+                    desc: "소드 앤 스펠 상세 페이지 입니다."
+                },
+                "타이탄 스톰": {
+                    desc: "타이탄 스톰 상세 페이지 입니다."
+                },
+                "아이언 블래스트": {
+                    desc: "아이언 블래스트 상세 페이지 입니다."
+                },
+                "고스트 오퍼레이션": {
+                    desc: "고스트 오퍼레이션 상세 페이지입니다."
+                },
+                "쉐도우 엘리트": {
+                    desc: "쉐도우 엘리트 상세 페이지입니다."
+                },
+                "네온 레이스": {
+                    desc: "네온 레이스 상세 페이지입니다."
+                },
+                "터보 드라이브": {
+                    desc: "터보 드라이브 상세 페이지입니다."
+                },
+                "디멘션 브레이커": {
+                    desc: "디멘션 브레이커 상세 페이지입니다."
+                },
+                "코드 마스터즈": {
+                    desc: "코드 마스터즈 상세 페이지입니다."
+                },
+            };
+
+            if (gameInfo[gameName]) {
+                title.innerText = gameName;
+                detailContent.innerText = gameInfo[gameName].desc;
+                detailModal.style.display = 'block';
+            } else {
+                alert('상세 정보가 없습니다.');
+            }
+        }
+
+        function closeDetail() {
+            document.getElementById('detailModal').style.display = 'none';
+        }
+
+        function genre() {
+            const selectedGenre = document.getElementById('selectedGenre').value;
+            const items = document.querySelectorAll('.item');
+
+            items.forEach(item => {
+                const genre = item.getAttribute('data-genre');
+                if (selectedGenre === 'all' || genre === selectedGenre) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        function searchGames() {
+            const search = document.getElementById('search').value;
+            const title = document.querySelectorAll('.title');
+
+            title.forEach(items => {
+                const games = items.textContent;
+                if (games.includes(search)) {
+                    items.closest('div').style.display = 'block';
+                } else {
+                    items.closest('div').style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>
