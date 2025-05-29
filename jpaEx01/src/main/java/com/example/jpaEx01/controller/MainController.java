@@ -102,10 +102,31 @@ public class MainController {
 	
 	@GetMapping("/delete")
 	public String delete(@RequestParam("username") String username) {
-		log.info("delete");
+		log.info("delete...");
 		
 		memberRepository.deleteById(username);
 		
 		return "redirect:/list";
 	}
+	
+	@GetMapping("/login")
+	public String loginGet() {
+		log.info("login...");
+		return "login";
+	}
+	
+	@PostMapping("/login")
+	public String login(@RequestParam("username") String username,
+	                    @RequestParam("password") String password,
+	                    Model model) {
+
+	    int result = memberRepository.countByUsernameAndPassword(username, password);
+
+	    if (result != 1) {
+	        return "login";
+	    } else {
+	        return "index";
+	    }
+	}
+
 }
