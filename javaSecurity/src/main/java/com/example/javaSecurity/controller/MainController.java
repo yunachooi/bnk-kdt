@@ -20,4 +20,14 @@ public class MainController {
 	public String p1() {
 		return "p1";
 	}
+	
+	@GetMapping("/p2")
+	public String p2() {
+		return "p2";
+	}
+	
+	@GetMapping("/login")
+	public String loginForm() {
+		return "login";
+	}
 }

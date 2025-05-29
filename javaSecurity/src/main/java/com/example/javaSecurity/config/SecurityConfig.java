@@ -2,6 +2,7 @@ package com.example.javaSecurity.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.web.SecurityFilterChain;
@@ -14,7 +15,23 @@ public class SecurityConfig {
 		http.authorizeHttpRequests(auth -> auth
 				.requestMatchers("/").permitAll() //root 경로는 모두에게 개방
 //				.anyRequest().permitAll() //모두 개방
+				.anyRequest().authenticated()
 				);
+		
+//		http.formLogin(Customizer.withDefaults());
+//		http.httpBasic(Customizer.withDefaults());
+		
+		http.formLogin(auth -> auth
+				.loginPage("/login")
+				.loginProcessingUrl("/loginProc")
+				.defaultSuccessUrl("/welcome")
+				.permitAll()
+				);
+		
+		http.csrf(csrf -> csrf.disable());
+		http.logout(Customizer.withDefaults());
+		
 		return http.build();
 	}
+
 }
