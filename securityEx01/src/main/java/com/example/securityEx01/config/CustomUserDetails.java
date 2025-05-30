@@ -10,7 +10,6 @@ import com.example.securityEx01.entity.User;
 
 public class CustomUserDetails implements UserDetails{
 	private static final long serialVersionUID = 1L;
-	
 	private User user;
 	public CustomUserDetails(User user) {
 		this.user = user;
@@ -35,17 +34,14 @@ public class CustomUserDetails implements UserDetails{
 		
 		return user.getPassword();
 	}
-
 	@Override
 	public String getUsername() {
 		
 		return user.getUsername();
 	}
-	
 	public String getName() {
 		return user.getName();
 	}
-
 	public String getRole() {
 		return user.getRole();
 	}
