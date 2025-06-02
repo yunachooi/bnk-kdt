@@ -13,7 +13,7 @@
 - `ws_sql/` – SQL 쿼리 실습  
 - `demo/` – 종합 프로젝트 또는 데모 코드 (spring)
 - `HRD_250424/`, `cbq_250425/` – 정보처리산업기사 작업형 실습
-- securityEx01 - Spring Security를 활용한 인증 및 권한 제어 실습
+- `securityEx/` - Spring Security를 활용한 인증 및 권한 제어 실습
 
 ## 🛠 사용 기술
 ![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white)
