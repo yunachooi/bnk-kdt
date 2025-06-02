@@ -24,7 +24,6 @@ void main() {
    * 각 값 별로 true를 반환하면 값을 유지하고, false로 반환하면 값을 버린다.
    * 순회가 끝나면 유지된 값들을 기반으로 이터러블(Iterable)에 반환된다.
    * */
-  
   final newList = blackPinkList.where((name) => name == '리사' || name == '지수');
   print(newList.toList());
   
@@ -34,7 +33,6 @@ void main() {
    * 반환하는 값이 현재값을 대체한다.
    * 순회가 끝나면 어터러블을 반환함.
    * */
-
   final newBlackPink = blackPinkList.map((name) => '블랙핑크 $name');
   print(newBlackPink);
 }
