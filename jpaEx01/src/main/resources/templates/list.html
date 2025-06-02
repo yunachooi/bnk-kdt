@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h2>List Page</h2>
+	<hr />
+	<table border="1">
+		<thead>
+			<tr>
+				<th>username</th>
+				<th>password</th>
+				<th>name</th>
+				<th>role</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="member : ${list}">
+				<td><a th:href="@{/detail(username=${member.username})}"
+					th:text="${member.username}"></a></td>
+				<td th:text="${member.password}"></td>
+				<td th:text="${member.name}"></td>
+				<td th:text="${member.role}"></td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>
