@@ -15,7 +15,7 @@ public class LoginController {
 			model.addAttribute("msg", "로그아웃 되었어요...");
 		}
 		if(needLogin != null) {
-			model.addAttribute("msg", "멤버 전용 페이지 입니다...");
+			model.addAttribute("msg", "로그아웃 되었어요...");
 		}
 		return "loginForm";
 	}

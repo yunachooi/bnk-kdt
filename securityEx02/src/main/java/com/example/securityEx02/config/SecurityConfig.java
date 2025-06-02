@@ -1,5 +1,6 @@
 package com.example.securityEx02.config;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -7,9 +8,14 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
+import com.example.securityEx02.auth.CustomAuthenticationEntryPoint;
+
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
+	@Autowired
+	private CustomAuthenticationEntryPoint customAuthenticationEntryPoint;
+	
 	@Bean
 	BCryptPasswordEncoder passwordEncoder() {
 		return new BCryptPasswordEncoder();
@@ -36,6 +42,9 @@ public class SecurityConfig {
 				.invalidateHttpSession(true)
 				.deleteCookies("JSESSIONID")
 				.permitAll()
+				);
+		http.exceptionHandling(exception -> exception
+				.authenticationEntryPoint(customAuthenticationEntryPoint)
 				);
 		
 		return http.build();
