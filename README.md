@@ -1,4 +1,4 @@
-# bnk-kdt
+# bnk-kdt 개발자 양성 과정
 
 **bnk-kdt**는 웹 개발 및 백엔드 기술을 학습하며 정리한 개인 학습용 저장소입니다.  
 HTML, CSS, JavaScript, Java, JSP, JDBC, SQL, Spring 등의 다양한 기술 스택을 포함하고 있으며,  
