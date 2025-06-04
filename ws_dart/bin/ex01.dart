@@ -1,6 +1,4 @@
 void main() {
-  final String name = '블랙핑크';
-
   final DateTime now = DateTime.now();
   print(now);
 
