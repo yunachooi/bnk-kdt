@@ -1,4 +1,4 @@
-# bnk-kdt
+# bnk-kdt 개발자 양성 과정
 
 **bnk-kdt**는 웹 개발 및 백엔드 기술을 학습하며 정리한 개인 학습용 저장소입니다.  
 HTML, CSS, JavaScript, Java, JSP, JDBC, SQL, Spring 등의 다양한 기술 스택을 포함하고 있으며,  
@@ -38,13 +38,14 @@ HTML, CSS, JavaScript, Java, JSP, JDBC, SQL, Spring 등의 다양한 기술 스�
 - `ws_html/` – HTML 실습 코드  
 - `ws_css/` – CSS 실습 코드  
 - `ws_js/` – JavaScript 실습 코드  
-- `ws_java/` – Java 기초 및 객체지향 프로그래밍 실습  
+- `ws_java/` – Java 기초 및 객체지향 프로그래밍 실습 코드
 - `ws_jsp/` – JSP 관련 실습 (Spring 기반)  
-- `ws_jdbc/` – JDBC를 활용한 데이터베이스 연동 실습  
-- `ws_sql/` – SQL 쿼리 실습  
+- `ws_jdbc/` – JDBC를 활용한 데이터베이스 연동 실습 코드
+- `ws_sql/` – SQL 쿼리 실습 코드
 - `demo/` – 종합 프로젝트 또는 데모 코드 (Spring 기반)  
-- `HRD_250424/`, `cbq_250425/` – 정보처리산업기사 작업형 실습  
-- `securityEx/` – Spring Security를 활용한 인증 및 권한 제어 실습  
+- `HRD_250424/`, `cbq_250425/` – 정보처리산업기사 작업형 실습 코드  
+- `securityEx/` – Spring Security를 활용한 인증 및 권한 제어 실습 코드
+- `ws_dart/` - Dart 언어 실습 코드
 
 ---
 
@@ -55,6 +56,7 @@ HTML, CSS, JavaScript, Java, JSP, JDBC, SQL, Spring 등의 다양한 기술 스�
 ![jQuery](https://img.shields.io/badge/jquery-%230769AD.svg?style=for-the-badge&logo=jquery&logoColor=white)
 ![Oracle](https://img.shields.io/badge/Oracle-F80000?style=for-the-badge&logo=oracle&logoColor=white)
 ![Spring](https://img.shields.io/badge/spring-%236DB33F.svg?style=for-the-badge&logo=spring&logoColor=white)
+![Dart](https://img.shields.io/badge/dart-%230175C2.svg?style=for-the-badge&logo=dart&logoColor=white)
 
 ---
 
