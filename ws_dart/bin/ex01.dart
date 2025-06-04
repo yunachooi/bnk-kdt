@@ -84,27 +84,27 @@ void main() {
   print(number2);
   number2 = 5;
   print(number2);
-  
+
   int num1 = 1;
   int num2 = 2;
   print(num1 > num2);
   print(num1 is int);
   print(num1 is! int);
-  
+
   bool result = 12 > 10;
   print(result);
-  
+
   int num3 = 2;
-  if(num3 % 3 == 0){
+  if (num3 % 3 == 0) {
     print('3의 배수입니다.');
-  } else if(num3 % 3 == 1) {
+  } else if (num3 % 3 == 1) {
     print('나머지가 2입니다.');
   } else {
     print('나머지가 1입니다.');
-  } 
-  
+  }
+
   Status status = Status.aproved;
-  switch(status){
+  switch (status) {
     case Status.aproved:
       print('승인 상태입니다.');
       break;
@@ -119,8 +119,4 @@ void main() {
   }
 }
 
-enum Status{
-  aproved,
-  pending,
-  rejected,
-}
+enum Status { aproved, pending, rejected }
