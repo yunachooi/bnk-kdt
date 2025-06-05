@@ -1,0 +1,47 @@
+<application.properties>
+server.port=8092
+
+# ORACLE 설정
+spring.datasource.driver-class-name=oracle.jdbc.driver.OracleDriver
+spring.datasource.url=jdbc:oracle:thin:@localhost:1521:testdb
+spring.datasource.username=green
+spring.datasource.password=1234
+
+#JPA 설정
+spring.jpa.hibernate.ddl-auto=create
+spring.jpa.properties.hibernate.format-sql=true
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.OracleDialect
+spring.jpa.show-sql=true
+
+#mybatis 설정
+mybatis.mapper-locations=classpath:mybatis/mapper/**/**.xml
+
+server.servlet.session.timeout=1m
+
+# JSP 설정
+spring.mvc.view.prefix=/WEB-INF/views/
+spring.mvc.view.suffix=.jsp
+
+
+<build.gradle>
+dependencies {
+
+implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+
+developmentOnly 'org.springframework.boot:spring-boot-devtools'
+implementation 'org.apache.tomcat.embed:tomcat-embed-jasper'
+implementation 'jakarta.servlet:jakarta.servlet-api'
+implementation 'jakarta.servlet.jsp.jstl:jakarta.servlet.jsp.jstl-api'
+implementation 'org.glassfish.web:jakarta.servlet.jsp.jstl'
+
+implementation 'org.springframework.boot:spring-boot-starter-validation'
+implementation 'org.springframework.boot:spring-boot-starter-web'
+implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.4'
+compileOnly 'org.projectlombok:lombok'
+runtimeOnly 'com.oracle.database.jdbc:ojdbc11'
+annotationProcessor 'org.projectlombok:lombok'
+testImplementation 'org.springframework.boot:spring-boot-starter-test'
+testImplementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter-test:3.0.4'
+testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+
+}
