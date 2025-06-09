@@ -28,6 +28,16 @@ void main() async {
   var customerOrder2 = await serveCustomer();
   print("main(): serve '$customerOrder2'.");
   print("main(): completed.");
+
+  //5
+  print("main(): started.");
+  doBackgroundJob(5, bgJobFinished);
+  var customerOrder3 = await serveCustomer();
+  print("main(): serve '$customerOrder3'.");
+  while (bgJobFinished.activated == false) {
+    await (Future.delayed(Duration(seconds: 1)));
+  }
+  print("main(): completed.");
 }
 
 void doBackgroundJob(int jobTime, var jobEnd) {
