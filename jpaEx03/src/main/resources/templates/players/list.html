@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<table border="1">
+		<thead>
+			<tr>
+				<th>pno</th><th>name</th><th>position</th><th>team</th><th>emblemAnimal</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="player:${list}">
+				<td th:text="${player.pno}"></td>
+				<td th:text="${player.name}"></td>
+				<td th:text="${player.position}"></td>
+				<td th:text="${player.team.name}"></td>
+				<td th:text="${player.team.emblemAnimal}"></td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>
