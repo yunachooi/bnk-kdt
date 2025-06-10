@@ -7,6 +7,12 @@ spring.datasource.url=jdbc:oracle:thin:@localhost:1521:testdb
 spring.datasource.username=green
 spring.datasource.password=1234
 
+# MariaDB 설정
+spring.datasource.driver-class-name=org.mariadb.jdbc.Driver
+spring.datasource.url=jdbc:mariadb:locahost:3306/mydb
+spring.datasource.username=root
+spring.datasource.password=1234
+
 #JPA 설정
 spring.jpa.hibernate.ddl-auto=update
 spring.jpa.properties.hibernate.format-sql=true
