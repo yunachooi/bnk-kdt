@@ -46,7 +46,7 @@ public class TestRepository {
         memberRepository.deleteById(1);
     }
 
-    @Test
+    //@Test
     void updateTest(){
         Member member = Member.builder()
                 .member_id(2)
@@ -58,7 +58,7 @@ public class TestRepository {
         memberRepository.save(member);
     }
 
-    //@Test
+    @Test
     void insertDummies(){
         IntStream.rangeClosed(0, 3).forEach(i -> {
             Member member = Member.builder()
