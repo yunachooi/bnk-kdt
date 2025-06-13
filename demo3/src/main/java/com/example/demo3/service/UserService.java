@@ -4,6 +4,7 @@ import com.example.demo3.entity.User;
 import jakarta.persistence.*;
 
 import javax.swing.text.Style;
+import java.lang.reflect.Type;
 import java.util.List;
 
 public class UserService {
@@ -80,6 +81,72 @@ public class UserService {
         } catch (Exception e) {
             tx.rollback();
             e.printStackTrace();
+        }
+    }
+
+    //READ - 특정 조건으로 사용자 조회
+    public List<User> findUserByAge(Integer minAge){
+        try{
+            TypedQuery<User> query = em.createQuery(
+                    "SELECT u FROM User u WHERE u.age >= :minAge", User.class
+            );
+            query.setParameter("minAge", minAge);
+
+            List<User> users = query.getResultList();
+            System.out.println(minAge + "세 이상의 사용자 수 : " + users.size());
+
+            return users;
+        } catch (Exception e){
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    //DELETE - 사용자 삭제
+    public void deleteUser(Long id){
+        EntityTransaction tx = em.getTransaction();
+        try{
+            tx.begin();
+            User user = em.find(User.class, id);
+            if(user != null){
+                em.remove(user);
+                tx.commit();
+                System.out.println("사용자 삭제 완료 : " + user);
+            } else {
+                tx.rollback();
+                System.out.println("삭제할 사용자를 찾을 수 없습니다.");
+            }
+        } catch (Exception e){
+            e.printStackTrace();
+            tx.rollback();
+        }
+    }
+
+    //UPDATE - 준영속 엔티티 병합
+    public void mergeUser(){
+        EntityTransaction tx = em.getTransaction();
+        try{
+            tx.begin();
+            /*
+            User user = new User("test-user", "test@green.com", 100);
+            em.persist(user); //==save()
+            */
+            User user = em.find(User.class, 1l);
+            System.out.println(1 + ") " + em.contains(user)); //true
+            em.clear();
+
+            System.out.println(2 + ") " + em.contains(user)); //false
+            User managedUser = em.merge(user);
+            System.out.println(3 + ") " + em.contains(managedUser)); //true
+
+            tx.commit();
+            System.out.println("Marged..." + managedUser);
+            em.detach(managedUser);
+
+            System.out.println(4 + ") " + em.contains(managedUser)); //false
+        } catch (Exception e){
+            e.printStackTrace();
+            tx.rollback();
         }
     }
 }
