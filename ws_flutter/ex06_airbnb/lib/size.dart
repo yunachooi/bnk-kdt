@@ -8,7 +8,7 @@ const double gap_s = 10;
 const double gap_xs = 5;
 
 // 헤더 높이
-const double header_height = 620;
+const double header_height = 680;
 
 // MediaQuery 클래스로 화면 사이즈를 받을 수 있다.
 double getBodyWidth(BuildContext context) {
