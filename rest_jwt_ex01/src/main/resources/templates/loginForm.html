@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h2>Login</h2>
+	<hr />
+	<input type="text" id="username" name="username"
+		placeholder="Input username...">
+	<br />
+	<input type="password" id="password" name="password"
+		placeholder="Input password...">
+	<br />
+	<button onclick="login()">login</button>
+	<button onclick="userInfo()">userInfo</button>
+	<div id="msg"></div>
+
+	<script>
+		let userToken = null;
+		
+		function login(){
+			const username = document.querySelector("input[name=username]").value;
+			const password = document.querySelector("input[name=password]").value;
+
+	        fetch('http://localhost:8090/login', {
+	            method: 'POST',
+	            headers: {
+	                'Content-Type': 'application/json'
+	            },
+	            body: JSON.stringify({
+	            	username: username,
+	                password: password
+	            })
+	        })
+	        .then(response => response.text())
+	        .then(data => {
+	            console.log(data);
+	            userToken = data;
+	            document.getElementById("msg").innerHTML = userToken;
+	        })
+	        .catch((error) => {
+	            console.error('Error:', error);
+	        });
+	    }
+		
+		function userInfo(){
+			fetch('/user', {
+				method: "GET",
+				headers:{
+					"USER-AUTH":"Bearer " + userToken
+				}
+			})
+			.then(response => response.text())
+			.then(data => {
+				console.log(data);
+				document.getElementById("msg").innerHTML = data;
+			})
+			.catch(err => {
+				console.log(err);
+			});
+		}
+	</script>
+
+</body>
+</html>
