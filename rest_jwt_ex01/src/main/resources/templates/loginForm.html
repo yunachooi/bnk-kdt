@@ -19,6 +19,7 @@
 
 	<script>
 		let userToken = null;
+		let refreshToken = null;
 		
 		function login(){
 			const username = document.querySelector("input[name=username]").value;
@@ -49,7 +50,8 @@
 			fetch('/user', {
 				method: "GET",
 				headers:{
-					"USER-AUTH":"Bearer " + userToken
+					"USER-AUTH":"Bearer " + userToken,
+					"REFRESH-AUTH":"Bearer " + userToken
 				}
 			})
 			.then(response => response.text())
