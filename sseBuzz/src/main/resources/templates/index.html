@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>게시판</title>
+</head>
+<body>
+	<h2>sse 게시판</h2>
+
+	<div class="section">
+		<label>내 이름: <input type="text" id="myName"
+			placeholder="예: 영희"></label>
+		<button onclick="connectSSE()">알림 연결</button>
+	</div>
+
+	<div class="section">
+		<h3>글 작성</h3>
+		<label>작성자: <input type="text" id="authorName"
+			placeholder="예: 철수"></label><br>
+		<br>
+		<textarea id="postContent" rows="4" cols="40" placeholder="내용을 입력하세요"></textarea>
+		<button onclick="submitPost()">작성하기</button>
+	</div>
+
+	<div class="section">
+		<h3>작가 구독</h3>
+		<label>구독 대상: <input type="text" id="targetAuthor"
+			placeholder="예: 철수"></label>
+		<button onclick="subscribeToAuthor()">구독하기</button>
+	</div>
+
+	<div class="section">
+		<h3>알림</h3>
+		<ul id="notifications"></ul>
+	</div>
+
+	<script>
+        let eventSource;
+
+        function connectSSE() {
+            const myName = document.getElementById("myName").value.trim();
+            if (!myName) return alert("내 이름을 입력하세요");
+
+            eventSource = new EventSource(`/sse/connect/${encodeURIComponent(myName)}`);
+
+            eventSource.addEventListener("post-alert", function(e) {
+                const list = document.getElementById("notifications");
+                const item = document.createElement("li");
+                item.innerText = e.data;
+                list.appendChild(item);
+            });
+
+            eventSource.onerror = function () {
+                console.error("SSE 연결 오류");
+                eventSource.close();
+            };
+
+            alert(`${myName}님, 알림 수신이 시작되었습니다.`);
+        }
+
+
+        function submitPost() {
+            const author = document.getElementById("authorName").value.trim();
+            const content = document.getElementById("postContent").value.trim();
+
+            if (!author || !content) {
+                alert("작성자와 내용을 모두 입력해주세요.");
+                return;
+            }
+
+            fetch(`/posts/create?authorName=${encodeURIComponent(author)}`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ content: content })
+            })
+            .then(res => {
+                if (res.ok) {
+                    alert("글이 작성되었습니다.");
+                    document.getElementById("postContent").value = "";
+                } else {
+                    return res.text().then(text => { throw new Error(text || "작성 실패"); });
+                }
+            })
+            .catch(err => alert(err));
+        }
+
+        function subscribeToAuthor() {
+            const myName = document.getElementById("myName").value.trim();
+            const target = document.getElementById("targetAuthor").value.trim();
+
+            if (!myName || !target) {
+                alert("내 이름과 구독 대상을 모두 입력하세요.");
+                return;
+            }
+
+            fetch("/sse/subscribe/author", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ subscriber: myName, target: target })
+            })
+            .then(res => {
+                if (res.ok) {
+                    alert(`${target}님을 구독했습니다.`);
+                } else {
+                    return res.text().then(text => { throw new Error(text || "구독 실패"); });
+                }
+            })
+            .catch(err => alert("에러: " + err.message));
+        }
+    </script>
+</body>
+</html>
