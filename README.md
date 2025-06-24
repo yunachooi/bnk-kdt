@@ -49,6 +49,7 @@ HTML, CSS, JavaScript, Java, JSP, JDBC, SQL, Spring 등의 다양한 기술 스�
 - `securityEx/` – Spring Security를 활용한 인증 및 권한 제어 실습 코드
 - `ws_dart/` - Dart 언어 실습 코드
 - `rest/` - RESTful API 설계 및 구현 실습 코드
+- `sseBuzz/` - SSE 실습 코드
 
 ---
 
