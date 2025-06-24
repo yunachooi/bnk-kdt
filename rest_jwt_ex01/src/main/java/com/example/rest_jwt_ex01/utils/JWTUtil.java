@@ -36,13 +36,25 @@ public class JWTUtil {
 		return email;
 	}
 	
-	//로그인 성공시 토큰 생성 : 시간 계산 - 1000(1초) * 60 * 3L
+	//로그인 성공(Access)시 토큰 생성 : 시간 계산 - 1000(1초) * 60 * 3L
 	public String createJwt(String username, String email, Long expirationMs) { //JSON이 문자열이라서 String
 		String token = Jwts.builder() //메서드 체이닝
 						.claim("username", username) //사용자 정보 추가
 						.claim("email", email) //이메일 정보 추가
 						.issuedAt(new Date(System.currentTimeMillis()))
 						.expiration(new Date(System.currentTimeMillis()+ expirationMs)) //유효시간
+						.signWith(secretKey)
+						.compact();
+		return token;
+	}
+	
+	//Refresh 토큰 생성 : 시간 계산 - 1000(1초) * 60 * 3L
+	public String createRefreshJwt(String username, String email, Long expirationMs) {
+		String token = Jwts.builder()
+						.claim("username", username)
+						.claim("email", email)
+						.issuedAt(new Date(System.currentTimeMillis()))
+						.expiration(new Date(System.currentTimeMillis()+ expirationMs))
 						.signWith(secretKey)
 						.compact();
 		return token;

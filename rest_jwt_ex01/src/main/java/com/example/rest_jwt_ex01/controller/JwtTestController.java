@@ -47,10 +47,12 @@ public class JwtTestController {
 			user = userService.getUserInfo(loginDto.getUsername());
 			
 			String token = makeJwt(loginDto.getUsername(), user.getEmail());
+			String refreshToken = makeFreshJwt(loginDto.getUsername(), user.getEmail());
 			
 			response.setHeader("USER-AUTH", token);
+			response.setHeader("REFRESH-AUTH", refreshToken);
 			
-			return token;
+			return "토큰이 발급되었습니다.";
 		}
 		
 		return "아이디 또는 비밀번호가 일치하지 않습니다.";
@@ -58,6 +60,13 @@ public class JwtTestController {
 
 	private String makeJwt(String username, String email) {
 		String jwt = jwtUtil.createJwt(username, email, 1000 * 60 * 3L);
+		String token = "Bearer " + jwt;
+		
+		return token;
+	}
+	
+	private String makeFreshJwt(String username, String email) {
+		String jwt = jwtUtil.createRefreshJwt(username, email, 2000 * 60 * 3L);
 		String token = "Bearer " + jwt;
 		
 		return token;
