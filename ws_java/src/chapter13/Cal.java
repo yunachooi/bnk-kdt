@@ -9,5 +9,14 @@ public class Cal {
 		
 		add.calc(1, 1);
 		minus.calc(1, 1);
+		
+		System.out.println("-------------");
+		f(2, 2, add);
+		f(2, 2, minus);
+		
+	}
+	
+	public static void f(int x, int y, Calculator calcu) {
+		calcu.calc(x, y);
 	}
 }
