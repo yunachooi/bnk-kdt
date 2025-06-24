@@ -1,6 +1,6 @@
-package chapter13;
+package chapter12;
 
-import chapter13_vo.Calculator;
+import chapter12_vo.Calculator;
 
 public class Cal {
 	public static void main(String[] args) {
