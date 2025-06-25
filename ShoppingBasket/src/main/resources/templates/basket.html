@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>장바구니 기능 및 재입고 알림</title>
+</head>
+<body>
+	<h2>장바구니</h2><hr />
+	<div class="container">
+		<div class="sse"></div>
+		<div class="list" th:each="basket : ${basketList}">
+			<table border="1">
+				<thead>
+					<tr>
+						<td></td>
+						<td></td>
+						<td>상품정보</td>
+						<td>수량</td>
+						<td>금액</td>
+						<td>비고</td>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td></td>
+						<td><img th:src="@{'/images/' + ${basket.productNo} + '.webp'}" alt="상품이미지" width="150"/></td>
+						<td th:text="${basket.productName}">상품명</td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</body>
+</html>
