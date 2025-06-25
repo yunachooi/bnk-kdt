@@ -66,7 +66,6 @@ public class SseController {
 
             SseEmitter emitter = new SseEmitter(30 * 60 * 1000L);
             sseEmitters.add(user.getId(), emitter);
-            System.out.println("[SSE 연결] 사용자 ID: " + user.getId() + ", 이름: " + user.getUsername());
 
             emitter.onCompletion(() -> sseEmitters.remove(user.getId()));
             emitter.onTimeout(() -> sseEmitters.remove(user.getId()));

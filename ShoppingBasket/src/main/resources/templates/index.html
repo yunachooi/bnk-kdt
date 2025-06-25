@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>장바구니 기능 및 재입고 알림</title>
+</head>
+<body>
+	<h2>상품목록</h2>
+	<a href="/login">로그인</a>
+	<a href="/basket">장바구니</a><hr />
+	<div class="container">
+		<div class="item" th:each="product : ${productList}">
+			<div class="productImg">
+				<img th:src="@{'/images/' + ${product.productNo} + '.webp'}" alt="상품이미지" width="150"/>
+			</div>
+			<div class="productName">
+				<span th:text="${product.productName}">상품명</span>
+			</div>
+			<div class="productPrice">
+				<span th:text="${product.productPrice}">0</span> 원
+			</div>
+			<div>
+				<button th:onclick="'addCart(' + ${product.productNo} + ')'">장바구니 담기</button>
+			</div>
+		</div>
+	</div>
+	
+	<script>
+    function addCart(productNo){
+        fetch('/basket/add', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            body: 'productNo=' + encodeURIComponent(productNo)
+        })
+        .then(response => response.text())
+        .then(result => {
+            alert(result);
+        })
+        .catch(error => {
+            alert('장바구니 담기 실패: ' + error);
+        });
+    }
+</script>
+
+</body>
+</html>
