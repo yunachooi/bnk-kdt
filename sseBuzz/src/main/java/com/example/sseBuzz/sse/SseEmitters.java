@@ -23,13 +23,10 @@ public class SseEmitters {
         if (emitter != null) {
             try {
                 emitter.send(SseEmitter.event().name("post-alert").data(data));
-                System.out.println("[알림 전송 성공] userId=" + userId + ", data=" + data);
             } catch (Exception e) {
-                System.err.println("[알림 전송 실패] userId=" + userId + ", 에러: " + e.getMessage());
                 emitters.remove(userId);
             }
         } else {
-            System.out.println("[알림 전송 실패] userId=" + userId + " 에 대한 SSEEmitter 없음");
         }
     }
 
